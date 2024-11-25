@@ -70,5 +70,5 @@ end
 
 # added gems below here
 gem 'devise'
-
+gem "cloudinary"
 gem "dotenv-rails"
