@@ -70,3 +70,5 @@ end
 
 # added gems below here
 gem 'devise'
+
+gem "dotenv-rails"
