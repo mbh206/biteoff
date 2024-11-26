@@ -1,7 +1,3 @@
-
-# db/seeds.rb
-
-# seed for users"
 require 'faker'
 User.destroy_all
 User.create!(
@@ -64,27 +60,52 @@ puts "Seeded 14 users!"
 
 # puts "Seed data created successfully!"
 
-
 puts "Cleaning the DB..."
 Restaurant.destroy_all
 SpecialOffer.destroy_all
+User.destroy_all
+User.create!(
+  email: "Steve123@biteoff.com",
+  password: "123123"
+)
 
+User.create!(
+  email: "Mark123@biteoff.com",
+  password: "123123"
+)
 
-owner = User.new(password: "123123", email: "christian@me.com");
-owner.save!
+User.create!(
+  email: "Shafiq123@biteoff.com",
+  password: "123123"
+)
 
+User.create!(
+  email: "Christian123@biteoff.com",
+  password: "123123"
+)
 
-CATEGORIES = %W[burger ramen sushi desserts healthy kebabs pizza tacos sandwiches dumplings soup curry rice pasta steakhouse vegan bakery juice salads seafood brunch wings cafe bbq deli pies buffet pub brasserie shakes creamery grill]
+10.times do
+  User.create!(
+    email: Faker::Internet.unique.email,
+    password: "123123"
+  )
+end
+
+puts "Seeded 14 users!"
+
+CATEGORIES = ["burger", "ramen", "sushi", "desserts", "healthy", "kebabs", "pizza", "tacos", "sandwiches"]
 
 puts "Creating 10 Restaurants..."
 10.times do
-
   restaurant_name = Faker::Restaurant.unique.name
-  Restaurant.create!(
+  p restaurant = Restaurant.new(
     name: restaurant_name,
     address: "日本, 〒153-0063 東京都目黒区 目黒#{rand(1..3)}丁目#{rand(1..10)}番#{rand(1..3)}号",
     category: CATEGORIES.sample
   )
+
+   restaurant.user = owner
+   restaurant.save!
 end
 puts '... created 10 restaurants'
 
@@ -104,14 +125,16 @@ end
 
   restaurants = Restaurant.all
   restaurants.each do |restaurant|
-    SpecialOffer.create!(
+    offer = SpecialOffer.create!(
       category: deals.sample,
       description: description.sample,
       start_date: start_date,
-      end_date: end_date
+      end_date: end_date,
+      restaurant: restaurant,
+      user: owner,
+      confirmation_count: 0
     )
-    SpecialOffer.restaurant = restaurant
-    SpecialOffer.user = User.first
+
   end
 end
 
