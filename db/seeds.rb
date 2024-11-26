@@ -29,7 +29,7 @@ puts "Cleaning the DB..."
 Restaurant.destroy_all
 SpecialOffer.destroy_all
 User.destroy_all
-User.create!(
+owner = User.create!(
   username: "Steven",
   email: "Steve@biteoff.com",
   password: "ABC123"
