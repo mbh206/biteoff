@@ -15,10 +15,7 @@ require 'faker'
 10.times do
   user = User.create!(
     username: Faker::Internet.username,
-    email: Faker::Internet.email,
-    password: 'password', # You might want to handle password securely
-    full_name: Faker::Name.name,
-    phone_number: Faker::PhoneNumber.phone_number
+    email: Faker::Internet.email
   )
   end
 puts "Seed data created successfully!"
