@@ -5,27 +5,32 @@
 require 'faker'
 User.destroy_all
 User.create!(
+  username: "Steven",
   email: "Steve123@biteoff.com",
   password: "ABC123"
 )
 
 User.create!(
+  username: "MarkH",
   email: "Mark123@biteoff.com",
   password: "ABC123"
 )
 
 User.create!(
+  username: "Shafiq",
   email: "Shafiq123@biteoff.com",
   password: "ABC123"
 )
 
 User.create!(
+  username: "Christian",
   email: "Christian123@biteoff.com",
   password: "ABC123"
 )
 
 10.times do
   User.create!(
+    username: Faker::Internet.username(),
     email: Faker::Internet.unique.email,
     password: "ABC123"
   )
@@ -111,4 +116,3 @@ end
 end
 
 puts "...created 10 offers"
-
