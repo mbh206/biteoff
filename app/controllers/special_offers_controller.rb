@@ -8,6 +8,8 @@ class SpecialOffersController < ApplicationController
         lng: restaurant.longitude
       }
     end
+  end
+
 
   def show
     @sp_offer = SpecialOffer.find(params[:id])
