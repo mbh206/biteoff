@@ -1,0 +1,21 @@
+  <% @specialoffers.each do |offer| %>
+  <div class="my-3 border-top pt-4">
+    <h3 class="text-center"><%= offer.category %></h3>
+    <div class=" d-flex justify-content-between">
+      <div class="left-pane w-25">
+        <p><%= offer.restaurant.name %></p>
+        <p><%= offer.confirmation_count %></p>
+      </div>
+      <div class="right-pane m-auto">
+        <p><i class="fa-solid fa-circle-info"></i><%= offer.description %></p>
+        <div class="d-flex">
+          <i class="fa-solid fa-clock pt-2"></i>
+          <p class=" ml-3">
+            Start date: <%= offer.start_date.strftime('%b %d, %Y') %> <br>
+            End date: <%= offer.end_date.strftime('%b %d, %Y') %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

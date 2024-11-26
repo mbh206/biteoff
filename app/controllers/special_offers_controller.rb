@@ -1,11 +1,12 @@
 class SpecialOffersController < ApplicationController
 
   def index
+    @specialoffers = SpecialOffer.joins(:restaurant).where.not("restaurants.latitude IS null").limit(10)
     @restaurants = Restaurant.all
-    @markers = @restaurants.geocoded.map do |restaurant|
+    @markers = @specialoffers.map do |specialoffer|
       {
-        lat: restaurant.latitude,
-        lng: restaurant.longitude
+        lat: specialoffer.restaurant.latitude,
+        lng: specialoffer.restaurant.longitude
       }
     end
   end
