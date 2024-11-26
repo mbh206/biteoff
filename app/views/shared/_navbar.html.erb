@@ -1,5 +1,20 @@
-<nav class="navbar sticky-bottom bg-light">
+<nav class="navbar fixed-bottom bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Sticky bottom</a>
+    <div>
+      <%= link_to root_path, class: "btn" do %>
+        <i class="fa-solid fa-house"></i>
+      <% end %>
+    </div>
+    <div>
+      <%= link_to new_special_offer_path, class: "btn" do %>
+        <i class="fa-solid fa-location-dot"></i>
+      <% end %></div>
+    <div class="btn-group dropup">
+      <i class="fa-solid fa-bars" data-bs-toggle="dropdown"></i>
+      <ul class="dropdown-menu">
+        <!-- Dropdown menu links -->
+        <li>Profile</li>
+      </ul>
+    </div>
   </div>
 </nav>
