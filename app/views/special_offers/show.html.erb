@@ -1,15 +1,37 @@
-<h1>Offer show page</h1>
-<div class="container text-primary">
-  <div>Type of deal: <%= @sp_offer.category %></div>
+<div class="container">
+  <div class="bg-light d-flex justify-content-between p-1">
+    <span>Type of deal:</span>
+    <span class="fw-bold"><%= @sp_offer.category %></span>
+  </div>
   <div>
     <% if @sp_offer.photos.any?%>
       <%=  @sp_offer.photos[0]%>
     <% else %>
-      <%= "No photos" %>
+      <div class="offer-img-container">
+        <div>
+          <%= image_tag 'https://upload.wikimedia.org/wikipedia/commons/f/f1/Sushi_Bar_in_Shibuya.jpg', class: "w-100" %>
+        </div>
+        <div class="restaurantbox w-100 text-light d-flex justify-content-center py-1">
+          <%= @sp_offer.restaurant.name%>
+        </div>
+      </div>
     <%end%>
+    <div class="container">
+      <div class="my-2">
+        <i class="offerdetails fa-solid fa-circle-info"></i>
+        <span class="text-dark"><%=@sp_offer.description%></span>
+      </div>
+      <div class="my-2">
+        <i class="offerdetails fa-solid fa-clock"></i>
+        <span class="text-dark"><%=@sp_offer.start_date%>-<%=@sp_offer.end_date%></span>
+      </div>
+      <div class="my-2">
+        <i class="offerdetails fa-solid fa-check"></i>
+        <span class="text-dark"><%=@sp_offer.confirmation_count%></span>
+      </div>
+    </div>
+    <div class = "d-flex justify-content-between">
+      <%= button_to "I'M GOING", false, class: "btn btn-primary btn-lg rounded-3" %>
+      <%= button_to "I'M THERE", false, class: "btn btn-primary btn-lg rounded-3" %>
+    </div>
   </div>
-  <div><%= @sp_offer.restaurant.name %></div>
-  <div>description: <%= @sp_offer.description %></div>
-  <div><%= @sp_offer.start_date %>-<%= @sp_offer.end_date %></div>
-  <div>confirmation_count: <%= @sp_offer.confirmation_count %></div>
-</div>

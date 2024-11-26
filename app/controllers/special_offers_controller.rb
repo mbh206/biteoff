@@ -10,7 +10,6 @@ class SpecialOffersController < ApplicationController
     end
   end
 
-
   def show
     @sp_offer = SpecialOffer.find(params[:id])
   end
