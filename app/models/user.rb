@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_many :reviews
-  has_one :offer
+  has_many :offers
   has_one_attached :photo
 
   validates :email, presence: true, uniqueness: true
