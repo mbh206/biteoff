@@ -7,3 +7,17 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+require 'faker'
+
+puts "Clearing existing users..."
+User.destroy_all
+
+puts "Creating users..."
+10.times do
+  User.create!(
+    name: Faker::Name.name, # Generates a random name
+    email: Faker::Internet.email # Generates a random email
+  )
+end
+
+puts "10 users created successfully!"

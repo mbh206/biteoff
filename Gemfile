@@ -72,3 +72,4 @@ end
 gem 'devise'
 gem "cloudinary"
 gem "dotenv-rails"
+gem "faker"
