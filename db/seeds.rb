@@ -1,40 +1,4 @@
-
-# db/seeds.rb
-
-# seed for users"
 require 'faker'
-User.destroy_all
-User.create!(
-  email: "Steve123@biteoff.com",
-  password: "ABC123"
-)
-
-User.create!(
-  email: "Mark123@biteoff.com",
-  password: "ABC123"
-)
-
-User.create!(
-  email: "Shafiq123@biteoff.com",
-  password: "ABC123"
-)
-
-User.create!(
-  email: "Christian123@biteoff.com",
-  password: "ABC123"
-)
-
-10.times do
-  User.create!(
-    email: Faker::Internet.unique.email,
-    password: "ABC123"
-  )
-end
-
-puts "Seeded 14 users!"
-
-
-
 # Seed for reviews:
 # db/seeds.rb
 
@@ -59,15 +23,39 @@ puts "Seeded 14 users!"
 
 # puts "Seed data created successfully!"
 
-
 puts "Cleaning the DB..."
 Restaurant.destroy_all
 SpecialOffer.destroy_all
+User.destroy_all
+User.create!(
+  email: "Steve123@biteoff.com",
+  password: "123123"
+)
 
+User.create!(
+  email: "Mark123@biteoff.com",
+  password: "123123"
+)
 
-owner = User.new(username:"Test User", password: "123123", email: "christian@me.com");
-owner.save!
-p owner
+User.create!(
+  email: "Shafiq123@biteoff.com",
+  password: "123123"
+)
+
+User.create!(
+  email: "Christian123@biteoff.com",
+  password: "123123"
+)
+
+10.times do
+  User.create!(
+    email: Faker::Internet.unique.email,
+    password: "123123"
+  )
+end
+
+puts "Seeded 14 users!"
+
 CATEGORIES = ["burger", "ramen", "sushi", "desserts", "healthy", "kebabs", "pizza", "tacos", "sandwiches"]
 
 puts "Creating 10 Restaurants..."
@@ -114,4 +102,3 @@ end
 end
 
 puts "...created 10 offers"
-
