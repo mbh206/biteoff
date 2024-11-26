@@ -1,0 +1,15 @@
+<h1>Offer show page</h1>
+<div class="container text-primary">
+  <div>Type of deal: <%= @sp_offer.category %></div>
+  <div>
+    <% if @sp_offer.photos.any?%>
+      <%=  @sp_offer.photos[0]%>
+    <% else %>
+      <%= "No photos" %>
+    <%end%>
+  </div>
+  <div><%= @sp_offer.restaurant.name %></div>
+  <div>description: <%= @sp_offer.description %></div>
+  <div><%= @sp_offer.start_date %>-<%= @sp_offer.end_date %></div>
+  <div>confirmation_count: <%= @sp_offer.confirmation_count %></div>
+</div>
