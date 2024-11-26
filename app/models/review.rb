@@ -1,6 +1,6 @@
 class Review < ApplicationRecord
-  belongs_to :special_offer, foreign_key: true
-  belongs_to :user, foreign_key: true
+  belongs_to :special_offer
+  belongs_to :user
   has_many_attached :photos
 
   validates :description, presence: true, length: { in: 50..500 }

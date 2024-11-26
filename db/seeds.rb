@@ -2,29 +2,6 @@ require 'faker'
 
 puts "Cleaning the DB..."
 
-# Seed for reviews:
-# db/seeds.rb
-
-# Clear existing records to avoid duplicates during re-seeding
-# Review.delete_all
-# User.delete_all  # Assuming you also want to seed users if they are referenced in reviews
-
-# 14.times do
-#   user = User.create!(
-#     # name: Faker::Name.name,
-#     email: Faker::Internet.email
-#   )
-
-#   14.times do
-#     Review.create!(
-#       content: Faker::Lorem.sentence(word_count: 14),
-#       rating: rand(1..14),
-#       user_id: user.id
-#     )
-#   end
-# end
-
-# puts "Seed data created successfully!"
 
 Restaurant.destroy_all
 SpecialOffer.destroy_all
@@ -68,7 +45,7 @@ CATEGORIES = ["burger", "ramen", "sushi", "desserts", "healthy", "kebabs", "pizz
 puts "Creating 10 Restaurants..."
 10.times do
   restaurant_name = Faker::Restaurant.unique.name
-  p restaurant = Restaurant.new(
+restaurant = Restaurant.new(
     name: restaurant_name,
     address: "日本, 〒153-0063 東京都目黒区 目黒#{rand(1..3)}丁目#{rand(1..10)}番#{rand(1..3)}号",
     category: CATEGORIES.sample
@@ -109,3 +86,36 @@ end
 end
 
 puts "...created 10 offers"
+
+
+review = Review.new(
+  {
+    description: "Amazing deal, saved a lot on my purchase!",
+    rating: 5
+  }
+)
+review.user = User.all.sample
+review.special_offer = SpecialOffer.all.sample
+review.save
+
+review = Review.new(
+  {
+    description: "The free dessert was delicious. Highly recommend it!",
+    rating: 4
+  }
+)
+review.user = User.all.sample
+review.special_offer = SpecialOffer.all.sample
+review.save
+
+review = Review.new(
+{
+    description: "The offer wasn't available when I visited.",
+    rating: 2
+}
+)
+review.user = User.all.sample
+review.special_offer = SpecialOffer.all.sample
+review.save
+
+puts "...created 3 reviews"
