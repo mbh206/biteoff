@@ -7,17 +7,18 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+# db/seeds.rb
+
 require 'faker'
 
-puts "Clearing existing users..."
-User.destroy_all
-
-puts "Creating users..."
+# Create Users
 10.times do
-  User.create!(
-    name: Faker::Name.name, # Generates a random name
-    email: Faker::Internet.email # Generates a random email
+  user = User.create!(
+    username: Faker::Internet.username,
+    email: Faker::Internet.email,
+    password: 'password', # You might want to handle password securely
+    full_name: Faker::Name.name,
+    phone_number: Faker::PhoneNumber.phone_number
   )
-end
-
-puts "10 users created successfully!"
+  end
+puts "Seed data created successfully!"
