@@ -11,11 +11,16 @@
 
 require 'faker'
 
-# Create Users
 10.times do
-  user = User.create!(
-    username: Faker::Internet.username,
-    email: Faker::Internet.email
+  User.create!(
+    email: Faker::Internet.unique.email,
+    encrypted_password: Faker::Internet.password(min_length: 8),
+    reset_password_token: nil,
+    reset_password_sent_at: nil,
+    remember_created_at: nil,
+    created_at: Time.now,
+    updated_at: Time.now
   )
-  end
-puts "Seed data created successfully!"
+end
+
+puts "Seeded 10 users!"
