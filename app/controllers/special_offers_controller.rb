@@ -6,7 +6,12 @@ class SpecialOffersController < ApplicationController
     @markers = @specialoffers.map do |specialoffer|
       {
         lat: specialoffer.restaurant.latitude,
-        lng: specialoffer.restaurant.longitude
+        lng: specialoffer.restaurant.longitude,
+        name: specialoffer.restaurant.name,
+        offer: specialoffer.category,
+        id: specialoffer.id,
+        description: specialoffer.description,
+        starting: specialoffer.start_date
       }
     end
   end
@@ -19,6 +24,7 @@ class SpecialOffersController < ApplicationController
     @specialoffer = SpecialOffer.new
   end
 
+
   def update
     puts "Updating special offer count..."
     @offer = SpecialOffer.find(params[:id])
@@ -28,21 +34,33 @@ class SpecialOffersController < ApplicationController
     else
       #not sure about that 
       redirect_to special_offer_path(@offer), status: :unprocessable_entity
+
+  def create
+    @special_offer = SpecialOffer.new(offer_params)
+    @special_offer.user = current_user
+    @special_offer.confirmation_count = 0
+    @special_offer.restaurant = Restaurant.find(params[:special_offer][:restaurant_id])
+    if @special_offer.save
+      redirect_to special_offer_path(@special_offer)
+    else
+      render 'new', status: :unprocessable_entity
+
     end
   end
 
   private
 
+
   def special_offer_params
     params.require(:special_offer).permit(
-      :confirmation_count,
+      :restaurant,
       :category,
       :description,
+      :start_date,
+      :end_date,
       :start_time,
       :end_time,
-      :start_date,
-      :end_date)
-    
+      photos: [])
   end
 
 end

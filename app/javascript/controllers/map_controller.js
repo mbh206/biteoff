@@ -9,6 +9,7 @@ export default class extends Controller {
 
   connect() {
     mapboxgl.accessToken = this.apiKeyValue
+    console.log(this.markersValue);
 
     this.map = new mapboxgl.Map({
       container: this.element,
@@ -23,15 +24,18 @@ export default class extends Controller {
     this.map.on('load', () => {
         geolocate.trigger();
     });
-    // this.#setUserLocation()
+
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
   }
 
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
+      const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(`<a href="/special_offers/${marker.id}" class="pin-popup">${marker.name}<br>Special: ${marker.offer} | From: ${marker.starting}</a>`);
+
       new mapboxgl.Marker()
         .setLngLat([ marker.lng, marker.lat ])
+        .setPopup(popup)
         .addTo(this.map)
     })
   }
