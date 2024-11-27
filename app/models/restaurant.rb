@@ -9,4 +9,5 @@ class Restaurant < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   # validates :lat
   # validates :long
+
 end
