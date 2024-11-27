@@ -51,6 +51,16 @@
         <%= button_to "I'M THERE", special_offer_path(@sp_offer), method: :patch, class: "btn btn-primary btn-lg rounded-3", form: {data: {turbo_confirm: 'Can you confirm the deal ?', turbo_confirm_confirm_label: "Yes",   turbo_confirm_cancel_label: "No"}} %>
       </div>
     </div>
+    <button class="btn btn-primary my-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      Button with data-bs-target
+    </button>
+    <div class="collapse" id="collapseExample">
+      <% @restaurant.reviews.each do |review| %>
+        <div class="card card-body">
+          Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+        </div>
+      <% end %>
+    </div>
     <div style="width: 100%; height: 500px;"
       data-controller="sp-offer-map"
       data-sp-offer-map-markers-value="<%= @markers.to_json %>"
