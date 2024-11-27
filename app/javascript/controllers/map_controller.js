@@ -33,12 +33,27 @@ export default class extends Controller {
     this.markersValue.forEach((marker) => {
       const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(`<a href="/special_offers/${marker.id}" class="pin-popup">${marker.name}<br>Special: ${marker.offer} | From: ${marker.starting}</a>`);
 
-      new mapboxgl.Marker()
+      const customMarker = document.createElement("div")
+      customMarker.innerHTML = marker.marker_html
+
+      new mapboxgl.Marker(customMarker)
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(popup)
         .addTo(this.map)
     })
   }
+
+  // #testMethod() {
+  //   const markers = document.querySelectorAll(".marker")
+  //   markers.forEach(marker  => {
+  //     marker.addEventListener('click', (e) => {
+  //       const card = document.getElementById(marker.id)
+  //       console.log(card);
+
+  //       card.scrollIntoView()
+  //     })
+  //   })
+  // }
   #fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds()
     this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))

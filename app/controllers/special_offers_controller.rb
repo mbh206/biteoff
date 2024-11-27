@@ -11,8 +11,10 @@ class SpecialOffersController < ApplicationController
         offer: specialoffer.category,
         id: specialoffer.id,
         description: specialoffer.description,
-        starting: specialoffer.start_date
+        starting: specialoffer.start_date,
+        marker_html: render_to_string(partial: "marker", locals: {specialoffer: specialoffer})
       }
+
     end
   end
 
