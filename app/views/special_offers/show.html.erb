@@ -47,8 +47,8 @@
       </div>
       <div class = "d-flex justify-content-between">
         <!-- https://www.google.com/maps/search/?api=1&query=47.5951518%2C-122.3316393&query_place_id=ChIJKxjxuaNqkFQR3CK6O1HNNqY&hl=fr -->
-        <%= button_to "I'M GOING", "https://www.google.fr/maps/dir/?api=1&destination=#{@sp_offer.restaurant.latitude},#{@sp_offer.restaurant.longitude}", method: :get, class: "btn btn-primary btn-lg rounded-3" %>
-        <%= button_to "I'M THERE", special_offer_path(@sp_offer), method: :patch, class: "btn btn-primary btn-lg rounded-3" %>
+        <%= link_to "I'M GOING", "https://www.google.fr/maps/dir/?api=1&destination=#{@sp_offer.restaurant.latitude},#{@sp_offer.restaurant.longitude}", method: :get, class: "btn btn-primary btn-lg rounded-3" %>
+        <%= button_to "I'M THERE", special_offer_path(@sp_offer), method: :patch, class: "btn btn-primary btn-lg rounded-3", form: {data: {turbo_confirm: 'Can you confirm the deal ?', turbo_confirm_confirm_label: "Yes",   turbo_confirm_cancel_label: "No"}} %>
       </div>
     </div>
   </div>
