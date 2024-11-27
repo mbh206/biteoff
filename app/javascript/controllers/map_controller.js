@@ -22,9 +22,13 @@ export default class extends Controller {
       }
     });
     this.map.addControl(geolocate);
-    this.map.on('load', () => {
-        geolocate.trigger();
-    });
+
+    if (!sessionStorage.getItem('mapLoaded')) {
+      this.map.on('load', () => {
+          geolocate.trigger();
+          sessionStorage.setItem('mapLoaded', 'true'); // Mark as loaded
+      });
+    }
 
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
