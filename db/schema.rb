@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_11_26_064107) do
+ActiveRecord::Schema[7.1].define(version: 2024_11_27_025212) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -68,8 +68,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_26_064107) do
   create_table "special_offers", force: :cascade do |t|
     t.string "category"
     t.text "description"
-    t.datetime "start_time"
-    t.datetime "end_time"
+    t.time "start_time"
+    t.time "end_time"
     t.date "start_date"
     t.date "end_date"
     t.bigint "user_id", null: false
