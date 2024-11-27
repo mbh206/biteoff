@@ -24,6 +24,17 @@ class SpecialOffersController < ApplicationController
     @specialoffer = SpecialOffer.new
   end
 
+
+  def update
+    puts "Updating special offer count..."
+    @offer = SpecialOffer.find(params[:id])
+    @offer.confirmation_count += 1
+    if @offer.save!
+      redirect_to special_offer_path(@offer) 
+    else
+      #not sure about that 
+      redirect_to special_offer_path(@offer), status: :unprocessable_entity
+
   def create
     @special_offer = SpecialOffer.new(offer_params)
     @special_offer.user = current_user
@@ -33,12 +44,14 @@ class SpecialOffersController < ApplicationController
       redirect_to special_offer_path(@special_offer)
     else
       render 'new', status: :unprocessable_entity
+
     end
   end
 
   private
 
-  def offer_params
+
+  def special_offer_params
     params.require(:special_offer).permit(
       :restaurant,
       :category,
@@ -49,4 +62,5 @@ class SpecialOffersController < ApplicationController
       :end_time,
       photos: [])
   end
+
 end
