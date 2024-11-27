@@ -1,8 +1,10 @@
-<div class="mb-2 text-align-center position-absolute top-0 z-3 w-100">
-    <input
-      type="text"
-      id="map-search"
-      placeholder="Search location..."
-      style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;"
-    />
-</div>
+<div class="search-bar" style="margin-bottom: 20px;">
+    <form action="/special_offers" method="get" style="display: flex; justify-content: center; align-items: center;">
+      <input
+        type="text"
+        name="query"
+        placeholder="Search location..."
+        style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+    </form>
+    <input type="hidden" id="custId" name="custId" value="<%=@coordinates%>">
+  </div>

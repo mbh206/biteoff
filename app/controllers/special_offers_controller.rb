@@ -16,6 +16,11 @@ class SpecialOffersController < ApplicationController
       }
 
     end
+    if params[:query].present?
+      user_input = params[:query]
+      results = Geocoder.search(user_input)
+      @coordinates = results.first.coordinates
+    end
   end
 
   def show
