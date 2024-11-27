@@ -12,8 +12,18 @@ export default class extends Controller {
 
     this.map = new mapboxgl.Map({
       container: this.element,
-      style: "mapbox://styles/mapbox/streets-v10"
+      style: "mapbox://styles/mapbox/streets-v12"
     })
+    const geolocate = new mapboxgl.GeolocateControl({
+      positionOptions: {
+          enableHighAccuracy: true
+      }
+    });
+    this.map.addControl(geolocate);
+    this.map.on('load', () => {
+        geolocate.trigger();
+    });
+    // this.#setUserLocation()
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
   }
@@ -28,6 +38,6 @@ export default class extends Controller {
   #fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds()
     this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
-    this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
+    this.map.fitBounds(bounds, { padding: 50, maxZoom: 15, duration: 0 })
   }
 }
