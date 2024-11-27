@@ -4,30 +4,25 @@
     <span class="fw-bold"><%= @sp_offer.category %></span>
   </div>
   <div>
-    <% if @sp_offer.photos.any?%>
-      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <% @sp_offer.photos.each_with_index do |photo, index|%>
-            <% if index==0 %>
-              <div class="carousel-item active">
-              <% else %>
-                <div class="carousel-item">
-                <% end %>
-                <%= cl_image_tag photo.key, class: "w-100" %>
+    <div class="offer-img-container">
+      <% if @sp_offer.photos.any?%>
+        <div id="carouselPhoto" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <% @sp_offer.photos.each_with_index do |photo, index|%>
+              <div class="carousel-item <%= 'active' if index.zero? %>">
+                <%= cl_image_tag photo.key, class: "w-100 h-100" , style: "object-fit: cover;" %>
               </div>
-            <% end %>
+            <%end%>
           </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      <% else %>
-        <div class="offer-img-container">
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselPhoto" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselPhoto" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        <% else %>
           <div>
             <span>No photo</span>
           </div>
@@ -51,8 +46,9 @@
         </div>
       </div>
       <div class = "d-flex justify-content-between">
-        <%= button_to "I'M GOING", false, class: "btn btn-primary btn-lg rounded-3" %>
-        <%= button_to "I'M THERE", false, class: "btn btn-primary btn-lg rounded-3" %>
+        <!-- https://www.google.com/maps/search/?api=1&query=47.5951518%2C-122.3316393&query_place_id=ChIJKxjxuaNqkFQR3CK6O1HNNqY&hl=fr -->
+        <%= button_to "I'M GOING", "https://www.google.fr/maps/dir/?api=1&destination=#{@sp_offer.restaurant.latitude},#{@sp_offer.restaurant.longitude}", method: :get, class: "btn btn-primary btn-lg rounded-3" %>
+        <%= button_to "I'M THERE", special_offer_path(@sp_offer), method: :patch, class: "btn btn-primary btn-lg rounded-3" %>
       </div>
     </div>
   </div>

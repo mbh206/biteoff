@@ -18,4 +18,31 @@ class SpecialOffersController < ApplicationController
   def new
     @specialoffer = SpecialOffer.new
   end
+
+  def update
+    puts "Updating special offer count..."
+    @offer = SpecialOffer.find(params[:id])
+    @offer.confirmation_count += 1
+    if @offer.save!
+      redirect_to special_offer_path(@offer) 
+    else
+      #not sure about that 
+      redirect_to special_offer_path(@offer), status: :unprocessable_entity
+    end
+  end
+
+  private
+
+  def special_offer_params
+    params.require(:special_offer).permit(
+      :confirmation_count,
+      :category,
+      :description,
+      :start_time,
+      :end_time,
+      :start_date,
+      :end_date)
+    
+  end
+
 end
