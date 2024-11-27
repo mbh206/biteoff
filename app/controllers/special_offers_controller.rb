@@ -18,6 +18,10 @@ class SpecialOffersController < ApplicationController
 
   def show
     @sp_offer = SpecialOffer.find(params[:id])
+    @markers = {
+        lat: @sp_offer.restaurant.latitude,
+        lng: @sp_offer.restaurant.longitude
+      }
   end
 
   def new
