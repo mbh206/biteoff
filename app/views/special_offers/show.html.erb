@@ -5,33 +5,54 @@
   </div>
   <div>
     <% if @sp_offer.photos.any?%>
-      <%=  @sp_offer.photos[0]%>
-    <% else %>
-      <div class="offer-img-container">
-        <div>
-          <%= image_tag 'https://upload.wikimedia.org/wikipedia/commons/f/f1/Sushi_Bar_in_Shibuya.jpg', class: "w-100" %>
+      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <% @sp_offer.photos.each_with_index do |photo, index|%>
+            <% if index==0 %>
+              <div class="carousel-item active">
+              <% else %>
+                <div class="carousel-item">
+                <% end %>
+                <%= cl_image_tag photo.key, class: "w-100" %>
+              </div>
+            <% end %>
+          </div>
         </div>
-        <div class="restaurantbox w-100 text-light d-flex justify-content-center py-1">
-          <%= @sp_offer.restaurant.name%>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      <% else %>
+        <div class="offer-img-container">
+          <div>
+            <span>No photo</span>
+          </div>
+          <div class="restaurantbox w-100 text-light d-flex justify-content-center py-1">
+            <%= @sp_offer.restaurant.name%>
+          </div>
+        </div>
+      <%end%>
+      <div class="container">
+        <div class="my-2">
+          <i class="offerdetails fa-solid fa-circle-info"></i>
+          <span class="text-dark"><%=@sp_offer.description%></span>
+        </div>
+        <div class="my-2">
+          <i class="offerdetails fa-solid fa-clock"></i>
+          <span class="text-dark"><%=@sp_offer.start_date%>-<%=@sp_offer.end_date%></span>
+        </div>
+        <div class="my-2">
+          <i class="offerdetails fa-solid fa-check"></i>
+          <span class="text-dark"><%=@sp_offer.confirmation_count%></span>
         </div>
       </div>
-    <%end%>
-    <div class="container">
-      <div class="my-2">
-        <i class="offerdetails fa-solid fa-circle-info"></i>
-        <span class="text-dark"><%=@sp_offer.description%></span>
+      <div class = "d-flex justify-content-between">
+        <%= button_to "I'M GOING", false, class: "btn btn-primary btn-lg rounded-3" %>
+        <%= button_to "I'M THERE", false, class: "btn btn-primary btn-lg rounded-3" %>
       </div>
-      <div class="my-2">
-        <i class="offerdetails fa-solid fa-clock"></i>
-        <span class="text-dark"><%=@sp_offer.start_date%>-<%=@sp_offer.end_date%></span>
-      </div>
-      <div class="my-2">
-        <i class="offerdetails fa-solid fa-check"></i>
-        <span class="text-dark"><%=@sp_offer.confirmation_count%></span>
-      </div>
-    </div>
-    <div class = "d-flex justify-content-between">
-      <%= button_to "I'M GOING", false, class: "btn btn-primary btn-lg rounded-3" %>
-      <%= button_to "I'M THERE", false, class: "btn btn-primary btn-lg rounded-3" %>
     </div>
   </div>
