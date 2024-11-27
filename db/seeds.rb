@@ -119,27 +119,3 @@ review.special_offer = SpecialOffer.all.sample
 review.save
 
 puts "...created 3 reviews"
-
-
-# review = Review.new({ description: "The pizza was amazing, fresh ingredients and perfect crust!", rating: 5 }); review.user = User.all.sample; review.special_offer = SpecialOffer.all.sample; review.save
-# review = Review.new({ description: "The burger was decent, but the fries were soggy.", rating: 3 }); review.user = User.all.sample; review.special_offer = SpecialOffer.all.sample; review.save
-# review = Review.new({ description: "Best sushi I've ever had, definitely coming back for more!", rating: 5 }); review.user = User.all.sample; review.special_offer = SpecialOffer.all.sample; review.save
-# review = Review.new({ description: "The pasta was bland and overcooked. Not great.", rating: 2 }); review.user = User.all.sample; review.special_offer = SpecialOffer.all.sample; review.save
-# review = Review.new({ description: "Great value for the price, the steak was tender and cooked perfectly.", rating: 4 }); review.user = User.all.sample; review.special_offer = SpecialOffer.all.sample; review.save
-# review = Review.new({ description: "I loved the dessert, it was a sweet end to the meal!", rating: 5 }); review.user = User.all.sample; review.special_offer = SpecialOffer.all.sample; review.save
-# review = Review.new({ description: "Food was cold by the time it arrived, very disappointing.", rating: 2 }); review.user = User.all.sample; review.special_offer = SpecialOffer.all.sample; review.save
-# review = Review.new({ description: "The salad was fresh, but the dressing was too tangy for my taste.", rating: 3 }); review.user = User.all.sample; review.special_offer = SpecialOffer.all.sample; review.save
-# review = Review.new({ description: "Amazing vegan options, really enjoyed the plant-based dishes!", rating: 5 }); review.user = User.all.sample; review.special_offer = SpecialOffer.all.sample; review.save
-# review = Review.new({ description: "The service was slow, but the food made up for it.", rating: 4 }); review.user = User.all.sample; review.special_offer = SpecialOffer.all.sample; review.save
-# review = Review.new({ description: "The chicken was dry and lacked flavor. Not what I expected.", rating: 2 }); review.user = User.all.sample; review.special_offer = SpecialOffer.all.sample; review.save
-# review = Review.new({ description: "The food was delicious, but the portions were smaller than expected.", rating: 3 }); review.user = User.all.sample; review.special_offer = SpecialOffer.all.sample; review.save
-# review = Review.new({ description: "I can't stop thinking about the homemade bread, so good!", rating: 5 }); review.user = User.all.sample; review.special_offer = SpecialOffer.all.sample; review.save
-# review = Review.new({ description: "The soup was a bit too salty for my liking.", rating: 2 }); review.user = User.all.sample; review.special_offer = SpecialOffer.all.sample; review.save
-# review = Review.new({ description: "The food was outstanding, but the ambiance could use some improvement.", rating: 4 }); review.user = User.all.sample; review.special_offer = SpecialOffer.all.sample; review.save
-# review = Review.new({ description: "The breakfast buffet was a great variety, highly recommend.", rating: 5 }); review.user = User.all.sample; review.special_offer = SpecialOffer.all.sample; review.save
-# review = Review.new({ description: "It was alright, but I expected more flavor from the curry.", rating: 3 }); review.user = User.all.sample; review.special_offer = SpecialOffer.all.sample; review.save
-# review = Review.new({ description: "The ice cream was the perfect treat after the meal, highly satisfied.", rating: 5 }); review.user = User.all.sample; review.special_offer = SpecialOffer.all.sample; review.save
-# review = Review.new({ description: "Overall, a great experience but the service could be faster.", rating: 4 }); review.user = User.all.sample; review.special_offer = SpecialOffer.all.sample; review.save
-# review = Review.new({ description: "I was hoping for more spice in the dish, it was too mild.", rating: 2 }); review.user = User.all.sample; review.special_offer = SpecialOffer.all.sample; review.save
-
-# puts "...created 20 reviews"

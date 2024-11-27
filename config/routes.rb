@@ -6,4 +6,9 @@ Rails.application.routes.draw do
   end
   resources :special_offers, only: [:destroy]
   resources :reviews, only: [:update, :destroy]
+
+  # Steve's add
+  resources :locations, only: [:index]
+
+
 end

@@ -1,6 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 import mapboxgl from 'mapbox-gl' // Don't forget this!
 
+
 export default class extends Controller {
   static values = {
     apiKey: String,
@@ -16,6 +17,18 @@ export default class extends Controller {
     })
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
+
+    const coordinates = document.getElementById('custId').value.replace(/\[/g, '');
+    const [latitude, longitude] = coordinates.split(',').map(coord => parseFloat(coord));
+    console.log(latitude)
+    console.log(longitude)
+
+    if (latitude && longitude) {
+      this.map.setCenter([longitude, latitude]);
+
+    }
+
+
   }
 
   #addMarkersToMap() {
@@ -31,3 +44,5 @@ export default class extends Controller {
     this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
   }
 }
+
+  // Retrieve coordinates from the hidden input
