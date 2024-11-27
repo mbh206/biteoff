@@ -7,14 +7,12 @@
     </div>
     <div>
       <%= link_to new_special_offer_path, class: "btn" do %>
-        <i class="fa-solid fa-location-dot"></i>
+        <i class="fa-solid fa-plus"></i>
       <% end %></div>
-    <div class="btn-group dropup">
-      <i class="fa-solid fa-bars" data-bs-toggle="dropdown"></i>
-      <ul class="dropdown-menu">
-        <!-- Dropdown menu links -->
-        <li>Profile</li>
-      </ul>
-    </div>
+    <% if user_signed_in?%>
+      <%= link_to user_path(current_user), class: "btn" do %>
+        <i class="fa-solid fa-bars" ></i>
+      <% end %>
+    <%end%>
   </div>
 </nav>

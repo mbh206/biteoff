@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="mt-5">
+    <h1>New Special Offer</h1>
+    <%= simple_form_for(@specialoffer) do |f|%>
+      <div class="form-group mt-4">
+        <!-- Custom Label -->
+        <%= f.association :restaurant, as: :select, prompt: 'Select a restaurant', label: false %>
+        <%= f.input :category, collection: ["Happy hour Deals", "Early Bird Special", "Buy one get one", "20% off", "$10 off"],
+      label: false,
+      prompt: "Type of deal" %>
+        <%= f.input :description, prompt: "Short Description", label: false %>
+        <%= f.input :start_date, html5: true, label: false %>
+        <%= f.input :end_date, html5: true, label: false %>
+        <%= f.input :start_time, html5: true, label: false %>
+        <%= f.input :end_time, html5: true, label: false %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true }, label: false %>
+        <%= f.submit class: "btn btn-primary my-3 " %>
+      <% end %>
+    </div>
+  </div>

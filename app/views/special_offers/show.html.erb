@@ -4,34 +4,56 @@
     <span class="fw-bold"><%= @sp_offer.category %></span>
   </div>
   <div>
-    <% if @sp_offer.photos.any?%>
-      <%=  @sp_offer.photos[0]%>
-    <% else %>
-      <div class="offer-img-container">
-        <div>
-          <%= image_tag 'https://upload.wikimedia.org/wikipedia/commons/f/f1/Sushi_Bar_in_Shibuya.jpg', class: "w-100" %>
+    <div class="offer-img-container">
+      <% if @sp_offer.photos.any?%>
+        <div id="carouselPhoto" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <% @sp_offer.photos.each_with_index do |photo, index|%>
+              <div class="carousel-item <%= 'active' if index.zero? %>">
+                <%= cl_image_tag photo.key, class: "w-100 h-100" , style: "object-fit: cover;" %>
+              </div>
+            <%end%>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselPhoto" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselPhoto" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        <% else %>
+          <div>
+            <span>No photo</span>
+          </div>
+          <div class="restaurantbox w-100 text-light d-flex justify-content-center py-1">
+            <%= @sp_offer.restaurant.name%>
+          </div>
         </div>
-        <div class="restaurantbox w-100 text-light d-flex justify-content-center py-1">
-          <%= @sp_offer.restaurant.name%>
+      <%end%>
+      <div class="container">
+        <div class="my-2">
+          <i class="offerdetails fa-solid fa-circle-info"></i>
+          <span class="text-dark"><%=@sp_offer.description%></span>
+        </div>
+        <div class="my-2">
+          <i class="offerdetails fa-solid fa-clock"></i>
+          <span class="text-dark"><%=@sp_offer.start_date%>-<%=@sp_offer.end_date%></span>
+        </div>
+        <div class="my-2">
+          <i class="offerdetails fa-solid fa-check"></i>
+          <span class="text-dark"><%=@sp_offer.confirmation_count%></span>
         </div>
       </div>
-    <%end%>
-    <div class="container">
-      <div class="my-2">
-        <i class="offerdetails fa-solid fa-circle-info"></i>
-        <span class="text-dark"><%=@sp_offer.description%></span>
-      </div>
-      <div class="my-2">
-        <i class="offerdetails fa-solid fa-clock"></i>
-        <span class="text-dark"><%=@sp_offer.start_date%>-<%=@sp_offer.end_date%></span>
-      </div>
-      <div class="my-2">
-        <i class="offerdetails fa-solid fa-check"></i>
-        <span class="text-dark"><%=@sp_offer.confirmation_count%></span>
+      <div class = "d-flex justify-content-between">
+        <!-- https://www.google.com/maps/search/?api=1&query=47.5951518%2C-122.3316393&query_place_id=ChIJKxjxuaNqkFQR3CK6O1HNNqY&hl=fr -->
+        <%= link_to "I'M GOING", "https://www.google.fr/maps/dir/?api=1&destination=#{@sp_offer.restaurant.latitude},#{@sp_offer.restaurant.longitude}", method: :get, class: "btn btn-primary btn-lg rounded-3" %>
+        <%= button_to "I'M THERE", special_offer_path(@sp_offer), method: :patch, class: "btn btn-primary btn-lg rounded-3", form: {data: {turbo_confirm: 'Can you confirm the deal ?', turbo_confirm_confirm_label: "Yes",   turbo_confirm_cancel_label: "No"}} %>
       </div>
     </div>
-    <div class = "d-flex justify-content-between">
-      <%= button_to "I'M GOING", false, class: "btn btn-primary btn-lg rounded-3" %>
-      <%= button_to "I'M THERE", false, class: "btn btn-primary btn-lg rounded-3" %>
+    <div style="width: 100%; height: 500px;"
+      data-controller="sp-offer-map"
+      data-sp-offer-map-markers-value="<%= @markers.to_json %>"
+      data-sp-offer-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   </div>
