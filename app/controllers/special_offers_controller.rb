@@ -6,7 +6,12 @@ class SpecialOffersController < ApplicationController
     @markers = @specialoffers.map do |specialoffer|
       {
         lat: specialoffer.restaurant.latitude,
-        lng: specialoffer.restaurant.longitude
+        lng: specialoffer.restaurant.longitude,
+        name: specialoffer.restaurant.name,
+        offer: specialoffer.category,
+        id: specialoffer.id,
+        description: specialoffer.description,
+        starting: specialoffer.start_date
       }
     end
   end
