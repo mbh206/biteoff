@@ -12,7 +12,11 @@
     <% if user_signed_in?%>
       <%= link_to user_path(current_user), class: "btn" do %>
         <i class="fa-solid fa-bars" ></i>
-      <% end %>
+      <%end%>
+    <%else%>
+      <%= link_to new_user_session_path, class: "btn" do %>
+        <i class="fa-solid fa-user"></i>
+      <%end%>
     <%end%>
   </div>
 </nav>
