@@ -38,6 +38,8 @@ class SpecialOffersController < ApplicationController
     else
       #not sure about that 
       redirect_to special_offer_path(@offer), status: :unprocessable_entity
+    end
+  end
 
   def create
     @special_offer = SpecialOffer.new(offer_params)
