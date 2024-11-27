@@ -9,13 +9,8 @@
       <%= link_to new_special_offer_path, class: "btn" do %>
         <i class="fa-solid fa-plus"></i>
       <% end %></div>
-    <div class="btn-group dropup dropstart">
-      <i class="fa-solid fa-bars" data-bs-toggle="dropdown"></i>
-      <ul class="dropdown-menu">
-        <!-- Dropdown menu links -->
-        <li>User Profile</li>
-        <li>Special Offer </li>
-      </ul>
-    </div>
+    <%= link_to user_path(current_user), class: "btn" do %>
+      <i class="fa-solid fa-bars" ></i>
+    <% end %>
   </div>
 </nav>
