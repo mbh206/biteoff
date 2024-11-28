@@ -11,11 +11,11 @@
       <% end %></div>
     <% if user_signed_in?%>
       <%= link_to user_path(current_user), class: "btn" do %>
-        <i class="fa-solid fa-bars fs-1" ></i>
+        <%=cl_image_tag current_user.photo.key, class: "img-thumbnail rounded-circle", width: "50px" %>
       <%end%>
     <%else%>
       <%= link_to new_user_session_path, class: "btn" do %>
-        <i class="fa-solid fa-user fs-1"></i>
+        <i class="fa-solid fa-bars fs-1" ></i>
       <%end%>
     <%end%>
   </div>
