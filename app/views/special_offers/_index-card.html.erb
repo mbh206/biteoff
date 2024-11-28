@@ -1,20 +1,33 @@
   <% @specialoffers.each do |offer| %>
   <%= link_to special_offer_path(offer) do  %>
-    <div class="offer-card-container border-bottom pt-4" id="<%= offer.id %>">
-      <h3 class="offer-title"><%= offer.category %></h3>
-      <div class=" d-flex justify-content-between">
-        <div class="left-pane w-25">
-          <p><%= offer.restaurant.name %></p>
-          <p><%= offer.confirmation_count %></p>
+    <div class="offer-card-container border-bottom py-3" id="<%= offer.id %>">
+      <h3 class="offer-title m-1"><%= offer.category %></h3>
+      <div class=" d-flex justify-content-between mx-1">
+        <div class="default_offer-card-wrapper">
+          <% if offer.restaurant.photos[0] %>
+            <%= cl_image_tag offer.restaurant.photos[0].key, class: "default_offer default_offer-card" %>
+          <% else %>
+            <%= image_tag "default_offer", alt: "text", class: "default_offer default_offer-card" %>
+          <% end %>
         </div>
-        <div class="right-pane m-auto">
-          <p><i class="fa-solid fa-circle-info"></i><%= offer.description %></p>
-          <div class="d-flex">
-            <i class="fa-solid fa-clock pt-2"></i>
-            <p class=" ml-3">
-              Start date: <%= offer.start_date.strftime('%b %d, %Y') %> <br>
-              End date: <%= offer.end_date.strftime('%b %d, %Y') %>
-            </p>
+        <div>
+          <div class="right-pane">
+            <p class="offer-card-rest fs-2 text-center"><%= offer.restaurant.name %></p>
+            <div class="d-flex m-0">
+              <i class="offerdetails fa-solid fa-circle-info m-0 pt-1"></i>
+              <p class="my-0 mx-2"><%= offer.description %></p>
+            </div>
+            <div class="d-flex m-0">
+              <i class="offerdetails fa-solid fa-clock m-0 pt-1"></i>
+              <p class="my-0 mx-2">
+                Start date: <%= offer.start_date.strftime('%b %d, %Y') %> <br>
+                End date: <%= offer.end_date.strftime('%b %d, %Y') %>
+              </p>
+            </div>
+            <div class="d-flex m-0">
+              <i class="offerdetails fa-solid fa-check pt-1"></i>
+              <p class="my-0 mx-2"><%= offer.confirmation_count %></p>
+            </div>
           </div>
         </div>
       </div>
