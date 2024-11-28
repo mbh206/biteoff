@@ -2,6 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="user-location"
 export default class extends Controller {
+  static targets = ["link"]
   connect() {
 
     const options = {
@@ -28,6 +29,9 @@ export default class extends Controller {
       localStorage.setItem("lat", position.coords.latitude);
       localStorage.setItem("long", position.coords.longitude);
       console.log(position);
+      if (this.linkTarget) {
+        this.linkTarget.href = this.linkTarget.href + `?lat=${position.coords.latitude}&long=${position.coords.longitude}`
+      }
     });
   }
 }

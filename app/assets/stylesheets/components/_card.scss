@@ -4,7 +4,7 @@
 
 .card-holder {
   scroll-behavior: smooth;
-  height: 35vh;
+  height: 30vh;
   overflow: scroll;
   border-top: 5px solid white;
   box-shadow: 0 0 10px #00000050;
@@ -12,5 +12,7 @@
 }
 
 .map-container {
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  height:calc(100vh - 121px);
 }
