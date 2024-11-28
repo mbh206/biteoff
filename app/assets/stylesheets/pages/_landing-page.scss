@@ -1,0 +1,54 @@
+
+.homebackground {
+  position: relative;
+  background-image: url('https://images.pexels.com/photos/3184183/pexels-photo-3184183.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+  height: calc(100vh - 67.4px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #ece3e3;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(57, 57, 58, 0.5);
+    z-index: -1;
+  }
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+
+.btn-info {
+  background-color: #f01860;
+  border: 2px solid #f01860;
+  color: white;
+  border-radius: 25px;
+  font-size: 20px;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+.greeting {
+  margin: 0;
+  color: rgb(243, 242, 247);
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
