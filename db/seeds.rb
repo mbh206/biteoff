@@ -1,8 +1,10 @@
 require 'faker'
 
 puts "Cleaning the DB..."
-FriendGroup.destroy_all
 GroupMember.destroy_all
+FriendGroup.destroy_all
+OffersCollection.destroy_all
+SpecialOffersList.destroy_all
 Restaurant.destroy_all
 SpecialOffer.destroy_all
 User.destroy_all
@@ -73,7 +75,7 @@ end
 
   restaurants = Restaurant.all
   restaurants.each do |restaurant|
-    offer = SpecialOffer.create!(
+    SpecialOffer.create!(
       category: deals.sample,
       description: description.sample,
       start_date: start_date,
@@ -131,3 +133,11 @@ User.all.each do |user|
   member.friend_group = biteoff_grp
   member.save!
 end
+
+puts "...creating SpecialOffersList & OffersCollection"
+marksparty = SpecialOffersList.create!(name: "Mark s Party")
+OffersCollection.create!(special_offer: SpecialOffer.all[0], special_offers_list: marksparty)
+OffersCollection.create!(special_offer: SpecialOffer.all[1], special_offers_list: marksparty)
+chafsparty = SpecialOffersList.create!(name: "Chaf s Party")
+OffersCollection.create!(special_offer: SpecialOffer.all[2], special_offers_list: chafsparty)
+OffersCollection.create!(special_offer: SpecialOffer.all[3], special_offers_list: chafsparty)
