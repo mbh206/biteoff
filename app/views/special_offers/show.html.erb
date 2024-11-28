@@ -1,69 +1,102 @@
 <div class="container">
   <div class="bg-light d-flex justify-content-between p-1">
-    <span>Type of deal:</span>
-    <span class="fw-bold"><%= @sp_offer.category %></span>
+    <h3>Type of deal:</h3>
+    <h3 class="fw-bold"><%= @sp_offer.category %></h3>
   </div>
   <div>
-    <div class="offer-img-container">
-      <% if @sp_offer.photos.any?%>
-        <div id="carouselPhoto" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner">
-            <% @sp_offer.photos.each_with_index do |photo, index|%>
-              <div class="carousel-item <%= 'active' if index.zero? %>">
-                <%= cl_image_tag photo.key, class: "w-100 h-100" , style: "object-fit: cover;" %>
-              </div>
-            <%end%>
-          </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselPhoto" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselPhoto" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-        <% else %>
-          <div>
-            <span>No photo</span>
-          </div>
-          <div class="restaurantbox w-100 text-light d-flex justify-content-center py-1">
-            <%= @sp_offer.restaurant.name%>
-          </div>
-        </div>
-      <%end%>
-      <div class="container">
-        <div class="my-2">
-          <i class="offerdetails fa-solid fa-circle-info"></i>
-          <span class="text-dark"><%=@sp_offer.description%></span>
-        </div>
-        <div class="my-2">
-          <i class="offerdetails fa-solid fa-clock"></i>
-          <span class="text-dark"><%=@sp_offer.start_date%>-<%=@sp_offer.end_date%></span>
-        </div>
-        <div class="my-2">
-          <i class="offerdetails fa-solid fa-check"></i>
-          <span class="text-dark"><%=@sp_offer.confirmation_count%></span>
-        </div>
+    <div style="width: 100%; height: 400px;"
+          data-controller="sp-offer-map"
+          data-sp-offer-map-markers-value="<%= @markers.to_json %>"
+          data-sp-offer-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+    <div class="container">
+      <div class="my-2">
+        <i class="offerdetails fa-solid fa-utensils"></i>
+        <span class="text-dark"><%=@sp_offer.restaurant.name%></span>
       </div>
-      <div class = "d-flex justify-content-between">
-        <!-- https://www.google.com/maps/search/?api=1&query=47.5951518%2C-122.3316393&query_place_id=ChIJKxjxuaNqkFQR3CK6O1HNNqY&hl=fr -->
-        <%= link_to "I'M GOING", "https://www.google.fr/maps/dir/?api=1&destination=#{@sp_offer.restaurant.latitude},#{@sp_offer.restaurant.longitude}", method: :get, class: "btn btn-primary btn-lg rounded-3" %>
-        <%= button_to "I'M THERE", special_offer_path(@sp_offer), method: :patch, class: "btn btn-primary btn-lg rounded-3", form: {data: {turbo_confirm: 'Can you confirm the deal ?', turbo_confirm_confirm_label: "Yes",   turbo_confirm_cancel_label: "No"}} %>
+      <div class="my-2">
+        <i class="offerdetails fa-solid fa-circle-info"></i>
+        <span class="text-dark"><%=@sp_offer.description%></span>
+      </div>
+      <div class="my-2">
+        <i class="offerdetails fa-solid fa-clock"></i>
+        <span class="text-dark"><%=@sp_offer.start_date%> - <%=@sp_offer.end_date%></span>
+      </div>
+      <div class="my-2">
+        <i class="offerdetails fa-solid fa-check"></i>
+        <span class="text-dark"><%=@sp_offer.confirmation_count%></span>
       </div>
     </div>
-    <button class="btn btn-primary my-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-      Button with data-bs-target
-    </button>
-    <div class="collapse" id="collapseExample">
-      <% @restaurant.reviews.each do |review| %>
-        <div class="card card-body">
-          Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
-        </div>
-      <% end %>
-    </div>
-    <div style="width: 100%; height: 500px;"
-      data-controller="sp-offer-map"
-      data-sp-offer-map-markers-value="<%= @markers.to_json %>"
-      data-sp-offer-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    <div class = "d-flex justify-content-between">
+      <!-- https://www.google.com/maps/search/?api=1&query=47.5951518%2C-122.3316393&query_place_id=ChIJKxjxuaNqkFQR3CK6O1HNNqY&hl=fr -->
+      <%= link_to "Navigate", "https://www.google.fr/maps/dir/?api=1&destination=#{@sp_offer.restaurant.latitude},#{@sp_offer.restaurant.longitude}", method: :get, class: "btn btn-primary btn-lg rounded-3" %>
+      <%= button_to "I'M THERE", special_offer_path(@sp_offer), method: :patch, class: "btn btn-primary btn-lg rounded-3", form: {data: {turbo_confirm: 'Can you confirm the deal ?', turbo_confirm_confirm_label: "Yes",   turbo_confirm_cancel_label: "No"}} %>
     </div>
   </div>
+  <ul class="nav nav-tabs my-2" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="photo-tab" data-bs-toggle="tab" data-bs-target="#photo-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="true">Photos</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="review-tab" data-bs-toggle="tab" data-bs-target="#review-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Reviews</button>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="photo-tab-pane" role="tabpanel" aria-labelledby="photo-tab" tabindex="0">
+      <div class="offer-img-container">
+        <% if @sp_offer.photos.any?%>
+          <div id="carouselPhoto" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <% @sp_offer.photos.each_with_index do |photo, index|%>
+                <div class="carousel-item <%= 'active' if index.zero? %>">
+                  <%= cl_image_tag photo.key, class: "w-100 h-100" , style: "object-fit: cover;" %>
+                </div>
+              <%end%>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselPhoto" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselPhoto" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          <% else %>
+            <div>
+              <%= image_tag "default_offer", alt: "text", class: "default_offer" %>
+            </div>
+            <div class="restaurantbox w-100 text-light d-flex justify-content-center py-1">
+              <%= @sp_offer.restaurant.name%>
+            </div>
+          </div>
+        <%end%>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="review-tab-pane" role="tabpanel" aria-labelledby="review-tab" tabindex="0">
+      <% if @sp_offer.reviews.any? %>
+        <% @sp_offer.reviews.each do |review| %>
+          <div class="">
+            <p>
+              <%=  review.user.username%>
+            </p>
+            <div>
+              <div>
+                <% review.rating.times do %>
+                  <i id="star" class="fa-solid fa-star"></i>
+                <% end %>
+                <% (5 - review.rating).times do %>
+                  <i class="fa-solid fa-star"></i>
+                <% end %>
+              </div>
+              <div>
+                <%= review.description%>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <h3>No Reviews yet..</h3>
+      <% end %>
+    </div>
+  </div>
+</div>
