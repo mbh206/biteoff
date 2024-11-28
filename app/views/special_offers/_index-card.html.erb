@@ -1,7 +1,7 @@
   <% @specialoffers.each do |offer| %>
   <%= link_to special_offer_path(offer) do  %>
-    <div class="my-3 border-top pt-4" id="<%= offer.id %>">
-      <h3 class="text-center"><%= offer.category %></h3>
+    <div class="offer-card-container border-top border-bottom pt-4" id="<%= offer.id %>">
+      <h3 class="offer-title"><%= offer.category %></h3>
       <div class=" d-flex justify-content-between">
         <div class="left-pane w-25">
           <p><%= offer.restaurant.name %></p>

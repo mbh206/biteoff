@@ -7,9 +7,9 @@ class SpecialOffersController < ApplicationController
         results = Geocoder.search(user_input)
         @coordinates = results.first.coordinates
       else
-        @specialoffers = @specialoffers.where("restaurants.category ILIKE ?", "%#{user_input}%")
+        @specialoffers = SpecialOffer.joins(:restaurant).where("restaurants.category ILIKE ?", "%#{user_input}%")
       end
-    else 
+    else
       if params[:lat].present? && params[:long].present?
       restaurants = Restaurant.near([params[:lat], params[:long]], 2)
       @specialoffers = SpecialOffer.joins(:restaurant).where(restaurant: {id: restaurants.map(&:id)})

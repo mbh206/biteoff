@@ -57,9 +57,9 @@ export default class extends Controller {
         .setPopup(popup)
         .addTo(this.map)
       })
-      const marker2 = `<div class="pins badge text-danger">
-        <i class="fa-solid fa-location-dot"></i>
-      </div>`
+      const marker2 = `<div class="pins badge text-dark">
+                        <i class="fa-solid fa-person-walking"></i>
+                      </div>`
       const customMarker = document.createElement("div")
       customMarker.innerHTML = marker2
       new mapboxgl.Marker(customMarker)
