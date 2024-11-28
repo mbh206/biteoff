@@ -1,6 +1,12 @@
 class SpecialOffersController < ApplicationController
 
   def index
+    if params[:lat].present? && params[:long].present?
+    restaurants = Restaurant.near([params[:lat], params[:long]], 2)
+    @specialoffers = SpecialOffer.joins(:restaurant).where(restaurant: {id: restaurants.map(&:id)})
+    else
+      @specialoffers = SpecialOffer.joins(:restaurant).where.not("restaurants.latitude IS null").limit(101)
+    end
     if params[:query].present?
       user_input = params[:query]
       unless Restaurant::CATEGORIES.include?(user_input)
@@ -8,13 +14,6 @@ class SpecialOffersController < ApplicationController
         @coordinates = results.first.coordinates
       else
         @specialoffers = SpecialOffer.joins(:restaurant).where("restaurants.category ILIKE ?", "%#{user_input}%")
-      end
-    else
-      if params[:lat].present? && params[:long].present?
-      restaurants = Restaurant.near([params[:lat], params[:long]], 2)
-      @specialoffers = SpecialOffer.joins(:restaurant).where(restaurant: {id: restaurants.map(&:id)})
-      else
-        @specialoffers = SpecialOffer.joins(:restaurant).where.not("restaurants.latitude IS null").limit(101)
       end
     end
     @markers = @specialoffers.map do |specialoffer|
