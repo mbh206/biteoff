@@ -56,7 +56,7 @@ class SpecialOffersController < ApplicationController
   end
 
   def create
-    @special_offer = SpecialOffer.new(offer_params)
+    @special_offer = SpecialOffer.new(special_offer_params)
     @special_offer.user = current_user
     @special_offer.confirmation_count = 0
     @special_offer.restaurant = Restaurant.find(params[:special_offer][:restaurant_id])
