@@ -1,11 +1,21 @@
 class SpecialOffersController < ApplicationController
 
   def index
-    if params[:lat].present? && params[:long].present?
+    if params[:query].present?
+      user_input = params[:query]
+      unless Restaurant::CATEGORIES.include?(user_input)
+        results = Geocoder.search(user_input)
+        @coordinates = results.first.coordinates
+      else
+        @specialoffers = @specialoffers.where("restaurants.category ILIKE ?", "%#{user_input}%")
+      end
+    else 
+      if params[:lat].present? && params[:long].present?
       restaurants = Restaurant.near([params[:lat], params[:long]], 2)
       @specialoffers = SpecialOffer.joins(:restaurant).where(restaurant: {id: restaurants.map(&:id)})
-    else
-      @specialoffers = SpecialOffer.joins(:restaurant).where.not("restaurants.latitude IS null").limit(101)
+      else
+        @specialoffers = SpecialOffer.joins(:restaurant).where.not("restaurants.latitude IS null").limit(101)
+      end
     end
     @markers = @specialoffers.map do |specialoffer|
       {
@@ -18,12 +28,6 @@ class SpecialOffersController < ApplicationController
         starting: specialoffer.start_date,
         marker_html: render_to_string(partial: "marker", locals: {specialoffer: specialoffer})
       }
-
-    end
-    if params[:query].present?
-      user_input = params[:query]
-      results = Geocoder.search(user_input)
-      @coordinates = results.first.coordinates
     end
   end
 

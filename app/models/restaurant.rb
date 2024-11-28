@@ -9,5 +9,5 @@ class Restaurant < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   # validates :lat
   # validates :long
-
+  CATEGORIES = ["burger", "ramen", "sushi", "desserts", "healthy", "kebabs", "pizza", "tacos", "sandwiches"]
 end
