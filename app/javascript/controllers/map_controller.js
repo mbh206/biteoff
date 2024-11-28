@@ -39,10 +39,7 @@ export default class extends Controller {
 
     if (latitude && longitude) {
       this.map.setCenter([longitude, latitude]);
-
     }
-
-
   }
 
   #addMarkersToMap() {
@@ -70,22 +67,9 @@ export default class extends Controller {
         .addTo(this.map)
   }
 
-  // #testMethod() {
-  //   const markers = document.querySelectorAll(".marker")
-  //   markers.forEach(marker  => {
-  //     marker.addEventListener('click', (e) => {
-  //       const card = document.getElementById(marker.id)
-  //       console.log(card);
-
-  //       card.scrollIntoView()
-  //     })
-  //   })
-  // }
   #fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds()
     this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
     this.map.fitBounds(bounds, { padding: 50, maxZoom: 15, duration: 0 })
   }
 }
-
-  // Retrieve coordinates from the hidden input
