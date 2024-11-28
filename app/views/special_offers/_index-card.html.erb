@@ -4,8 +4,8 @@
       <h3 class="offer-title"><%= offer.category %></h3>
       <div class=" d-flex justify-content-between">
         <div class="left-pane w-25">
-          <p><%= offer.restaurant.name %></p>
-          <p><%= offer.confirmation_count %></p>
+          <p><%= offer.restaurant.name %> <%= offer.confirmation_count %></p>
+          <%= cl_image_tag offer.restaurant.photos[0].key,  height: 100, width: 100, crop: :fill%>
         </div>
         <div class="right-pane m-auto">
           <p><i class="fa-solid fa-circle-info"></i><%= offer.description %></p>
