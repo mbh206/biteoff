@@ -81,7 +81,7 @@ class SpecialOffersController < ApplicationController
       :end_date,
       :start_time,
       :end_time,
-      photos: [])
+      photos: []
+    )
   end
-
 end
