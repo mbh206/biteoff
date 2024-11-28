@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_11_28_043302) do
+ActiveRecord::Schema[7.1].define(version: 2024_11_28_053449) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -124,6 +124,26 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_28_043302) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "votes", force: :cascade do |t|
+    t.bigint "voting_session_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "special_offer_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["special_offer_id"], name: "index_votes_on_special_offer_id"
+    t.index ["user_id"], name: "index_votes_on_user_id"
+    t.index ["voting_session_id"], name: "index_votes_on_voting_session_id"
+  end
+
+  create_table "voting_sessions", force: :cascade do |t|
+    t.bigint "special_offers_list_id", null: false
+    t.bigint "friend_group_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["friend_group_id"], name: "index_voting_sessions_on_friend_group_id"
+    t.index ["special_offers_list_id"], name: "index_voting_sessions_on_special_offers_list_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "group_members", "friend_groups"
@@ -135,4 +155,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_28_043302) do
   add_foreign_key "reviews", "users"
   add_foreign_key "special_offers", "restaurants"
   add_foreign_key "special_offers", "users"
+  add_foreign_key "votes", "special_offers"
+  add_foreign_key "votes", "users"
+  add_foreign_key "votes", "voting_sessions"
+  add_foreign_key "voting_sessions", "friend_groups"
+  add_foreign_key "voting_sessions", "special_offers_lists"
 end
