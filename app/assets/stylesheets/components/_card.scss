@@ -9,13 +9,10 @@
   border-top: 5px solid white;
   box-shadow: 0 0 10px #00000050;
   padding:0 15px;
-  position: absolute;
-  bottom:0px;
 }
 
 .map-container {
   display: flex;
   flex-direction: column;
-  position: relative;
   height:calc(100vh - 121px);
 }
