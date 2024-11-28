@@ -23,10 +23,9 @@ export default class extends Controller {
     });
     this.map.addControl(geolocate);
 
-    if (!sessionStorage.getItem('mapLoaded')) {
+    if (!document.getElementById('custId').value) {
       this.map.on('load', () => {
           geolocate.trigger();
-          sessionStorage.setItem('mapLoaded', 'true'); // Mark as loaded
       });
     }
 
