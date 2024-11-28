@@ -8,10 +8,10 @@
         <%= f.input :category, collection: ["Happy hour Deals", "Early Bird Special", "Buy one get one", "20% off", "$10 off"],
       label: false,
       prompt: "Type of deal" %>
-        <%= f.input :description, prompt: "Short Description", label: false %>
-        <%= f.input :start_date, html5: true, label: false %>
+        <%= f.input :description, placeholder: "Best deal on ramen....", label: false %>
+        <%= f.input :start_date, html5: true, label: "Dates (if applicable)" %>
         <%= f.input :end_date, html5: true, label: false %>
-        <%= f.input :start_time, html5: true, label: false %>
+        <%= f.input :start_time, html5: true, label: "Times (if applicable)" %>
         <%= f.input :end_time, html5: true, label: false %>
         <%= f.input :photos, as: :file, input_html: { multiple: true }, label: false %>
         <%= f.submit class: "btn btn-primary my-3 " %>

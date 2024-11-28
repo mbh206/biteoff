@@ -68,7 +68,8 @@ def random_date(start_date, end_date)
   rand(start_date..end_date)
 end
 
-10.times do
+
+puts 'Creating 10 offers'
 
   start_date = random_date(Date.new(2024, 12, 1), Date.new(2024, 12, 31))
   end_date = start_date + rand(1..10).days
@@ -86,42 +87,45 @@ end
     )
 
   end
-end
 
 puts "...created 10 offers"
 
+special_offers = SpecialOffer.all
 
-review = Review.new(
+puts "Creating #{special_offers.count * 3} reviews"
+
+special_offers.each do |offer|
+  review = Review.new(
+    {
+      description: "Amazing deal, saved a lot on my purchase!",
+      rating: 5
+    }
+  )
+  review.user = User.all.sample
+  review.special_offer = offer
+  review.save
+
+  review = Review.new(
+    {
+      description: "The deal was great and everyone was very helpful. Highly recommend it!",
+      rating: 4
+    }
+  )
+  review.user = User.all.sample
+  review.special_offer = offer
+  review.save
+
+  review = Review.new(
   {
-    description: "Amazing deal, saved a lot on my purchase!",
-    rating: 5
+      description: "The offer wasn't available when I visited.",
+      rating: 2
   }
-)
-review.user = User.all.sample
-review.special_offer = SpecialOffer.all.sample
-review.save
-
-review = Review.new(
-  {
-    description: "The free dessert was delicious. Highly recommend it!",
-    rating: 4
-  }
-)
-review.user = User.all.sample
-review.special_offer = SpecialOffer.all.sample
-review.save
-
-review = Review.new(
-{
-    description: "The offer wasn't available when I visited.",
-    rating: 2
-}
-)
-review.user = User.all.sample
-review.special_offer = SpecialOffer.all.sample
-review.save
-
-puts "...created 3 reviews"
+  )
+  review.user = User.all.sample
+  review.special_offer = offer
+  review.save
+end
+puts "...created #{special_offers.count * 3} reviews"
 
 puts "...creating  friend group"
 biteoff_grp = FriendGroup.new(name: "BiteOff")
