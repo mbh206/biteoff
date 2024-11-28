@@ -1,11 +1,12 @@
 require 'faker'
 
 puts "Cleaning the DB..."
-
-
+FriendGroup.destroy_all
+GroupMember.destroy_all
 Restaurant.destroy_all
 SpecialOffer.destroy_all
 User.destroy_all
+
 owner = User.create!(
   username: "Steven",
   email: "Steve@biteoff.com",
@@ -119,3 +120,14 @@ review.special_offer = SpecialOffer.all.sample
 review.save
 
 puts "...created 3 reviews"
+
+puts "...creating  friend group"
+biteoff_grp = FriendGroup.new(name: "BiteOff")
+
+puts "...including friend in the group"
+User.all.each do |user|
+  member = GroupMember.new
+  member.user = user
+  member.friend_group = biteoff_grp
+  member.save!
+end
