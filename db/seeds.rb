@@ -16,23 +16,32 @@ owner = User.create!(
   password: "ABC123"
 )
 
-User.create!(
+owner.photo.attach(io: File.open("app/assets/images/profilepic/steven.jpg"), filename: "steven.jpg", content_type: "image/jpg")
+
+mark = User.create!(
   username: "MarkH",
   email: "Mark@biteoff.com",
   password: "ABC123"
 )
 
-User.create!(
+mark.photo.attach(io: File.open("app/assets/images/profilepic/mark.jpg"), filename: "mark.jpg", content_type: "image/jpg")
+
+shafiq = User.create!(
   username: "Shafiq",
   email: "Shafiq@biteoff.com",
   password: "ABC123"
 )
 
-User.create!(
+shafiq.photo.attach(io: File.open("app/assets/images/profilepic/chafique.png"), filename: "chafique.png", content_type: "image/png")
+
+
+christian = User.create!(
   username: "Christian",
   email: "Christian@biteoff.com",
   password: "ABC123"
 )
+
+christian.photo.attach(io: File.open("app/assets/images/profilepic/christian.jpg"), filename: "christian.jpg", content_type: "image/jpg")
 
 # 10.times do
 #   User.create!(
