@@ -73,12 +73,13 @@
       </div>
     </div>
     <div class="tab-pane fade" id="review-tab-pane" role="tabpanel" aria-labelledby="review-tab" tabindex="0">
+      <div class="d-flex">
+        <%= link_to "Add Review",new_special_offer_review_path(@sp_offer), class: " justify-content-end m-auto btn btn-info w-50" %>
+      </div>
       <% if @sp_offer.reviews.any? %>
         <% @sp_offer.reviews.each do |review| %>
-          <div class="">
-            <p>
-              <%=  review.user.username%>
-            </p>
+          <div class="mb-2">
+            <p><%=  review.user.username%></p>
             <div>
               <div>
                 <% review.rating.times do %>
@@ -93,6 +94,7 @@
               </div>
             </div>
           </div>
+          <hr>
         <% end %>
       <% else %>
         <h3>No Reviews yet..</h3>
