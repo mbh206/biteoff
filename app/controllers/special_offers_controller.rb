@@ -3,6 +3,17 @@ class SpecialOffersController < ApplicationController
   def index
     @specialoffers = SpecialOffer.joins(:restaurant).where.not("restaurants.latitude IS null").limit(101)
     @restaurants = Restaurant.all
+
+    if params[:query].present?
+      user_input = params[:query]
+      unless Restaurant::CATEGORIES.include?(user_input)
+        results = Geocoder.search(user_input)
+        @coordinates = results.first.coordinates
+      else
+        @specialoffers = @specialoffers.where("restaurants.category ILIKE ?", "%#{user_input}%")
+      end
+    end
+
     @markers = @specialoffers.map do |specialoffer|
       {
         lat: specialoffer.restaurant.latitude,
@@ -14,12 +25,6 @@ class SpecialOffersController < ApplicationController
         starting: specialoffer.start_date,
         marker_html: render_to_string(partial: "marker", locals: {specialoffer: specialoffer})
       }
-
-    end
-    if params[:query].present?
-      user_input = params[:query]
-      results = Geocoder.search(user_input)
-      @coordinates = results.first.coordinates
     end
   end
 
@@ -41,9 +46,9 @@ class SpecialOffersController < ApplicationController
     @offer = SpecialOffer.find(params[:id])
     @offer.confirmation_count += 1
     if @offer.save!
-      redirect_to special_offer_path(@offer) 
+      redirect_to special_offer_path(@offer)
     else
-      #not sure about that 
+      #not sure about that
       redirect_to special_offer_path(@offer), status: :unprocessable_entity
     end
   end
