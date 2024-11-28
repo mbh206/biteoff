@@ -23,10 +23,9 @@ export default class extends Controller {
     });
     this.map.addControl(geolocate);
 
-    if (!sessionStorage.getItem('mapLoaded')) {
+    if (!localStorage.getItem("long") && !localStorage.getItem("lat")) {
       this.map.on('load', () => {
           geolocate.trigger();
-          sessionStorage.setItem('mapLoaded', 'true'); // Mark as loaded
       });
     }
 
@@ -57,7 +56,15 @@ export default class extends Controller {
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(popup)
         .addTo(this.map)
-    })
+      })
+      const marker2 = `<div class="pins badge text-danger">
+        <i class="fa-solid fa-location-dot"></i>
+      </div>`
+      const customMarker = document.createElement("div")
+      customMarker.innerHTML = marker2
+      new mapboxgl.Marker(customMarker)
+        .setLngLat([ localStorage.getItem("long"), localStorage.getItem("lat") ])
+        .addTo(this.map)
   }
 
   // #testMethod() {
