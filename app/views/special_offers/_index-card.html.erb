@@ -7,7 +7,7 @@
           <% if offer.restaurant.photos[0] %>
             <%= cl_image_tag offer.restaurant.photos[0].key, class: "default_offer default_offer-card" %>
           <% else %>
-            <%= image_tag "default_offer", alt: "text", class: "default_offer default_offer-card" %>
+            <%= image_tag "default_offer.png", alt: "text", class: "default_offer default_offer-card" %>
           <% end %>
         </div>
         <div>
