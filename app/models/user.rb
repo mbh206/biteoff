@@ -3,6 +3,7 @@ class User < ApplicationRecord
   has_many :offers 
   has_one_attached :photo
   has_many :group_members, dependent: :destroy
+  has_many :votes, dependent: :destroy
 
   validates :email, presence: true, uniqueness: true
   validates :username, presence: true, uniqueness: true, length: { in: 5..25 }
