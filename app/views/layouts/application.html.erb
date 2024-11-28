@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="https://ga.jspm.io/npm:star-rating.js@4.3.0/dist/star-rating.css">
   </head>
   <body>
-    <%= render "shared/header" %>
+    <% if !root_path %>
+      <%= render "shared/header" %>
+    <% end %>
     <%= yield %>
     <%= render "shared/navbar" %>
   </body>
