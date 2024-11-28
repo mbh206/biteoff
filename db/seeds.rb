@@ -1,4 +1,5 @@
 require 'faker'
+require 'open-uri'
 
 puts "Cleaning the DB..."
 GroupMember.destroy_all
@@ -46,15 +47,19 @@ puts "Seeded 14 users!"
 CATEGORIES = ["burger", "ramen", "sushi", "desserts", "healthy", "kebabs", "pizza", "tacos", "sandwiches"]
 
 puts "Creating 10 Restaurants..."
+
+restaurant_photo = URI.parse("https://upload.wikimedia.org/wikipedia/commons/b/bb/ELSASS_-_Munchhausen_-_RESTAURANT_a_la_ROSE_-_panoramio.jpg").open
+
 10.times do
   restaurant_name = Faker::Restaurant.unique.name
-restaurant = Restaurant.new(
+  restaurant = Restaurant.new(
     name: restaurant_name,
     address: "日本, 〒153-0063 東京都目黒区 目黒#{rand(1..3)}丁目#{rand(1..10)}番#{rand(1..3)}号",
     category: CATEGORIES.sample
   )
 
    restaurant.user = owner
+   restaurant.photos.attach(io: restaurant_photo, filename: "restaurant.jpg", content_type: "image/jpg")
    restaurant.save!
 end
 puts '... created 10 restaurants'
