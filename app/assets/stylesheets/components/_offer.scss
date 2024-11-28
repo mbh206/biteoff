@@ -2,7 +2,7 @@
     position:relative;
 }
 .restaurantbox {
-    background-color: #FF850290;
+    background-color: #FF8502;
     position:absolute;
     bottom:0;
     left:0;
@@ -25,9 +25,9 @@
   text-transform: uppercase;
   font-weight: 600;
   text-align: center;
-  background-color: #aaaaaa;
+  background: linear-gradient(340deg, #FF8502, #1F8BE9 90.71%);
   color:white;
   padding: 5px 0;
-  border-radius: 15px;
+  border-radius: 5px;
   text-shadow: 0 0 2px black;
 }

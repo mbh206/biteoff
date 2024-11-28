@@ -47,7 +47,10 @@ export default class extends Controller {
 
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
-      const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(`<a href="/special_offers/${marker.id}" class="pin-popup">${marker.name}<br>Special: ${marker.offer} | From: ${marker.starting}</a>`);
+      const popupBox = `<a href="/special_offers/${marker.id}" class="pin-popup">
+                      ${marker.name}<br>Special: ${marker.offer} | From: ${marker.starting}
+                      </a>`
+      const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(popupBox);
 
       const customMarker = document.createElement("div")
       customMarker.innerHTML = marker.marker_html

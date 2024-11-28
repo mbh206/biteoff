@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="bg-light d-flex justify-content-between p-1">
+  <div class="bg-white d-flex justify-content-between p-1">
     <h3>Type of deal:</h3>
     <h3 class="fw-bold"><%= @sp_offer.category %></h3>
   </div>
@@ -77,8 +77,8 @@
         <%= link_to "Add Review",new_special_offer_review_path(@sp_offer), class: " justify-content-end m-auto btn btn-info w-50" %>
       </div>
       <% if @sp_offer.reviews.any? %>
-        <% @sp_offer.reviews.each do |review| %>
-          <div class="mb-2">
+        <% @sp_offer.reviews.order("created_at desc").each do |review| %>
+          <div>
             <p><%=  review.user.username%></p>
             <div>
               <div>

@@ -9,12 +9,21 @@ a {
   text-decoration: none;
 }
 
-.pin-popup {
+.mapboxgl-popup-content {
+  text-decoration: none;
   color:black;
-  padding:10px 15px;
+  padding:10px 0;
   text-align: center;
+  font-size: 1.2rem;
+}
+
+a.pin-popup {
+  text-decoration: none;
+  color:#262626;
+  border:none;
 }
 
 .pins {
   font-size: 3rem;
+  text-shadow: 1px 1px 4px #494949;
 }
