@@ -1,6 +1,6 @@
 <div class="container">
   <div class="bg-light d-flex justify-content-between p-1">
-    <span>Type of deal:</span>
+    <span>Type of deal: </span>
     <span class="fw-bold"><%= @sp_offer.category %></span>
   </div>
   <div>
@@ -24,7 +24,7 @@
           </button>
         <% else %>
           <div>
-            <span>No photo</span>
+            <%= image_tag "default_offer", alt: "text", class: "default_offer" %>
           </div>
           <div class="restaurantbox w-100 text-light d-flex justify-content-center py-1">
             <%= @sp_offer.restaurant.name%>
@@ -38,7 +38,7 @@
         </div>
         <div class="my-2">
           <i class="offerdetails fa-solid fa-clock"></i>
-          <span class="text-dark"><%=@sp_offer.start_date%>-<%=@sp_offer.end_date%></span>
+          <span class="text-dark">From: <%=@sp_offer.start_date%> - <%=@sp_offer.end_date%></span>
         </div>
         <div class="my-2">
           <i class="offerdetails fa-solid fa-check"></i>
@@ -51,19 +51,48 @@
         <%= button_to "I'M THERE", special_offer_path(@sp_offer), method: :patch, class: "btn btn-primary btn-lg rounded-3", form: {data: {turbo_confirm: 'Can you confirm the deal ?', turbo_confirm_confirm_label: "Yes",   turbo_confirm_cancel_label: "No"}} %>
       </div>
     </div>
-    <button class="btn btn-primary my-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-      Button with data-bs-target
-    </button>
-    <div class="collapse" id="collapseExample">
-      <% @restaurant.reviews.each do |review| %>
-        <div class="card card-body">
-          Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+    <ul class="nav nav-tabs my-2" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Map</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Reviews</button>
+      </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+        <div style="width: 100%; height: 500px;"
+          data-controller="sp-offer-map"
+          data-sp-offer-map-markers-value="<%= @markers.to_json %>"
+          data-sp-offer-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
-      <% end %>
-    </div>
-    <div style="width: 100%; height: 500px;"
-      data-controller="sp-offer-map"
-      data-sp-offer-map-markers-value="<%= @markers.to_json %>"
-      data-sp-offer-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+      <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+        <% if @sp_offer.reviews.any? %>
+          <% @sp_offer.reviews.each do |review| %>
+            <div class="">
+              <p>
+                <%=  review.user.username%>
+              </p>
+              <div>
+                <div>
+                  <% review.rating.times do %>
+                    <i id="star" class="fa-solid fa-star"></i>
+                  <% end %>
+                  <% (5 - review.rating).times do %>
+                    <i class="fa-solid fa-star"></i>
+                  <% end %>
+                </div>
+                <div>
+                  <%= review.description%>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% else %>
+          <h3>No Reviews yet..</h3>
+        <% end %>
+      </div>
     </div>
   </div>
+</div>
