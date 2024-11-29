@@ -78,21 +78,17 @@
       </div>
       <% if @sp_offer.reviews.any? %>
         <% @sp_offer.reviews.order("created_at desc").each do |review| %>
-          <div>
-            <p><%=  review.user.username%></p>
-            <div>
-              <div>
-                <% review.rating.times do %>
-                  <i id="star" class="fa-solid fa-star"></i>
-                <% end %>
-                <% (5 - review.rating).times do %>
-                  <i class="fa-solid fa-star"></i>
-                <% end %>
-              </div>
-              <div>
-                <%= review.description%>
-              </div>
+          <div class="review">
+            <p><strong><%= review.user.username %></strong></p>
+            <div class="star-rating-display">
+              <% review.rating.times do %>
+                <i class="fa fa-star text-warning"></i>
+              <% end %>
+              <% (5 - review.rating).times do %>
+                <i class="fa fa-star text-secondary"></i>
+              <% end %>
             </div>
+            <p><%= review.description %></p>
           </div>
           <hr>
         <% end %>
