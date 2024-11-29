@@ -35,10 +35,10 @@
   </div>
   <ul class="nav nav-tabs my-2" id="myTab" role="tablist">
     <li class="nav-item" role="presentation">
-      <button class="nav-link active" id="photo-tab" data-bs-toggle="tab" data-bs-target="#photo-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="true">Photos</button>
+      <button class="nav-link active" id="photo-tab" data-bs-toggle="tab" data-bs-target="#photo-tab-pane" type="button" role="tab" aria-controls="photo-tab-pane" aria-selected="true">Photos</button>
     </li>
     <li class="nav-item" role="presentation">
-      <button class="nav-link" id="review-tab" data-bs-toggle="tab" data-bs-target="#review-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Reviews</button>
+      <button class="nav-link" id="review-tab" data-bs-toggle="tab" data-bs-target="#review-tab-pane" type="button" role="tab" aria-controls="review-tab-pane" aria-selected="false">Reviews</button>
     </li>
   </ul>
   <div class="tab-content" id="myTabContent">
@@ -49,9 +49,9 @@
             <div class="carousel-inner">
               <% @sp_offer.photos.each_with_index do |photo, index|%>
                 <div class="carousel-item <%= 'active' if index.zero? %>">
-                  <%= cl_image_tag photo.key, class: "w-100 h-100" , style: "object-fit: cover;" %>
+                  <%= cl_image_tag photo.key, class: "w-100 h-100", style: "object-fit: cover;" %>
                 </div>
-              <%end%>
+              <% end %>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselPhoto" data-bs-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -61,13 +61,13 @@
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Next</span>
             </button>
-          <% else %>
-            <div>
-              <%= image_tag "default_offer.png", alt: "text", class: "default_offer" %>
-            </div>
-            <div class="restaurantbox w-100 text-light d-flex justify-content-center py-1">
-              <%= @sp_offer.restaurant.name%>
-            </div>
+          </div>
+        <% else %>
+          <div>
+            <%= image_tag "default_offer.png", alt: "text", class: "default_offer" %>
+          </div>
+          <div class="restaurantbox w-100 text-light d-flex justify-content-center py-1">
+            <%= @sp_offer.restaurant.name%>
           </div>
         <%end%>
       </div>
