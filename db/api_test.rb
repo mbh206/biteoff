@@ -1,16 +1,13 @@
-require 'uri'
-require 'net/http'
+require 'open-uri'
 require 'json'
 
-@toSend = {
-    "textQuery" => "Restaurants in Meguro",
-    "X-Goog-FieldMask" => "places.displayName"
-}.to_json
+shinjuku_url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+Shinjuku&fields=name,formatted_address,rating,photos,opening_hours&key=#{ENV['GOOGLE_MAPS_KEY']}"
+shibuya_url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+Shibuya&fields=name,formatted_address,photo,rating,opening_hours&key=#{ENV['GOOGLE_MAPS_KEY']}"
+meguro_url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+Meguro&fields=name,formatted_address,photo,rating,opening_hours&key=#{ENV['GOOGLE_MAPS_KEY']}"
+ginza_url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+Ginza&fields=name,formatted_address,photo,rating,opening_hours&key=#{ENV['GOOGLE_MAPS_KEY']}"
 
-uri = URI("https://places.googleapis.com/v1/places:searchText?key=")
-https = Net::HTTP.new(uri.host, uri.port)
-https.use_ssl = true
-req = Net::HTTP::Post.new(uri, initheader = {'Content-Type' =>'application/json'})
-req.body = "[ #{@toSend} ]"
-res = https.request(req)
-puts "Response #{res.code} #{res.message}: #{res.body}"
+
+user_serialized = URI.parse(shibuya_url).read
+puts user_serialized
+shibuya_restaurants = JSON.parse(user_serialized)
+puts shibuya_restaurants

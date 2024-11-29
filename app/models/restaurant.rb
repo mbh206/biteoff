@@ -5,7 +5,7 @@ class Restaurant < ApplicationRecord
   belongs_to :user
   geocoded_by :address
 
-  validates :category, :address, presence: true
+  validates :category,  presence: true
   validates :name, presence: true, uniqueness: true
   # validates :lat
   # validates :long
