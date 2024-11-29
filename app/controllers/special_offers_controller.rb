@@ -40,6 +40,7 @@ class SpecialOffersController < ApplicationController
 
   def new
     @specialoffer = SpecialOffer.new
+    @restaurants = Restaurant.all
   end
 
 
