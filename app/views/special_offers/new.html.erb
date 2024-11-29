@@ -1,10 +1,10 @@
 <div class="container">
-  <div class="mt-5">
+  <div class="mt-2">
     <h1>New Special Offer</h1>
     <%= simple_form_for(@specialoffer) do |f|%>
       <div class="form-group mt-4">
         <!-- Custom Label -->
-        <%= f.association :restaurant, as: :select, prompt: 'Select a restaurant', label: false %>
+        <%= f.association :restaurant, input_html: {data: {controller: "tom-select"}} %>
         <%= f.input :category, collection: ["Happy hour Deals", "Early Bird Special", "Buy one get one", "20% off", "$10 off"],
       label: false,
       prompt: "Type of deal" %>
@@ -18,3 +18,4 @@
       <% end %>
     </div>
   </div>
+</div>

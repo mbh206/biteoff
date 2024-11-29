@@ -14,7 +14,7 @@ User.destroy_all
 owner = User.create!(
   username: "Steven",
   email: "Steve@biteoff.com",
-  password: "ABC123"
+  password: "123123"
 )
 
 owner.photo.attach(io: File.open("app/assets/images/profilepic/steven.jpg"), filename: "steven.jpg", content_type: "image/jpg")
@@ -22,7 +22,7 @@ owner.photo.attach(io: File.open("app/assets/images/profilepic/steven.jpg"), fil
 mark = User.create!(
   username: "MarkH",
   email: "Mark@biteoff.com",
-  password: "ABC123"
+  password: "123123"
 )
 
 mark.photo.attach(io: File.open("app/assets/images/profilepic/mark.jpg"), filename: "mark.jpg", content_type: "image/jpg")
@@ -30,7 +30,7 @@ mark.photo.attach(io: File.open("app/assets/images/profilepic/mark.jpg"), filena
 shafiq = User.create!(
   username: "Shafiq",
   email: "Shafiq@biteoff.com",
-  password: "ABC123"
+  password: "123123"
 )
 
 shafiq.photo.attach(io: File.open("app/assets/images/profilepic/chafique.png"), filename: "chafique.png", content_type: "image/png")
@@ -39,7 +39,7 @@ shafiq.photo.attach(io: File.open("app/assets/images/profilepic/chafique.png"), 
 christian = User.create!(
   username: "Christian",
   email: "Christian@biteoff.com",
-  password: "ABC123"
+  password: "123123"
 )
 
 christian.photo.attach(io: File.open("app/assets/images/profilepic/christian.jpg"), filename: "christian.jpg", content_type: "image/jpg")
