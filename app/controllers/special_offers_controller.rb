@@ -2,8 +2,8 @@ class SpecialOffersController < ApplicationController
 
   def index
     if params[:lat].present? && params[:long].present?
-    restaurants = Restaurant.near([params[:lat], params[:long]], 2)
-    @specialoffers = SpecialOffer.joins(:restaurant).where(restaurant: {id: restaurants.map(&:id)})
+      restaurants = Restaurant.near([params[:lat], params[:long]], 2)
+      @specialoffers = SpecialOffer.joins(:restaurant).where(restaurant: {id: restaurants.map(&:id)})
     else
       @specialoffers = SpecialOffer.joins(:restaurant).where.not("restaurants.latitude IS null").limit(101)
     end
