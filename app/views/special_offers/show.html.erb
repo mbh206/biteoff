@@ -30,7 +30,20 @@
     <div class = "d-flex justify-content-between">
       <!-- https://www.google.com/maps/search/?api=1&query=47.5951518%2C-122.3316393&query_place_id=ChIJKxjxuaNqkFQR3CK6O1HNNqY&hl=fr -->
       <%= link_to "Navigate", "https://www.google.fr/maps/dir/?api=1&destination=#{@sp_offer.restaurant.latitude},#{@sp_offer.restaurant.longitude}", method: :get, class: "btn btn-primary btn-lg rounded-3" %>
-      <%= button_to "I'M THERE", special_offer_path(@sp_offer), method: :patch, class: "btn btn-primary btn-lg rounded-3", form: {data: {turbo_confirm: 'Can you confirm the deal ?', turbo_confirm_confirm_label: "Yes",   turbo_confirm_cancel_label: "No"}} %>
+      <%= form_for @sp_offer, html: {
+      data: {
+        controller: "sweetalert",
+        sweetalert_icon_value: "warning",
+        sweetalert_title_value: "Is the special offer still valid?",
+        sweetalert_html_value: "Or is it over?",
+        sweetalert_confirm_button_text_value: "Valid!",
+        sweetalert_show_cancel_button_value: true,
+        sweetalert_cancel_button_text_value: "Over 😔",
+        action: "submit->sweetalert#initSweetalert",
+        turbo: false
+      } } do |f| %>
+        <%= f.submit "I'M THERE", class: "btn btn-primary btn-lg rounded-3" %>
+      <% end %>
     </div>
   </div>
   <ul class="nav nav-tabs my-2" id="myTab" role="tablist">
