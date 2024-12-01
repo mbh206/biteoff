@@ -11,6 +11,8 @@ Restaurant.destroy_all
 SpecialOffer.destroy_all
 User.destroy_all
 
+puts "User creation starts..."
+
 owner = User.create!(
   username: "Steven",
   email: "Steve@biteoff.com",
@@ -44,8 +46,110 @@ christian = User.create!(
 
 christian.photo.attach(io: File.open("app/assets/images/profilepic/christian.jpg"), filename: "christian.jpg", content_type: "image/jpg")
 
+User.create!(
+  username: "TrisBeep",
+  email: "tristan@biteoff.com",
+  password: "123123"
+).photo.attach(io: File.open("app/assets/images/profilepic/Default_pfp.jpg"), filename: "default.jpg", content_type: "image/jpg")
 
-puts "Seeded 4 users!"
+User.create!(
+  username: "AdBrunz",
+  email: "adam@biteoff.com",
+  password: "123123"
+).photo.attach(io: File.open("app/assets/images/profilepic/Default_pfp.jpg"), filename: "default.jpg", content_type: "image/jpg")
+
+User.create!(
+  username: "RoHadoo",
+  email: "roman@biteoff.com",
+  password: "123123"
+).photo.attach(io: File.open("app/assets/images/profilepic/Default_pfp.jpg"), filename: "default.jpg", content_type: "image/jpg")
+
+User.create!(
+  username: "Phlanic",
+  email: "phyu@biteoff.com",
+  password: "123123"
+).photo.attach(io: File.open("app/assets/images/profilepic/Default_pfp.jpg"), filename: "default.jpg", content_type: "image/jpg")
+
+User.create!(
+  username: "KamolMasher",
+  email: "mason@biteoff.com",
+  password: "123123"
+).photo.attach(io: File.open("app/assets/images/profilepic/Default_pfp.jpg"), filename: "default.jpg", content_type: "image/jpg")
+
+User.create!(
+  username: "WCLiao",
+  email: "wei-cheng@biteoff.com",
+  password: "123123"
+).photo.attach(io: File.open("app/assets/images/profilepic/Default_pfp.jpg"), filename: "default.jpg", content_type: "image/jpg")
+
+User.create!(
+  username: "DyMayo",
+  email: "dylan@biteoff.com",
+  password: "123123"
+).photo.attach(io: File.open("app/assets/images/profilepic/Default_pfp.jpg"), filename: "default.jpg", content_type: "image/jpg")
+
+User.create!(
+  username: "BartiMiko",
+  email: "bartlomiej@biteoff.com",
+  password: "123123"
+).photo.attach(io: File.open("app/assets/images/profilepic/Default_pfp.jpg"), filename: "default.jpg", content_type: "image/jpg")
+
+User.create!(
+  username: "JarMizzy",
+  email: "jarod@biteoff.com",
+  password: "123123"
+).photo.attach(io: File.open("app/assets/images/profilepic/Default_pfp.jpg"), filename: "default.jpg", content_type: "image/jpg")
+
+User.create!(
+  username: "LoriMo",
+  email: "loris@biteoff.com",
+  password: "123123"
+).photo.attach(io: File.open("app/assets/images/profilepic/Default_pfp.jpg"), filename: "default.jpg", content_type: "image/jpg")
+
+User.create!(
+  username: "ClauOrdz",
+  email: "claudia@biteoff.com",
+  password: "123123"
+).photo.attach(io: File.open("app/assets/images/profilepic/Default_pfp.jpg"), filename: "default.jpg", content_type: "image/jpg")
+
+User.create!(
+  username: "PalToby",
+  email: "toby@biteoff.com",
+  password: "123123"
+).photo.attach(io: File.open("app/assets/images/profilepic/Default_pfp.jpg"), filename: "default.jpg", content_type: "image/jpg")
+
+User.create!(
+  username: "HenSan",
+  email: "henry@biteoff.com",
+  password: "123123"
+).photo.attach(io: File.open("app/assets/images/profilepic/Default_pfp.jpg"), filename: "default.jpg", content_type: "image/jpg")
+
+User.create!(
+  username: "SegArisa",
+  email: "arisa@biteoff.com",
+  password: "123123"
+).photo.attach(io: File.open("app/assets/images/profilepic/Default_pfp.jpg"), filename: "default.jpg", content_type: "image/jpg")
+
+User.create!(
+  username: "Denigal",
+  email: "denis@biteoff.com",
+  password: "123123"
+).photo.attach(io: File.open("app/assets/images/profilepic/Default_pfp.jpg"), filename: "default.jpg", content_type: "image/jpg")
+
+User.create!(
+  username: "VanWillow",
+  email: "will@biteoff.com",
+  password: "123123"
+).photo.attach(io: File.open("app/assets/images/profilepic/Default_pfp.jpg"), filename: "default.jpg", content_type: "image/jpg")
+
+User.create!(
+  username: "Stuaga",
+  email: "stuart@biteoff.com",
+  password: "123123"
+).photo.attach(io: File.open("app/assets/images/profilepic/Default_pfp.jpg"), filename: "default.jpg", content_type: "image/jpg")
+
+
+puts "Seeded #{User.all.count} users!"
 
 shibuya_url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+Shibuya&fields=name,formatted_address,photo,rating,opening_hours&key=#{ENV['GOOGLE_MAPS_KEY']}"
 shinjuku_url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+Shinjuku&fields=name,formatted_address,rating,photos,opening_hours&key=#{ENV['GOOGLE_MAPS_KEY']}"
