@@ -11,3 +11,14 @@
 @import "offer";
 @import "sidebar";
 @import "star";
+
+
+html {
+  max-width: 600px;
+  margin:auto;
+}
+
+body {
+  height:100vh;
+  background-color: white;
+}

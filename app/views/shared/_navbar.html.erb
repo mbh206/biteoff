@@ -1,24 +1,26 @@
-<nav class="navbar fixed-bottom bg-light bg-gradient shadow-lg">
-  <div class="container-fluid">
-    <div>
-      <%= link_to special_offers_path, class: "btn" do %>
-        <i class="fa-solid fa-house fs-1"></i>
+<div class="container">
+  <nav class="navbar fixed-bottom bg-light bg-gradient shadow-lg">
+    <div class="container-fluid">
+      <div>
+        <%= link_to special_offers_path, class: "btn" do %>
+          <i class="fa-solid fa-house fs-1"></i>
+        <% end %>
+      </div>
+      <div>
+        <% if user_signed_in? %>
+          <%= link_to new_special_offer_path, class: "btn" do %>
+            <i class="fa-solid fa-plus fs-1"></i>
+          <% end %></div>
       <% end %>
+      <% if user_signed_in?%>
+        <%= link_to user_path(current_user), class: "btn" do %>
+          <%= image_tag "avatar.png", class: "img-thumbnail rounded-circle", width: "50px" %>
+        <%end%>
+      <%else%>
+        <%= link_to new_user_session_path, class: "btn" do %>
+          <i class="fa-solid fa-circle-user fs-1"></i>
+        <%end%>
+      <%end%>
     </div>
-    <div>
-      <% if user_signed_in? %>
-        <%= link_to new_special_offer_path, class: "btn" do %>
-          <i class="fa-solid fa-plus fs-1"></i>
-        <% end %></div>
-    <% end %>
-    <% if user_signed_in?%>
-      <%= link_to user_path(current_user), class: "btn" do %>
-        <%= image_tag "avatar.png", class: "img-thumbnail rounded-circle", width: "50px" %>
-      <%end%>
-    <%else%>
-      <%= link_to new_user_session_path, class: "btn" do %>
-        <i class="fa-solid fa-circle-user fs-1"></i>
-      <%end%>
-    <%end%>
-  </div>
-</nav>
+  </nav>
+</div>
