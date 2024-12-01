@@ -14,9 +14,33 @@
   height:calc(100vh - 121px);
 }
 
+.right-pane {
+  flex-grow: 1;
+  width: 100%;
+}
+
 .default_offer-card-wrapper {
-  width: 40%;
+  max-width: 100px;
+  max-height: 140px;
   margin-right: 10px;
+}
+
+.offerdetails{
+    color: $orange;
+    margin-bottom: 0 !important;
+}
+
+.offerdetails-label {
+  font-size: .8rem;
+}
+
+.offer-title {
+  text-transform: uppercase;
+  font-weight: 600;
+  text-align: center;
+  background-color: #1F8BE920;
+  color: #000000;
+  padding-top: 3px;
 }
 
 .default_offer-card {
@@ -37,8 +61,7 @@
 }
 
 .offer-card-rest {
-  background-color: #1F8BE920;
-  padding: 2px 15px;
   border-radius: 5px;
   color: black;
+  margin-bottom: 0;
 }
