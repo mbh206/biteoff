@@ -60,7 +60,7 @@ puts "Creating restaurants in Shibuya..."
 # Restaurant seeds with names, categories, and coordinates (latitude and longitude)
 shibuya_restaurants = [
   { name: "Barbacoa Grill Shibuya", category: "Brazilian Steakhouse / BBQ", latitude: 35.6594, longitude: 139.7014 },
-  { name: "Gyukatsu Motomura", category: "Japanese / Beef Restaurant", latitude: 35.6642, longitude: 139.6993 },
+  { name: "Gyukatsu Motomura-  SHibuya", category: "Japanese / Beef Restaurant", latitude: 35.6642, longitude: 139.6993 },
   { name: "BALCONE SHIBUYA", category: "Italian / Mediterranean", latitude: 35.6583, longitude: 139.6982 },
   { name: "Mo-Mo-Paradise", category: "Japanese / Shabu-shabu / Hot Pot", latitude: 35.6568, longitude: 139.7011 },
   { name: "We are the farm", category: "Organic / Farm-to-Table", latitude: 35.6612, longitude: 139.7019 },
@@ -106,7 +106,7 @@ shinjuku_restaurants = [
   { name: "Mo-Mo-Paradise Meiji Dori", category: "Japanese / Shabu-shabu / Hot Pot", latitude: 35.6887, longitude: 139.7012 },
   { name: "Ichiran Shinjuku Kabuki-cho", category: "Japanese / Ramen", latitude: 35.6933, longitude: 139.7017 },
   { name: "Sarabeth's LUMINE 2", category: "International / American Brunch", latitude: 35.6904, longitude: 139.7002 },
-  { name: "Gyukatsu Motomura", category: "Japanese / Beef Restaurant", latitude: 35.6908, longitude: 139.6986 },
+  { name: "Gyukatsu Motomura - Shinjuku", category: "Japanese / Beef Restaurant", latitude: 35.6908, longitude: 139.6986 },
   { name: "Sanagi Shinjuku", category: "Japanese / Yakiniku", latitude: 35.6936, longitude: 139.7021 },
   { name: "Tsurutontan Shinjuku", category: "Japanese / Udon", latitude: 35.6914, longitude: 139.7019 },
   { name: "Beef Kitchen Stand", category: "Japanese / Beef / Steak", latitude: 35.6950, longitude: 139.7024 },
