@@ -1,6 +1,11 @@
 <span><%=  User.joins(group_members: :friend_group).distinct.pluck(:name).first %>'s friends:</span>
 <ul>
-  <%User.joins(:group_members).where.not(id: current_user).pluck(:username).each do |friend_name| %>
-    <li><%= friend_name %></li>
-  <% end %>
-</ul>
+  <%#User.joins(:group_members).where.not(id: current_user).pluck(:username).each do |friend_name| %>
+    <li><%#= friend_name %></li>
+    <%# end %>
+  </ul>
+  <ul>
+    <% @users.each do |user|%>
+      <li><%=user.username%></li>
+    <% end %>
+  </ul>
