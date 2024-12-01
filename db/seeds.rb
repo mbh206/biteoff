@@ -55,30 +55,30 @@ ginza_url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=re
 
 
 
-puts "Creating restaurants in Shibuya"
+puts "Creating restaurants in Shibuya..."
 
 # Restaurant seeds with names, categories, and coordinates (latitude and longitude)
 shibuya_restaurants = [
   { name: "Barbacoa Grill Shibuya", category: "Brazilian Steakhouse / BBQ", latitude: 35.6594, longitude: 139.7014 },
   { name: "Gyukatsu Motomura", category: "Japanese / Beef Restaurant", latitude: 35.6642, longitude: 139.6993 },
   { name: "BALCONE SHIBUYA", category: "Italian / Mediterranean", latitude: 35.6583, longitude: 139.6982 },
-  { name: "Mo-Mo-Paradise Shibuya Center Street Store", category: "Japanese / Shabu-shabu / Hot Pot", latitude: 35.6568, longitude: 139.7011 },
+  { name: "Mo-Mo-Paradise", category: "Japanese / Shabu-shabu / Hot Pot", latitude: 35.6568, longitude: 139.7011 },
   { name: "We are the farm", category: "Organic / Farm-to-Table", latitude: 35.6612, longitude: 139.7019 },
   { name: "Maguro-to-Shari Shibuya", category: "Japanese / Sushi", latitude: 35.6569, longitude: 139.7012 },
-  { name: "KINKA Sushi Bar Izakaya Shibuya", category: "Japanese / Sushi / Izakaya", latitude: 35.6574, longitude: 139.7014 },
+  { name: "KINKA Sushi Bar Shibuya", category: "Japanese / Sushi / Izakaya", latitude: 35.6574, longitude: 139.7014 },
   { name: "Nakayoshi Shibuya Stream", category: "Japanese / Sushi", latitude: 35.6624, longitude: 139.6995 },
-  { name: "Tsukishima Monja Kuuya Shibuya", category: "Japanese / Monjayaki / Okonomiyaki", latitude: 35.6637, longitude: 139.6979 },
-  { name: "Shibuya Tokyo Hamburg Steak Restaurant Hikiniku no Toriko Shibuya Store", category: "Japanese / Hamburg Steak", latitude: 35.6607, longitude: 139.7004 },
+  { name: "Tsukishima Monja Kuuya", category: "Japanese / Monjayaki / Okonomiyaki", latitude: 35.6637, longitude: 139.6979 },
+  { name: "Hikiniku no Toriko", category: "Japanese / Hamburg Steak", latitude: 35.6607, longitude: 139.7004 },
   { name: "Ichiran Shibuya", category: "Japanese / Ramen", latitude: 35.6582, longitude: 139.7015 },
   { name: "Gyumon Shibuya", category: "Japanese / Yakiniku / Beef", latitude: 35.6605, longitude: 139.7016 },
   { name: "Sushi no Midori Shibuya", category: "Japanese / Sushi", latitude: 35.6604, longitude: 139.7017 },
   { name: "Arossa Shibuya", category: "Italian / Wine Bar", latitude: 35.6619, longitude: 139.6968 },
   { name: "Tenku no Tsuki", category: "Japanese / Fine Dining / Kaiseki", latitude: 35.6581, longitude: 139.7018 },
-  { name: "Local Shibuya Dogenzaka", category: "International / Fusion", latitude: 35.6628, longitude: 139.6998 },
+  { name: "Local Shibuya", category: "International / Fusion", latitude: 35.6628, longitude: 139.6998 },
   { name: "THE LEGIAN TOKYO", category: "International / Fine Dining", latitude: 35.6615, longitude: 139.6989 },
   { name: "Uobei Goulabe", category: "Japanese / Sushi", latitude: 35.6610, longitude: 139.7000 },
   { name: "Kinkume", category: "Japanese / Sushi / Izakaya", latitude: 35.6588, longitude: 139.6990 },
-  { name: "Shibuya Shokudo Ventuno Tokyo", category: "Italian / Casual Dining", latitude: 35.6611, longitude: 139.6997 }
+  { name: "Shokudo Ventuno", category: "Italian / Casual Dining", latitude: 35.6611, longitude: 139.6997 }
 ]
 
 shibuya_restaurants.each do |restaurant|
@@ -88,32 +88,32 @@ shibuya_restaurants.each do |restaurant|
     longitude: restaurant[:longitude],
     user: owner)
 end
+puts "Created #{shibuya_restaurants.count} restaurants in Shibuya"
 
-
-puts "Creating restaurants in Shinjuku"
+puts "Creating restaurants in Shinjuku..."
 
 # Restaurant seeds with names, categories, and coordinates (latitude and longitude)
 shinjuku_restaurants = [
-  { name: "Tempura Shinjuku Tsunahachi Souhonten", category: "Japanese / Tempura", latitude: 35.6903, longitude: 139.7017 },
+  { name: "Tempura Tsunahachi", category: "Japanese / Tempura", latitude: 35.6903, longitude: 139.7017 },
   { name: "Shinjuku Kappo NAKAJIMA", category: "Japanese / Kappo (Traditional)", latitude: 35.6909, longitude: 139.7026 },
-  { name: "Nabezo Shinjuku Sanchome Store", category: "Japanese / Shabu-shabu / Hot Pot", latitude: 35.6901, longitude: 139.7014 },
+  { name: "Nabezo Shinjuku", category: "Japanese / Shabu-shabu / Hot Pot", latitude: 35.6901, longitude: 139.7014 },
   { name: "Ichiran Ramen", category: "Japanese / Ramen", latitude: 35.6910, longitude: 139.7011 },
   { name: "Kakekomi Gyoza", category: "Japanese / Gyoza", latitude: 35.6905, longitude: 139.7015 },
   { name: "Barbacoa Shinjuku", category: "Brazilian Steakhouse / BBQ", latitude: 35.6915, longitude: 139.7043 },
-  { name: "Momo Paradise Shinjuku Higashi-guchi", category: "Japanese / Shabu-shabu / Hot Pot", latitude: 35.6889, longitude: 139.7024 },
-  { name: "Ramen Nagi - Shinjuku Golden-gai Honkan", category: "Japanese / Ramen", latitude: 35.6947, longitude: 139.7029 },
-  { name: "Katsukura Shinjuku Takashimaya", category: "Japanese / Tonkatsu", latitude: 35.6900, longitude: 139.7020 },
-  { name: "Mo-Mo-Paradise Shinjuku Meiji Dori (formerly Nabezo)", category: "Japanese / Shabu-shabu / Hot Pot", latitude: 35.6887, longitude: 139.7012 },
+  { name: "Momo Paradise Higashi-guchi", category: "Japanese / Shabu-shabu / Hot Pot", latitude: 35.6889, longitude: 139.7024 },
+  { name: "Ramen Nagi - Shinjuku", category: "Japanese / Ramen", latitude: 35.6947, longitude: 139.7029 },
+  { name: "Katsukura Shinjuku", category: "Japanese / Tonkatsu", latitude: 35.6900, longitude: 139.7020 },
+  { name: "Mo-Mo-Paradise Meiji Dori", category: "Japanese / Shabu-shabu / Hot Pot", latitude: 35.6887, longitude: 139.7012 },
   { name: "Ichiran Shinjuku Kabuki-cho", category: "Japanese / Ramen", latitude: 35.6933, longitude: 139.7017 },
-  { name: "Sarabeth's LUMINE 2 Shinjuku Branch", category: "International / American Brunch", latitude: 35.6904, longitude: 139.7002 },
-  { name: "Gyukatsu Motomura Shinjuku South exit Store", category: "Japanese / Beef Restaurant", latitude: 35.6908, longitude: 139.6986 },
+  { name: "Sarabeth's LUMINE 2", category: "International / American Brunch", latitude: 35.6904, longitude: 139.7002 },
+  { name: "Gyukatsu Motomura", category: "Japanese / Beef Restaurant", latitude: 35.6908, longitude: 139.6986 },
   { name: "Sanagi Shinjuku", category: "Japanese / Yakiniku", latitude: 35.6936, longitude: 139.7021 },
   { name: "Tsurutontan Shinjuku", category: "Japanese / Udon", latitude: 35.6914, longitude: 139.7019 },
-  { name: "Beef Kitchen Stand Shinjuku-Kabukicho", category: "Japanese / Beef / Steak", latitude: 35.6950, longitude: 139.7024 },
+  { name: "Beef Kitchen Stand", category: "Japanese / Beef / Steak", latitude: 35.6950, longitude: 139.7024 },
   { name: "Sushizanmai", category: "Japanese / Sushi", latitude: 35.6913, longitude: 139.7010 },
   { name: "FISH Shinjuku Store", category: "Seafood / Sushi", latitude: 35.6902, longitude: 139.7014 },
   { name: "Shogun Burger Shinjuku", category: "American / Burgers", latitude: 35.6901, longitude: 139.7030 },
-  { name: "Nakau - Shinjuku Shokuan-dori Avenue", category: "Japanese / Fast Food (Udon, Donburi)", latitude: 35.6922, longitude: 139.7021 }
+  { name: "Nakau - Shinjuku", category: "Japanese / Fast Food (Udon, Donburi)", latitude: 35.6922, longitude: 139.7021 }
 ]
 
 shinjuku_restaurants.each do |restaurant|
@@ -123,13 +123,14 @@ shinjuku_restaurants.each do |restaurant|
     longitude: restaurant[:longitude],
     user: owner)
 end
+puts "Created #{shinjuku_restaurants.count} restaurants in Shinjuku"
 
-puts "Creating restaurants in Meguro"
+puts "Creating restaurants in Meguro..."
 
 # Restaurant seeds with names, categories, and coordinates (latitude and longitude)
 meguro_restaurants = [
-  { name: "Mokuren Korean Restaurant", category: "Korean", latitude: 35.6423, longitude: 139.7010 },
-  { name: "目黒ダイニングCOVO", category: "Japanese / Dining", latitude: 35.6395, longitude: 139.6998 },
+  { name: "Mokuren Korean", category: "Korean", latitude: 35.6423, longitude: 139.7010 },
+  { name: "Covo - Meguro", category: "Japanese / Dining", latitude: 35.6395, longitude: 139.6998 },
   { name: "Bistro Egalite | French restaurant, Meguro", category: "French", latitude: 35.6442, longitude: 139.6963 },
   { name: "Kabi", category: "Japanese / Modern", latitude: 35.6401, longitude: 139.7041 },
   { name: "Kitchen Punch", category: "American / Casual", latitude: 35.6399, longitude: 139.7015 },
@@ -138,15 +139,15 @@ meguro_restaurants = [
   { name: "Trattoria Ciaoro", category: "Italian", latitude: 35.6413, longitude: 139.6989 },
   { name: "Meguro-Nagamoto", category: "Japanese / Traditional", latitude: 35.6443, longitude: 139.6991 },
   { name: "Rigoletto Short Hills", category: "Italian", latitude: 35.6416, longitude: 139.7027 },
-  { name: "Hungry Heaven Meguro", category: "American / Comfort Food", latitude: 35.6406, longitude: 139.6988 },
-  { name: "Japanese Style French Restaurants Restaurant Re:", category: "French / Japanese Fusion", latitude: 35.6410, longitude: 139.7004 },
+  { name: "Hungry Heaven", category: "American / Comfort Food", latitude: 35.6406, longitude: 139.6988 },
+  { name: "Restaurant Re:", category: "French / Japanese Fusion", latitude: 35.6410, longitude: 139.7004 },
   { name: "FUKUNOHANA Meguro", category: "Japanese / Kaiseki", latitude: 35.6407, longitude: 139.7031 },
-  { name: "WE ARE THE FARM Meguro", category: "Organic / Farm-to-Table", latitude: 35.6425, longitude: 139.6994 },
+  { name: "WE ARE THE FARM", category: "Organic / Farm-to-Table", latitude: 35.6425, longitude: 139.6994 },
   { name: "Locale", category: "International / Fusion", latitude: 35.6403, longitude: 139.7012 },
   { name: "Tonki", category: "Japanese / Tonkatsu", latitude: 35.6421, longitude: 139.7013 },
-  { name: "Okinawa Soba Dining DOKO DOKO", category: "Japanese / Okinawan", latitude: 35.6392, longitude: 139.6982 },
+  { name: "DOKO DOKO", category: "Japanese / Okinawan", latitude: 35.6392, longitude: 139.6982 },
   { name: "I-rottah", category: "Japanese / Izakaya", latitude: 35.6409, longitude: 139.7018 },
-  { name: "New American Grill “KANADE TERRACE”", category: "American / Grill", latitude: 35.6418, longitude: 139.6985 },
+  { name: "New American Grill", category: "American / Grill", latitude: 35.6418, longitude: 139.6985 },
   { name: "Cabe", category: "International / Casual Dining", latitude: 35.6414, longitude: 139.7003 }
 ]
 
@@ -157,8 +158,9 @@ meguro_restaurants.each do |restaurant|
     longitude: restaurant[:longitude],
     user: owner)
 end
+puts "Created #{meguro_restaurants.count} restaurants in Meguro"
 
-puts "Creating restaurants in Ginza"
+puts "Creating restaurants in Ginza..."
 
 # Restaurant seeds with names, categories, and coordinates (latitude and longitude)
 ginza_restaurants = [
@@ -168,12 +170,12 @@ ginza_restaurants = [
   { name: "Gyūan Ginza", category: "Japanese / Yakiniku (Beef)", latitude: 35.6735, longitude: 139.7627 },
   { name: "Ginza Kyūbey Honten", category: "Japanese / Sushi", latitude: 35.6733, longitude: 139.7617 },
   { name: "Makiyaki Ginza Onodera", category: "Japanese / BBQ", latitude: 35.6728, longitude: 139.7615 },
-  { name: "Tsuru TonTan UDON NOODLE Brasserie Ginza", category: "Japanese / Udon", latitude: 35.6712, longitude: 139.7645 },
+  { name: "Tsuru TonTan UDON NOODLE", category: "Japanese / Udon", latitude: 35.6712, longitude: 139.7645 },
   { name: "Ichi-nii-san", category: "Japanese / Sushi", latitude: 35.6721, longitude: 139.7630 },
   { name: "Ginza Kousui", category: "Japanese / Kaiseki", latitude: 35.6717, longitude: 139.7641 },
-  { name: "French Teppan Restaurant Ginza Fujimaru", category: "French / Teppanyaki", latitude: 35.6734, longitude: 139.7619 },
+  { name: "Fujimaru - Ginza", category: "French / Teppanyaki", latitude: 35.6734, longitude: 139.7619 },
   { name: "L'Osier", category: "French / Fine Dining", latitude: 35.6730, longitude: 139.7621 },
-  { name: "Shabusen Ginza 8F Shop", category: "Japanese / Shabu-shabu", latitude: 35.6741, longitude: 139.7610 },
+  { name: "Shabusen - Ginza", category: "Japanese / Shabu-shabu", latitude: 35.6741, longitude: 139.7610 },
   { name: "bills Ginza", category: "International / Australian Brunch", latitude: 35.6719, longitude: 139.7635 },
   { name: "Ippudo - Ginza", category: "Japanese / Ramen", latitude: 35.6738, longitude: 139.7624 },
   { name: "Ginza Maru", category: "Japanese / Sushi", latitude: 35.6725, longitude: 139.7620 },
@@ -191,6 +193,7 @@ ginza_restaurants.each do |restaurant|
     longitude: restaurant[:longitude],
     user: owner)
 end
+puts "Created #{ginza_restaurants.count} restaurants in Ginza"
 
 puts "....created #{Restaurant.count} restaurants!"
 
