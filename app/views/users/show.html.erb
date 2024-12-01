@@ -17,7 +17,7 @@
     </div>
   </div>
   <%= simple_form_for @user do |f|%>
-    <%= f.input_field :username, collection: User.all, prompt: "Search Friend"%>
+    <%= f.input_field :id, collection: @users.pluck(:username, :id), prompt: "Search Friend"%>
   <% end %>
   <%=render "friends_list"%>
 </div>
