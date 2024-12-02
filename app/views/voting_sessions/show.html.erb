@@ -1,9 +1,23 @@
-<div class="container">
-  <div class="offerslist">
-    <%#= render "offerslist" %>
-  </div>
-  <div class="friendslist">
-    hello
-    <%#= render "friendslist" %>
-  </div>
-</div>
+<h1>Voting Session Details</h1>
+<h2>Friends in this Voting Session:</h2>
+<% if @friends.any? %>
+  <ul>
+    <% @friends.each do |friend| %>
+      <li><%= friend.name %></li>
+ <!-- Replace `friend.name` with the appropriate user attribute -->
+    <% end %>
+  </ul>
+<% else %>
+  <p>No other friends in this voting session yet.</p>
+<% end %>
+<h2>Special Offers:</h2>
+<% if @special_offers.any? %>
+  <ul>
+    <% @special_offers.each do |offer| %>
+      <li><%= link_to offer.title, special_offer_path(offer) %></li>
+ <!-- Replace `offer.title` with the appropriate attribute -->
+    <% end %>
+  </ul>
+<% else %>
+  <p>No special offers available for this voting session.</p>
+<% end %>
