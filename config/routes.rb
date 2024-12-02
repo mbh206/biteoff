@@ -13,5 +13,7 @@ Rails.application.routes.draw do
   # Steve's add
   resources :locations, only: [:index]
 
+  # Chaf's add for accept/decline
+  resources :invitations, only: [:update]
 
 end
