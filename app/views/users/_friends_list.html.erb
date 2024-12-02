@@ -1,11 +1,13 @@
-<!-- If you want to retieve the current user group name
-<span><%#%=  User.joins(group_members: :friend_group).distinct.pluck(:name).first %>'s friends:</span>
--->
-<h3>Find a friend</h3>
-<%= simple_form_for @invitation do |f|%>
-  <%= f.input_field :friend_id, collection: @users.pluck(:username, :id), prompt: "Search Friend"%>
-  <%= f.submit 'Invite' %>
-<% end %>
+<div class="row mb-3">
+  <%= simple_form_for @invitation, html: { class: "d-flex align-items-center search-form" } do |f|%>
+    <%= f.input_field :friend_id, 
+    collection: @users.pluck(:username, :id), 
+    prompt: "Search Friend", 
+    class: "form-control me-2 rounded-pill", 
+    input_html: { style: "width: auto; flex: 1;" } %>
+    <%= f.submit 'Invite', class: "btn btn-primary rounded-pill" %>
+  <% end %>
+</div>
 <br>
 <h3><%=@user.username%>'s friends</h3>
 <ul>
