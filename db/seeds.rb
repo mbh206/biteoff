@@ -3,10 +3,7 @@ require 'open-uri'
 require 'json'
 
 puts "Cleaning the DB..."
-GroupMember.destroy_all
-FriendGroup.destroy_all
-OffersCollection.destroy_all
-SpecialOffersList.destroy_all
+Collection.destroy_all
 Restaurant.destroy_all
 SpecialOffer.destroy_all
 User.destroy_all
@@ -364,25 +361,3 @@ special_offers.each do |offer|
   review.save
 end
 puts "...created #{special_offers.count * 3} reviews"
-
-puts "...creating  friend group"
-biteoff_grp = FriendGroup.new(name: "BiteOff")
-
-puts "...including friend in the group"
-User.all.each do |user|
-  member = GroupMember.new
-  member.user = user
-  member.friend_group = biteoff_grp
-  member.save!
-end
-
-puts "...creating SpecialOffersList & OffersCollection"
-marksparty = SpecialOffersList.create!(name: "Mark's Party", user: mark)
-OffersCollection.create!(special_offer: SpecialOffer.all[0], special_offers_list: marksparty)
-OffersCollection.create!(special_offer: SpecialOffer.all[1], special_offers_list: marksparty)
-chafsparty = SpecialOffersList.create!(name: "Chaf's Party", user: shafiq)
-OffersCollection.create!(special_offer: SpecialOffer.all[2], special_offers_list: chafsparty)
-OffersCollection.create!(special_offer: SpecialOffer.all[3], special_offers_list: chafsparty)
-christiansparty = SpecialOffersList.create!(name: "Christian's Party", user: christian)
-OffersCollection.create!(special_offer: SpecialOffer.all[4], special_offers_list: christiansparty)
-OffersCollection.create!(special_offer: SpecialOffer.all[5], special_offers_list: christiansparty)
