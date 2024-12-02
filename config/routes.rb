@@ -20,6 +20,6 @@ Rails.application.routes.draw do
   resources :locations, only: [:index]
 
   # Chaf's add for accept/decline
-  resources :invitations, only: [:update]
+  resources :invitations, only: [:update,:create]
 
 end

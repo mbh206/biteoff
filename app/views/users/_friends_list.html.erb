@@ -2,8 +2,9 @@
 <span><%#%=  User.joins(group_members: :friend_group).distinct.pluck(:name).first %>'s friends:</span>
 -->
 <h3>Find a friend</h3>
-<%= simple_form_for @user do |f|%>
-  <%= f.input_field :id, collection: @users.pluck(:username, :id), prompt: "Search Friend"%>
+<%= simple_form_for @invitation do |f|%>
+  <%= f.input_field :friend_id, collection: @users.pluck(:username, :id), prompt: "Search Friend"%>
+  <%= f.submit 'Invite' %>
 <% end %>
 <br>
 <h3><%=@user.username%>'s friends</h3>
