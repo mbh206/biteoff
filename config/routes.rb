@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :reviews, only: [:update, :destroy]
 
   resources :special_offers, only: [] do
-    resources :voting_sessions, only: [:show]
+    resources :voting_sessions, only: [:show, :create]
   end
 
 
