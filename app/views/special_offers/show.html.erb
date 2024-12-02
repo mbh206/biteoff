@@ -8,7 +8,7 @@
           data-sp-offer-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
   <div class="container">
-    <%=link_to "Go To-Gather", special_offer_voting_session_path(@sp_offer), class: "justify-content-end m-auto btn btn-info rounded-5 w-100 px-3 my-2" %>
+    <%=link_to "Go To-Gather", csib_path(@sp_offer), class: "justify-content-end m-auto btn btn-info rounded-5 w-100 px-3 my-2" %>
     <div class="my-2">
       <i class="offerdetails fa-solid fa-utensils"></i>
       <span class="text-dark"><%=@sp_offer.restaurant.name%></span>
