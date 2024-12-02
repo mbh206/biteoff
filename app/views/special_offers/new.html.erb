@@ -1,8 +1,8 @@
-<div class="container">
-  <div class="mt-2">
+<div class="container mb-5">
+  <div class="my-4">
     <h1>New Special Offer</h1>
     <%= simple_form_for(@specialoffer) do |f|%>
-      <div class="form-group mt-4">
+      <div class="form-group my-4">
         <!-- Custom Label -->
         <%= f.association :restaurant, input_html: {data: {controller: "tom-select"}} %>
         <%= f.input :category, placeholder: "BOGO sandwiches!", label: false %>
@@ -12,8 +12,9 @@
         <%= f.input :start_time, html5: true, label: "Times (if applicable)" %>
         <%= f.input :end_time, html5: true, label: false %>
         <%= f.input :photos, as: :file, input_html: { multiple: true }, label: false %>
-        <%= f.submit class: "btn btn-primary my-3 " %>
-      <% end %>
-    </div>
+        <%= f.submit class: "btn btn-primary mt-3 mb-5" %>
+      </div>
+    <% end %>
   </div>
+  <hr class="mt-5">
 </div>
