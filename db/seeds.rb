@@ -377,10 +377,12 @@ User.all.each do |user|
 end
 
 puts "...creating SpecialOffersList & OffersCollection"
-marksparty = SpecialOffersList.create!(name: "Mark s Party")
+marksparty = SpecialOffersList.create!(name: "Mark's Party", user: mark)
 OffersCollection.create!(special_offer: SpecialOffer.all[0], special_offers_list: marksparty)
 OffersCollection.create!(special_offer: SpecialOffer.all[1], special_offers_list: marksparty)
-chafsparty = SpecialOffersList.create!(name: "Chaf s Party")
+chafsparty = SpecialOffersList.create!(name: "Chaf's Party", user: shafiq)
 OffersCollection.create!(special_offer: SpecialOffer.all[2], special_offers_list: chafsparty)
 OffersCollection.create!(special_offer: SpecialOffer.all[3], special_offers_list: chafsparty)
-
+christiansparty = SpecialOffersList.create!(name: "Christian's Party", user: christian)
+OffersCollection.create!(special_offer: SpecialOffer.all[4], special_offers_list: christiansparty)
+OffersCollection.create!(special_offer: SpecialOffer.all[5], special_offers_list: christiansparty)
