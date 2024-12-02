@@ -1,19 +1,16 @@
 <h1>Voting Session Details</h1>
 <h2>Special Offers:</h2>
-<% if @special_offers %>
-  <ul>
-    <% @special_offers.each do |offer| %>
-      <li><%= link_to offer.title, special_offer_path(offer) %></li>
-    <% end %>
-  </ul>
-<% else %>
-  <p>No special offers available for this voting session.</p>
+<% @voting_session.special_offers.each do |offer| %>
+  <li><%= link_to offer.category, special_offer_path(offer) %></li>
+  <li><%= link_to offer.description, special_offer_path(offer) %></li>
 <% end %>
+</ul>
 <h2>Friends in this Voting Session:</h2>
-<% if @friends %>
+<%= current_user.username %>'s friend list
+<% if current_user.friends %>
   <ul>
-    <% @friends.each do |friend| %>
-      <li><%= friend.name %></li>
+    <% current_user.friends.each do |friend| %>
+      <li><%= friend.username %></li>
     <% end %>
   </ul>
 <% else %>
