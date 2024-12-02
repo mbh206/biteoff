@@ -14,7 +14,7 @@
       <% end %>
       <% if user_signed_in?%>
         <%= link_to user_path(current_user), class: "btn" do %>
-          <%= image_tag "avatar.png", class: "img-thumbnail rounded-circle", width: "50px" %>
+          <%= cl_image_tag current_user.photo.key, class: "img-thumbnail rounded-circle", width: "50px" %>
         <%end%>
       <%else%>
         <%= link_to new_user_session_path, class: "btn" do %>
