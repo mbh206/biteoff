@@ -1,11 +1,17 @@
 class VotingSessionsController < ApplicationController
   def csib
     @voting_session = VotingSession.new
-    @voting_session.special_offers << SpecialOffer.find(params[:special_offer_id])
-    @voting_session.users << current_user
-    @voting_session.save
+    collection = Collection.new
+    collection.special_offer = SpecialOffer.find(params[:special_offer_id])
+    collection.voting_session = @voting_session
+    collection.save!
+    voter = Voter.new
+    voter.user = current_user
+    voter.voting_session = @voting_session
+    voter.save!
+    @voting_session.save!
 
-    render :show
+    redirect_to voting_session_path(@voting_session)
   end
   def show
     unless @voting_session
