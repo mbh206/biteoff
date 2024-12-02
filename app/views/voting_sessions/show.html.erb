@@ -4,7 +4,7 @@
   <ul>
     <% @friends.each do |friend| %>
       <li><%= friend.name %></li>
- <!-- Replace `friend.name` with the appropriate user attribute -->
+      <!-- Replace `friend.name` with the appropriate user attribute -->
     <% end %>
   </ul>
 <% else %>
@@ -15,7 +15,7 @@
   <ul>
     <% @special_offers.each do |offer| %>
       <li><%= link_to offer.title, special_offer_path(offer) %></li>
- <!-- Replace `offer.title` with the appropriate attribute -->
+      <!-- Replace `offer.title` with the appropriate attribute -->
     <% end %>
   </ul>
 <% else %>
