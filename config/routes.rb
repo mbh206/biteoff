@@ -12,12 +12,9 @@ Rails.application.routes.draw do
   resources :reviews, only: [:update, :destroy]
 
   resources :special_offers, only: [] do
-    resources :special_offers_lists, only: [:new, :create]
+    resources :voting_sessions, only: [:show]
   end
 
-  resources :special_offers, only: [] do
-    resources :offers_collections, only: [:new, :create]
-  end
 
   # Steve's add
   resources :locations, only: [:index]
