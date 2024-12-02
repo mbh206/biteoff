@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_11_28_053449) do
+ActiveRecord::Schema[7.1].define(version: 2024_12_01_141249) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -55,6 +55,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_28_053449) do
     t.datetime "updated_at", null: false
     t.index ["friend_group_id"], name: "index_group_members_on_friend_group_id"
     t.index ["user_id"], name: "index_group_members_on_user_id"
+  end
+
+  create_table "invitations", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.integer "friend_id"
+    t.boolean "confirmed", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_invitations_on_user_id"
   end
 
   create_table "offers_collections", force: :cascade do |t|
@@ -148,6 +157,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_28_053449) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "group_members", "friend_groups"
   add_foreign_key "group_members", "users"
+  add_foreign_key "invitations", "users"
   add_foreign_key "offers_collections", "special_offers"
   add_foreign_key "offers_collections", "special_offers_lists"
   add_foreign_key "restaurants", "users"
