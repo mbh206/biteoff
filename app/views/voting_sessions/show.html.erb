@@ -1,18 +1,35 @@
-<h1>Voting Session Details</h1>
-<h2>Special Offers:</h2>
-<% @voting_session.special_offers.each do |offer| %>
-  <li><%= link_to offer.category, special_offer_path(offer) %></li>
-  <li><%= link_to offer.description, special_offer_path(offer) %></li>
-<% end %>
-</ul>
-<h2>Friends in this Voting Session:</h2>
-<%= current_user.username %>'s friend list
-<% if current_user.friends %>
-  <ul>
-    <% current_user.friends.each do |friend| %>
-      <li><%= friend.username %></li>
-    <% end %>
-  </ul>
-<% else %>
-  <p>No other friends in this voting session yet.</p>
-<% end %>
+<div class="container">
+    <div class="offerslist">
+    <%#= render "offerslist" %>
+    Voting for :
+    <ul>
+      <%@voting_session.special_offers.each do |special_offer|%>
+        <li><%=special_offer.description%> in <%=special_offer.restaurant.name%></li>
+      <%end%>
+    </ul>
+  </div>
+  <div class="friendslist">
+    Available friends:
+    <ul>
+      <% current_user.friends.each do |user| %>
+        <li>
+          <div class="d-flex align-items-center">
+            <%=user.username%>
+            <%= simple_form_for @voter do |f| %>
+              <%= f.input :user_id, as: :hidden, input_html: { value: user.id} %>
+              <%= f.input :voting_session_id, as: :hidden, input_html: { value: @voting_session.id} %>
+              <%= f.submit 'Add' %>
+            <% end %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+    Voters:
+    <ul>
+      <% @voting_session.voters.each do |voter| %>
+        <li><%=voter.user.username%></li>
+      <% end %>
+    </ul>
+    <%#= render "friendslist" %>
+  </div>
+</div>

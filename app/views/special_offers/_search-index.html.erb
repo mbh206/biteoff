@@ -1,12 +1,7 @@
 <div class="search-bar">
   <form action="/special_offers" method="get" style="display: flex; justify-content: center; align-items: center;">
-    <input
-        type="text"
-        name="query"
-        placeholder="Search location/craving/special..."
-        style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
-    </form>
-    <input type="hidden" id="custId" name="custId" value="<%=@coordinates%>">
-    <input type="hidden" id="custId" name="custId" value="<%=@restaurants%>">
-
-  </div>
+    <input class="searchbarinput" type="text" name="query" placeholder="Search location/craving/special...">
+  </form>
+  <input type="hidden" id="custId" name="custId" value="<%=@coordinates%>">
+  <input type="hidden" id="custId" name="custId" value="<%=@restaurants%>">
+</div>

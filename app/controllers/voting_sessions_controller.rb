@@ -14,6 +14,7 @@ class VotingSessionsController < ApplicationController
     redirect_to voting_session_path(@voting_session)
   end
   def show
+    @voter = Voter.new
     unless @voting_session
       @voting_session = VotingSession.find(params[:id])
     end
