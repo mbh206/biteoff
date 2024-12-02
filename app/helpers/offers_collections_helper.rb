@@ -1,0 +1,2 @@
+module OffersCollectionsHelper
+end

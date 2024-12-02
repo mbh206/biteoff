@@ -30,6 +30,28 @@
     <div class = "d-flex justify-content-between">
       <!-- https://www.google.com/maps/search/?api=1&query=47.5951518%2C-122.3316393&query_place_id=ChIJKxjxuaNqkFQR3CK6O1HNNqY&hl=fr -->
       <%= link_to "Navigate", "https://www.google.fr/maps/dir/?api=1&destination=#{@sp_offer.restaurant.latitude},#{@sp_offer.restaurant.longitude}", method: :get, class: "btn btn-primary btn-lg rounded-3" %>
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Add to list
+      </button>
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel"><%= @sp_offer.restaurant.name %></h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              Create new list?
+            </div>
+            <div class="modal-footer">
+              <%= link_to "Create new list", new_special_offer_special_offers_list_path(@sp_offer), class: "btn btn-primary"  %>
+              <%= link_to "Add to existing list", new_special_offer_offers_collection_path(@sp_offer), class: "btn btn-secondary"  %>
+            </div>
+          </div>
+        </div>
+      </div>
       <%= form_for @sp_offer, html: {
       data: {
         controller: "sweetalert",

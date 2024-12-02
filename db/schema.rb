@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_12_01_141249) do
+ActiveRecord::Schema[7.1].define(version: 2024_12_02_012833) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -118,6 +118,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_01_141249) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_special_offers_lists_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -165,6 +167,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_01_141249) do
   add_foreign_key "reviews", "users"
   add_foreign_key "special_offers", "restaurants"
   add_foreign_key "special_offers", "users"
+  add_foreign_key "special_offers_lists", "users"
   add_foreign_key "votes", "special_offers"
   add_foreign_key "votes", "users"
   add_foreign_key "votes", "voting_sessions"

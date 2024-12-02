@@ -1,9 +1,10 @@
 class User < ApplicationRecord
   has_many :reviews
-  has_many :offers 
+  has_many :offers
   has_one_attached :photo
   has_many :group_members, dependent: :destroy
   has_many :votes, dependent: :destroy
+  has_many :special_offers_list, dependent: :destroy
 
   #added for invitations & friendship
   has_many :invitations
