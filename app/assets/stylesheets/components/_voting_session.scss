@@ -8,6 +8,7 @@
 .friendslist {
   box-shadow: 0 0 5px #00000050;
   padding:0 20px;
+  margin-bottom: 75px;
 }
 
 .friendslist-user {
@@ -17,6 +18,10 @@
   border-bottom: 1px solid #d9d9d9;
   padding: 10px 0;
   margin-bottom: 10px;
+}
+
+.voting-btns {
+  width: 100px;
 }
 
 .for-icon {
