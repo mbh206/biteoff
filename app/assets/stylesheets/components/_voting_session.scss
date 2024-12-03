@@ -1,0 +1,19 @@
+.voting-container {
+  height: calc(100vh - 150px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.friendslist {
+  box-shadow: 0 0 5px #00000050;
+}
+
+.friendslist-user {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #d9d9d9;
+  padding: 10px 0;
+  margin-bottom: 10px;
+}
