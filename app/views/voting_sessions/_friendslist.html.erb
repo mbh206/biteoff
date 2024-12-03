@@ -1,0 +1,23 @@
+<div class="friendslist">
+  Available friends:
+  <ul>
+    <% current_user.friends.each do |user| %>
+      <li>
+        <div class="d-flex align-items-center">
+          <%=user.username%>
+          <%= simple_form_for @voter do |f| %>
+            <%= f.input :user_id, as: :hidden, input_html: { value: user.id} %>
+            <%= f.input :voting_session_id, as: :hidden, input_html: { value: @voting_session.id} %>
+            <%= f.submit 'Add' %>
+          <% end %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+  Voters:
+  <ul>
+    <% @voting_session.voters.each do |voter| %>
+      <li><%=voter.user.username%></li>
+    <% end %>
+  </ul>
+</div>
