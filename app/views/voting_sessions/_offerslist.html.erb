@@ -3,22 +3,18 @@
   <ul class="list-group">
     <%@voting_session.special_offers.each do |special_offer|%>
       <li class="list-group-item">
-        <div class = "d-flex justify-content-between align-items-center">
+        <div class="d-flex justify-content-between align-items-center">
           <div class="d-flex flex-column">
             <div>
               <i class="offerdetails fa-solid fa-utensils"></i>
               <span class="text-dark"><%=special_offer.restaurant.name%></span>
             </div>
-            <%= simple_form_for [@voting_session, @vote] do |f| %>
-              <%= f.input :special_offer_id, label: false, input_html: { value: special_offer.id, type: "hidden" } %>
-              <%= f.submit 'Vote' %>
-            <% end %>
             <div>
-              <i class="offerdetails fa-solid fa-circle-info""></i>
+              <i class="offerdetails fa-solid fa-circle-info"></i>
               <span class="text-dark"><%=special_offer.category%></span>
             </div>
           </div>
-          <div>
+          <div class="voting-btns">
             <%=link_to class: "" do%>
               <i class="fa-regular fa-square-check for-icon selected"></i>
             <%end%>
