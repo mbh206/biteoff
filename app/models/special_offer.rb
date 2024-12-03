@@ -4,7 +4,7 @@ class SpecialOffer < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many_attached :photos
   has_many :votes, dependent: :destroy
-  has_many :collections
+  has_many :collections, dependent: :destroy
 
   validates :category, :description, presence: true
   validates :confirmation_count, numericality: { greater_than_or_equal_to: 0 }
