@@ -1,6 +1,6 @@
 require "test_helper"
 
-class OffersCollectionsControllerTest < ActionDispatch::IntegrationTest
+class CollectionsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

@@ -1,8 +1,0 @@
-<div class="container">
-  <h1>Add to existing list</h1>
-  <%= simple_form_for [@special_offer, @offers_collection] do |f| %>
-    <%= f.input :special_offers_list, collection: @special_offers_list, prompt: 'Select a list', label: false %>
-    <%= f.submit "Add to your List", class: "btn btn-primary" %>
-  <% end %>
-</div>
-</div>

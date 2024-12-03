@@ -5,4 +5,12 @@
       <li><%=special_offer.description%> in <%=special_offer.restaurant.name%></li>
     <%end%>
   </ul>
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addOfferToVote">
+    Add Offer to Vote 
+  </button>
+  <%=simple_form_for @collection do |f|%>
+    <%= f.input_field :special_offer_id, collection: SpecialOffer.all.pluck(:description, :id), prompt: "Select a special offer", class: "form-control me-2 rounded-pill", input_html: { style: "width: auto; flex: 1;" } %>
+    <%= f.input :voting_session_id, as: :hidden,  class: "form-control", input_html: { value: @voting_session.id} %>
+    <%= f.submit "Add", class: "btn btn-primary" %>
+  <% end %>
 </div>

@@ -15,6 +15,7 @@ class VotingSessionsController < ApplicationController
   end
   def show
     @voter = Voter.new
+    @collection = Collection.new
     unless @voting_session
       @voting_session = VotingSession.find(params[:id])
     end
