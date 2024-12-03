@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   resources :special_offers, only: [:destroy]
   resources :reviews, only: [:update, :destroy]
 
-  resources :voting_sessions, only: [:show, :create]
+  resources :voting_sessions, only: [:show, :create] do
+    resources :votes, only: [:update,:create]
+  end
   get "/createsessioninbackground/:special_offer_id", to: "voting_sessions#csib", as: "csib"
   resources :voters, only: [:destroy]
   # Steve's add
@@ -21,4 +23,5 @@ Rails.application.routes.draw do
   resources :invitations, only: [:update,:create]
   resources :voters, only: [:create]
   resources :collections, only: [:update, :create]
+
 end

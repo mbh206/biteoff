@@ -9,6 +9,10 @@
               <i class="offerdetails fa-solid fa-utensils"></i>
               <span class="text-dark"><%=special_offer.restaurant.name%></span>
             </div>
+            <%= simple_form_for [@voting_session, @vote] do |f| %>
+              <%= f.input :special_offer_id, label: false, input_html: { value: special_offer.id, type: "hidden" } %>
+              <%= f.submit 'Vote' %>
+            <% end %>
             <div>
               <i class="offerdetails fa-solid fa-circle-info""></i>
               <span class="text-dark"><%=special_offer.category%></span>
