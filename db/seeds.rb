@@ -298,8 +298,15 @@ puts "....created #{Restaurant.count} restaurants!"
 
 deals = ["¥550 Ramen (Reg. ¥980)", "Morning set ¥500 (reg.¥800)", "2 for 1 Tacos @ lunch", "20% off any purchase over ¥1000", "¥200 off ¥1000 or more", "BOGO sandwiches @ dinner", "50% off any purchase over ¥3000", "¥100 off ¥2000 or more"]
 
-puts "Creating 10 Special Offers"
-description = ["Great savings", "Unbeatable Prices", "Amazing Offer", "Amazing deal", "Unbeatable Price"]
+puts "Creating 5 Special Offers"
+description = [
+  "Get our signature dish, chips, and a drink for just ¥1,399, available from 11 AM to 2 PM!",
+  "Family meal deal: Feed four for just ¥4,200—includes two pizzas, salad, and drinks.",
+  "Satisfy your sweet tooth with a free dessert when you order an entrée worth ¥2,100 or more!",
+  "Family meal deal: Feed four for just ¥4,200—includes two pizzas, salad, and drinks.",
+  "Celebrate the weekend early: Take ¥700 off any purchase over ¥3,500 every Friday",
+
+]
 
 def random_date(start_date, end_date)
   rand(start_date..end_date)
@@ -312,9 +319,10 @@ puts 'Creating offers'
 
   restaurants = Restaurant.all
   restaurants.each do |restaurant|
+    deal = Random.rand(0..4)
     SpecialOffer.create!(
-      category: deals.sample,
-      description: description.sample,
+      category: deals[deal],
+      description: description[deal],
       start_date: start_date,
       end_date: end_date,
       restaurant: restaurant,
@@ -362,3 +370,23 @@ special_offers.each do |offer|
   review.save
 end
 puts "...created #{special_offers.count * 3} reviews"
+
+puts "...creating  friend group"
+biteoff_grp = FriendGroup.new(name: "BiteOff")
+
+puts "...including friend in the group"
+User.all.each do |user|
+  member = GroupMember.new
+  member.user = user
+  member.friend_group = biteoff_grp
+  member.save!
+end
+
+puts "...creating SpecialOffersList & OffersCollection"
+marksparty = SpecialOffersList.create!(name: "Mark s Party")
+OffersCollection.create!(special_offer: SpecialOffer.all[0], special_offers_list: marksparty)
+OffersCollection.create!(special_offer: SpecialOffer.all[1], special_offers_list: marksparty)
+chafsparty = SpecialOffersList.create!(name: "Chaf s Party")
+OffersCollection.create!(special_offer: SpecialOffer.all[2], special_offers_list: chafsparty)
+OffersCollection.create!(special_offer: SpecialOffer.all[3], special_offers_list: chafsparty)
+
