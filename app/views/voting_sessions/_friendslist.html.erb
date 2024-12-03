@@ -1,27 +1,35 @@
 <div class="container friendslist">
   <div class="friendslist-user">
     <%#= cl_image_tag current_user.photo.key, class: "img-thumbnail rounded-circle", width: "75px", alt: "#{current_user.username}" %>
-    <h3 class=""><%= current_user.username %>  |  Your Friends Groups</h3>
+    <h3><%= current_user.username %>  |  Your Friends Groups</h3>
   </div>
-  Voters:
-  <ul>
-    <% @voting_session.voters.each do |voter| %>
-      <li>
-        <%= voter.user.username %>
-        <%= simple_form_for voter, url: voter_path(voter), method: :delete do |f| %>
-          <%= f.input :voting_session_id, as: :hidden, input_html: { value: @voting_session.id } %>
-          <%= f.submit 'Remove' %>
-        <% end %>
-      </li>
+  <div>
+    <h4>Voters:</h4>
+    <ul class="text-decoration-none list-unstyled">
+      <% @voting_session.voters.each do |voter| %>
+        <li class="d-flex align-items-center">
+          <%= cl_image_tag voter.user.photo.key, alt: "#{voter.user.username}", class: "img-thumbnail rounded-circle", width: "50px", height: "50px" %>
+          <h4 class="flex-grow-1 m-auto"><%= voter.user.username %></h4>
+          <% if voter.user != current_user %>
+            <%= simple_form_for voter, url: voter_path(voter), method: :delete do |f| %>
+              <%= f.input :voting_session_id, as: :hidden, input_html: { value: @voting_session.id } %>
+              <%= f.submit '—', class: "btn btn-primary rounded-pill mb-3" %>
+            <% end %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <hr>
+  <div>
+    <%= simple_form_for @voter, html: { class: "d-flex search-form align-items-center m-auto gap-2" } do |f| %>
+      <%= f.input :user_id,
+    collection: current_user.friends.pluck(:username, :id),
+    input_html: { class: "form-control rounded-pill flex-grow-1 mt-1" },
+    wrapper_html: { class: "mb-0 flex-grow-1" }, # Ensure no margin-bottom
+    label: false %>
+      <%= f.input :voting_session_id, as: :hidden, input_html: { value: @voting_session.id } %>
+      <%= f.submit '+ friend', class: "btn btn-primary rounded-pill mb-2" %>
     <% end %>
-  </ul>
-  Add friends:
-  <%= simple_form_for @voter, html: { class: "d-flex align-items-center justify-content-between search-form" } do |f| %>
-    <%= f.input :user_id,
-        collection: current_user.friends.pluck(:username, :id),
-        class: "form-control me-2 rounded-pill",
-        input_html: { style: "width: auto; flex: 1;" } %>
-    <%= f.input :voting_session_id, as: :hidden, input_html: { value: @voting_session.id} %>
-    <%= f.submit 'Add' %>
-  <% end %>
+  </div>
 </div>
