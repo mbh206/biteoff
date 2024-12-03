@@ -1,0 +1,27 @@
+<div class="container friendslist">
+  <div class="friendslist-user">
+    <%#= cl_image_tag current_user.photo.key, class: "img-thumbnail rounded-circle", width: "75px", alt: "#{current_user.username}" %>
+    <h3 class=""><%= current_user.username %>  |  Your Friends Groups</h3>
+  </div>
+  Voters:
+  <ul>
+    <% @voting_session.voters.each do |voter| %>
+      <li>
+        <%= voter.user.username %>
+        <%= simple_form_for voter, url: voter_path(voter), method: :delete do |f| %>
+          <%= f.input :voting_session_id, as: :hidden, input_html: { value: @voting_session.id } %>
+          <%= f.submit 'Remove' %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+  Add friends:
+  <%= simple_form_for @voter, html: { class: "d-flex align-items-center justify-content-between search-form" } do |f| %>
+    <%= f.input :user_id,
+        collection: current_user.friends.pluck(:username, :id),
+        class: "form-control me-2 rounded-pill",
+        input_html: { style: "width: auto; flex: 1;" } %>
+    <%= f.input :voting_session_id, as: :hidden, input_html: { value: @voting_session.id} %>
+    <%= f.submit 'Add' %>
+  <% end %>
+</div>

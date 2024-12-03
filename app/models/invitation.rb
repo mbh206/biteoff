@@ -1,5 +1,7 @@
 class Invitation < ApplicationRecord
   belongs_to :user
+  scope :pending, -> { where confirmed: false}
+  scope :confirmed, -> { where confirmed: true}
 
   def self.reacted?(id1, id2)
     case1 = !Invitation.where(user_id: id1, friend_id: id2).empty?
@@ -19,6 +21,13 @@ class Invitation < ApplicationRecord
     else
       Invitation.where(user_id: id1, friend_id: id2, confirmed: true)[0].id
     end
+  end
+
+
+  private
+
+  def invitation_params
+    params.require(:invitation).permit(:confirmed, :user_id, :friend_id)
   end
 
 end

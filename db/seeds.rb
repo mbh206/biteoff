@@ -3,10 +3,8 @@ require 'open-uri'
 require 'json'
 
 puts "Cleaning the DB..."
-GroupMember.destroy_all
-FriendGroup.destroy_all
-OffersCollection.destroy_all
-SpecialOffersList.destroy_all
+Invitation.destroy_all
+Collection.destroy_all
 Restaurant.destroy_all
 SpecialOffer.destroy_all
 User.destroy_all
@@ -298,7 +296,7 @@ puts "Created #{ginza_restaurants.count} restaurants in Ginza"
 
 puts "....created #{Restaurant.count} restaurants!"
 
-deals = ["Lunch Combo Special-¥1,399, available Mon to Fr", "Family Meal Deal! Feed 4!", "Free Dessert with Meal, Mon to Fri", "Family Meal for less than  ¥5,000!", "Super Friday Special, 20% off over ¥3,500"]
+deals = ["¥550 Ramen (Reg. ¥980)", "Morning set ¥500 (reg.¥800)", "2 for 1 Tacos @ lunch", "20% off any purchase over ¥1000", "¥200 off ¥1000 or more", "BOGO sandwiches @ dinner", "50% off any purchase over ¥3000", "¥100 off ¥2000 or more"]
 
 puts "Creating 5 Special Offers"
 description = [
@@ -391,3 +389,4 @@ OffersCollection.create!(special_offer: SpecialOffer.all[1], special_offers_list
 chafsparty = SpecialOffersList.create!(name: "Chaf s Party")
 OffersCollection.create!(special_offer: SpecialOffer.all[2], special_offers_list: chafsparty)
 OffersCollection.create!(special_offer: SpecialOffer.all[3], special_offers_list: chafsparty)
+

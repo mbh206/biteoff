@@ -1,0 +1,8 @@
+<div class="offerslist">
+  Voting for :
+  <ul>
+    <%@voting_session.special_offers.each do |special_offer|%>
+      <li><%=special_offer.description%> in <%=special_offer.restaurant.name%></li>
+    <%end%>
+  </ul>
+</div>

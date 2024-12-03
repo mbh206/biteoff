@@ -1,7 +1,7 @@
 <div class="container">
   <div class="my-3 p-1 d-flex flex-row justify-content-between align-items-center bg-light pt-2 rounded shadow-sm">
     <div>
-      <%= image_tag "avatar.png", alt: "avatar image", class: "avatar-large" %>
+      <%= cl_image_tag current_user.photo.key, alt: "avatar image", class: "avatar-large" %>
     </div>
     <div>
       <span class="h5">Hello <%= @user.username %>!</span>
@@ -16,8 +16,5 @@
       <% end %>
     </div>
   </div>
-  <%= simple_form_for @user do |f|%>
-    <%= f.input_field :id, collection: @users.pluck(:username, :id), prompt: "Search Friend"%>
-  <% end %>
   <%=render "friends_list"%>
 </div>

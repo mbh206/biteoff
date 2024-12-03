@@ -2,10 +2,10 @@
 
 one:
   voting_session: one
-  user: one
   special_offer: one
+  user: one
 
 two:
   voting_session: two
-  user: two
   special_offer: two
+  user: two

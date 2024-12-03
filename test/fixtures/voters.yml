@@ -1,7 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
+  user: one
+  voting_session: one
 
 two:
-  name: MyString
+  user: two
+  voting_session: two
