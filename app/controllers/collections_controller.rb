@@ -6,21 +6,8 @@ class CollectionsController < ApplicationController
       @special_offers_list = current_user.special_offers_list
     end
   
-    # def create
-    #   @collection = Collection.new
-    #   @collection.special_offer = SpecialOffer.find(params[:special_offer_id])
-    #   @collection.special_offers_list = SpecialOffersList.find(collection_params[:special_offers_list])
-    #   if @collection.save!
-    #     redirect_to user_path(current_user)
-    #   else
-    #     render 'new', status: :unprocessable_entity
-    #   end
-    # end
-  
     def create
-      
       @collection = Collection.new(collection_params)
-
       if @collection.save!
         redirect_to voting_session_path(VotingSession.where(id_users: current_user))
       else 

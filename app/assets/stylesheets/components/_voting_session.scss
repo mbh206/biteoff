@@ -17,3 +17,24 @@
   padding: 10px 0;
   margin-bottom: 10px;
 }
+
+.for-icon {
+  color: white;
+  background-color: $success;
+  font-size: 2rem;
+  margin-right: 1rem;
+}
+
+.against-icon {
+  color: white;
+  background-color: $danger;
+  font-size: 2rem;
+}
+
+.selected {
+  border: 1px solid black;
+}
+
+.unselected {
+  background-color: darkgray;
+}
