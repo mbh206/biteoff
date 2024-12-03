@@ -3,10 +3,14 @@
   <ul>
     <%@voting_session.special_offers.each do |special_offer|%>
       <li><%=special_offer.description%> in <%=special_offer.restaurant.name%></li>
+      <%= simple_form_for [@voting_session, @vote] do |f| %>
+        <%= f.input :special_offer_id, label: false, input_html: { value: special_offer.id, type: "hidden" } %>
+        <%= f.submit 'Vote' %>
+      <% end %>
     <%end%>
   </ul>
   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addOfferToVote">
-    Add Offer to Vote 
+    Add Offer to Vote
   </button>
   <%=simple_form_for @collection do |f|%>
     <%= f.input_field :special_offer_id, collection: SpecialOffer.all.pluck(:description, :id), prompt: "Select a special offer", class: "form-control me-2 rounded-pill", input_html: { style: "width: auto; flex: 1;" } %>

@@ -4,4 +4,6 @@ class VotingSession < ApplicationRecord
   has_many :users, through: :voters
   has_many :collections, dependent: :destroy
   has_many :special_offers, through: :collections
+
+
 end
