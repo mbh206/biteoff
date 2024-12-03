@@ -10,17 +10,29 @@
         <% if user_signed_in? %>
           <%= link_to new_special_offer_path, class: "btn" do %>
             <i class="fa-solid fa-plus fs-1"></i>
-          <% end %></div>
-      <% end %>
+          <% end %>
+        <% end %>
+      </div>
       <% if user_signed_in?%>
-        <%= link_to user_path(current_user), class: "btn" do %>
-          <%= cl_image_tag current_user.photo.key, class: "img-thumbnail rounded-circle", width: "50px" %>
+        <% if current_user.voters[0] %>
+          <div>
+            <%= link_to voting_session_path(current_user.voters[0].voting_session), class: "btn" do %>
+              <i class="fa-solid fa-users fs-1"></i>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+      <div>
+        <% if user_signed_in?%>
+          <%= link_to user_path(current_user), class: "btn" do %>
+            <%= cl_image_tag current_user.photo.key, class: "img-thumbnail rounded-circle", width: "50px" %>
+          <%end%>
+        <%else%>
+          <%= link_to new_user_session_path, class: "btn" do %>
+            <i class="fa-solid fa-circle-user fs-1"></i>
+          <%end%>
         <%end%>
-      <%else%>
-        <%= link_to new_user_session_path, class: "btn" do %>
-          <i class="fa-solid fa-circle-user fs-1"></i>
-        <%end%>
-      <%end%>
+      </div>
     </div>
   </nav>
 </div>

@@ -3,6 +3,7 @@ class User < ApplicationRecord
   has_many :offers
   has_one_attached :photo
   has_many :votes, dependent: :destroy
+  has_many :voters, dependent: :destroy
   has_many :voting_sessions, through: :voters
 
 
