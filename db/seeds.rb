@@ -298,10 +298,17 @@ puts "Created #{ginza_restaurants.count} restaurants in Ginza"
 
 puts "....created #{Restaurant.count} restaurants!"
 
-deals = ["Happy hour Deals", "Early Bird Special", "Buy one get one", "20% off", "$10 off"]
+deals = ["Lunch Combo Special-¥1,399, available Mon to Fr", "Family Meal Deal! Feed 4!", "Free Dessert with Meal, Mon to Fri", "Family Meal for less than  ¥5,000!", "Super Friday Special, 20% off over ¥3,500"]
 
-puts "Creating 10 Special Offers"
-description = ["Great savings", "Unbeatable Prices", "Amazing Offer", "Amazing deal", "Unbeatable Price"]
+puts "Creating 5 Special Offers"
+description = [
+  "Get our signature dish, chips, and a drink for just ¥1,399, available from 11 AM to 2 PM!",
+  "Family meal deal: Feed four for just ¥4,200—includes two pizzas, salad, and drinks.",
+  "Satisfy your sweet tooth with a free dessert when you order an entrée worth ¥2,100 or more!",
+  "Family meal deal: Feed four for just ¥4,200—includes two pizzas, salad, and drinks.",
+  "Celebrate the weekend early: Take ¥700 off any purchase over ¥3,500 every Friday",
+
+]
 
 def random_date(start_date, end_date)
   rand(start_date..end_date)
@@ -314,9 +321,10 @@ puts 'Creating offers'
 
   restaurants = Restaurant.all
   restaurants.each do |restaurant|
+    deal = Random.rand(0..4)
     SpecialOffer.create!(
-      category: deals.sample,
-      description: description.sample,
+      category: deals[deal],
+      description: description[deal],
       start_date: start_date,
       end_date: end_date,
       restaurant: restaurant,
@@ -383,4 +391,3 @@ OffersCollection.create!(special_offer: SpecialOffer.all[1], special_offers_list
 chafsparty = SpecialOffersList.create!(name: "Chaf s Party")
 OffersCollection.create!(special_offer: SpecialOffer.all[2], special_offers_list: chafsparty)
 OffersCollection.create!(special_offer: SpecialOffer.all[3], special_offers_list: chafsparty)
-
