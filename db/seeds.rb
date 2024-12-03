@@ -370,23 +370,3 @@ special_offers.each do |offer|
   review.save
 end
 puts "...created #{special_offers.count * 3} reviews"
-
-puts "...creating  friend group"
-biteoff_grp = FriendGroup.new(name: "BiteOff")
-
-puts "...including friend in the group"
-User.all.each do |user|
-  member = GroupMember.new
-  member.user = user
-  member.friend_group = biteoff_grp
-  member.save!
-end
-
-puts "...creating SpecialOffersList & OffersCollection"
-marksparty = SpecialOffersList.create!(name: "Mark s Party")
-OffersCollection.create!(special_offer: SpecialOffer.all[0], special_offers_list: marksparty)
-OffersCollection.create!(special_offer: SpecialOffer.all[1], special_offers_list: marksparty)
-chafsparty = SpecialOffersList.create!(name: "Chaf s Party")
-OffersCollection.create!(special_offer: SpecialOffer.all[2], special_offers_list: chafsparty)
-OffersCollection.create!(special_offer: SpecialOffer.all[3], special_offers_list: chafsparty)
-
