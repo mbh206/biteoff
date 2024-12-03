@@ -1,9 +1,9 @@
 <div class="row mb-3">
   <%= simple_form_for @invitation, html: { class: "d-flex align-items-center search-form" } do |f|%>
-    <%= f.input_field :friend_id, 
-    collection: @users.pluck(:username, :id), 
-    prompt: "Search Friend", 
-    class: "form-control me-2 rounded-pill", 
+    <%= f.input_field :friend_id,
+    collection: @users.pluck(:username, :id),
+    prompt: "Search Friend",
+    class: "form-control me-2 rounded-pill",
     input_html: { style: "width: auto; flex: 1;" } %>
     <%= f.submit 'Invite', class: "btn btn-primary rounded-pill" %>
   <% end %>
