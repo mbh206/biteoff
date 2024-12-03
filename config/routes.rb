@@ -20,4 +20,5 @@ Rails.application.routes.draw do
   # Chaf's add for accept/decline
   resources :invitations, only: [:update,:create]
   resources :voters, only: [:create]
+  resources :collections, only: [:update, :create]
 end
