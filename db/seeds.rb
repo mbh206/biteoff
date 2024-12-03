@@ -3,6 +3,7 @@ require 'open-uri'
 require 'json'
 
 puts "Cleaning the DB..."
+Invitation.destroy_all
 Collection.destroy_all
 Restaurant.destroy_all
 SpecialOffer.destroy_all
@@ -295,7 +296,7 @@ puts "Created #{ginza_restaurants.count} restaurants in Ginza"
 
 puts "....created #{Restaurant.count} restaurants!"
 
-deals = ["Happy hour Deals", "Early Bird Special", "Buy one get one", "20% off", "$10 off"]
+deals = ["¥550 Ramen (Reg. ¥980)", "Morning set ¥500 (reg.¥800)", "2 for 1 Tacos @ lunch", "20% off any purchase over ¥1000", "¥200 off ¥1000 or more", "BOGO sandwiches @ dinner", "50% off any purchase over ¥3000", "¥100 off ¥2000 or more"]
 
 puts "Creating 10 Special Offers"
 description = ["Great savings", "Unbeatable Prices", "Amazing Offer", "Amazing deal", "Unbeatable Price"]
