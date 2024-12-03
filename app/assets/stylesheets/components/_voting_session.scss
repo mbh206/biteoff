@@ -7,6 +7,7 @@
 
 .friendslist {
   box-shadow: 0 0 5px #00000050;
+  padding:0 20px;
 }
 
 .friendslist-user {
@@ -16,4 +17,25 @@
   border-bottom: 1px solid #d9d9d9;
   padding: 10px 0;
   margin-bottom: 10px;
+}
+
+.for-icon {
+  color: white;
+  background-color: $success;
+  font-size: 2rem;
+  margin-right: 1rem;
+}
+
+.against-icon {
+  color: white;
+  background-color: $danger;
+  font-size: 2rem;
+}
+
+.selected {
+  border: 1px solid black;
+}
+
+.unselected {
+  background-color: darkgray;
 }

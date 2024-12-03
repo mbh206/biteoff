@@ -1,20 +1,69 @@
 <div class="offerslist">
-  Voting for :
-  <ul>
+  <h1 class="shadow p-3 rounded text-center"> WHERE TO GATHER? </h1>
+  <ul class="list-group">
     <%@voting_session.special_offers.each do |special_offer|%>
-      <li><%=special_offer.description%> in <%=special_offer.restaurant.name%></li>
-      <%= simple_form_for [@voting_session, @vote] do |f| %>
-        <%= f.input :special_offer_id, label: false, input_html: { value: special_offer.id, type: "hidden" } %>
-        <%= f.submit 'Vote' %>
-      <% end %>
+      <li class="list-group-item">
+        <div class = "d-flex justify-content-between align-items-center">
+          <div class="d-flex flex-column">
+            <div>
+              <i class="offerdetails fa-solid fa-utensils"></i>
+              <span class="text-dark"><%=special_offer.restaurant.name%></span>
+            </div>
+            <%= simple_form_for [@voting_session, @vote] do |f| %>
+              <%= f.input :special_offer_id, label: false, input_html: { value: special_offer.id, type: "hidden" } %>
+              <%= f.submit 'Vote' %>
+            <% end %>
+            <div>
+              <i class="offerdetails fa-solid fa-circle-info""></i>
+              <span class="text-dark"><%=special_offer.category%></span>
+            </div>
+          </div>
+          <div>
+            <%=link_to class: "" do%>
+              <i class="fa-regular fa-square-check for-icon selected"></i>
+            <%end%>
+            <%=link_to class: "" do%>
+              <i class="fa-regular fa-rectangle-xmark against-icon unselected"></i>
+            <%end%>
+          </div>
+        </div>
+      </li>
     <%end%>
   </ul>
-  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addOfferToVote">
-    Add Offer to Vote
-  </button>
-  <%=simple_form_for @collection do |f|%>
-    <%= f.input_field :special_offer_id, collection: SpecialOffer.all.pluck(:description, :id), prompt: "Select a special offer", class: "form-control me-2 rounded-pill", input_html: { style: "width: auto; flex: 1;" } %>
-    <%= f.input :voting_session_id, as: :hidden,  class: "form-control", input_html: { value: @voting_session.id} %>
-    <%= f.submit "Add", class: "btn btn-primary" %>
-  <% end %>
+  <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="myModalLabel">Submit Form</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <%=simple_form_for @collection do |f|%>
+            <%= f.input_field :special_offer_id, collection: SpecialOffer.all.pluck(:category, :id), prompt: "Select a special offer", class: "form-control me-2 rounded-pill", input_html: { style: "width: auto; flex: 1;" } %>
+            <%= f.input :voting_session_id, as: :hidden,  class: "form-control", input_html: { value: @voting_session.id} %>
+            <%= f.submit "Add Special Offer", class: "btn btn-primary" %>
+            <%= link_to "Cancel", :back, class: "btn btn-light" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Trigger Button -->
+  <div class="row justify-content-between align-items-center my-2">
+    <div class="col text-center">
+      <button type="button" class="btn btn-warning rounded-3 shadow-sm text-white">
+        RESET
+      </button>
+    </div>
+    <div class="col text-center">
+      <button type="button" class="btn btn-primary rounded-3 shadow-sm " data-bs-toggle="modal" data-bs-target="#myModal">
+        + OFFER
+      </button>
+    </div>
+    <div class="col text-center">
+      <button type="button" class="btn btn-success rounded-3 shadow-sm text-white">
+        DECIDE
+      </button>
+    </div>
+  </div>
 </div>
