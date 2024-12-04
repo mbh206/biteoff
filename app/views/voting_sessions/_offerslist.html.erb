@@ -68,15 +68,20 @@
           <%= f.input :status, as: :hidden, input_html: { value: 1} %>
           <%= f.submit 'OPEN?', class: 'btn btn-success rounded-3 shadow-sm text-white' %>
         <% end %>
-      <% else %>
+      <% elsif @voting_session.status == 1 && @voting_session.user == current_user %>
         <!-- if the voting session has  "opened" (status=1) by organizer then
         the guest/friend won't see the button but the organizer will see it as a close vote button -->
-        <%if @voting_session.status == 1 && @voting_session.user == current_user %>
-          <%= simple_form_for @voting_session do |f| %>
-            <%= f.input :status, as: :hidden, input_html: { value: 2} %>
-            <%= f.submit 'END?', class: 'btn btn-success rounded-3 shadow-sm text-white' %>
-          <% end %>
-        <%end%>
+        <%= simple_form_for @voting_session do |f| %>
+          <%= f.input :status, as: :hidden, input_html: { value: 2} %>
+          <%= f.submit 'END?', class: 'btn btn-success rounded-3 shadow-sm text-white' %>
+        <% end %>
+      <% elsif @voting_session.status == 2 && @voting_session.user == current_user %>
+        <!-- if the voting session has ended (status=2) then organizer can end the vote
+        the guest/friend won't see the button but the organizer will see it as a close vote button -->
+        <%= simple_form_for @voting_session do |f| %>
+          <%= f.input :status, as: :hidden, input_html: { value: 3} %>
+          <%= f.submit 'CLOSE?', class: 'btn btn-success rounded-3 shadow-sm text-white' %>
+        <% end %>
       <% end %>
     </div>
   </div>
