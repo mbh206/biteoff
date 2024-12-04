@@ -16,18 +16,26 @@
       <% if user_signed_in? %>
         <!-- the first voter of a voting session is the "organizer",
         for the organizer the voting session the link/icon displays -->
-        <% if VotingSession.find_by(user_id: current_user.id) %>
+        <% if current_user_voting_session_as_master %>
           <div>
             <%= link_to voting_session_path(current_user.voters[0].voting_session), class: "btn" do %>
               <i class="fa-solid fa-users fs-1"></i>
             <% end %>
           </div>
         <%elsif current_user_voting_session %>
-          <div>
-            <%= link_to voting_session_path(current_user_voting_session), class: "btn" do %>
-              <i class="fa-solid fa-users fs-1" style = "colord:red"></i>
-            <% end %>
-          </div>
+          <%if current_user_voting_session.status == 1%>
+            <div>
+              <%= link_to voting_session_path(current_user_voting_session), class: "btn" do %>
+                <i class="fa-solid fa-users fs-1" style="color:green"></i>
+              <% end %>
+            </div>
+          <%elsif current_user_voting_session.status == 2%>
+            <div>
+              <%= link_to "https://www.google.fr/maps/dir/?api=1&destination=#{current_user_voted_location.latitude},#{current_user_voted_location.longitude}", class: "btn" do %>
+                <i class="fa-regular fa-compass fs-1" style="color:red"></i>
+              <% end %>
+            </div>
+          <% end %>
         <% end %>
       <% end %>
       <div>

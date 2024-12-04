@@ -64,15 +64,15 @@
       <%if @voting_session.status == 0 %>
         <%= simple_form_for @voting_session do |f| %>
           <%= f.input :status, as: :hidden, input_html: { value: 1} %>
-          <%= f.submit 'VOTE?', class: 'btn btn-success rounded-3 shadow-sm text-white' %>
+          <%= f.submit 'OPEN?', class: 'btn btn-success rounded-3 shadow-sm text-white' %>
         <% end %>
       <% else %>
         <!-- if the voting session has  "opened" (status=1) by organizer then
         the guest/friend won't see the button but the organizer will see it as a close vote button -->
-        <%if @voting_session.status == 1 && VotingSession.first.voters[0].user == current_user %>
+        <%if @voting_session.status == 1 && @voting_session.user == current_user %>
           <%= simple_form_for @voting_session do |f| %>
             <%= f.input :status, as: :hidden, input_html: { value: 2} %>
-            <%= f.submit 'END VOTE', class: 'btn btn-success rounded-3 shadow-sm text-white' %>
+            <%= f.submit 'END?', class: 'btn btn-success rounded-3 shadow-sm text-white' %>
           <% end %>
         <%end%>
       <% end %>

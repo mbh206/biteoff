@@ -6,5 +6,9 @@ class VotingSession < ApplicationRecord
   has_many :collections, dependent: :destroy
   has_many :special_offers, through: :collections
 
+  # scope :fresh, -> { where status: 0}
+  # scope :open, -> { where status: 1}
+  # scope :end, -> { where status: 2}
 
 end
+
