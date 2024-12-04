@@ -149,188 +149,247 @@ User.create!(
 
 puts "Seeded #{User.all.count} users!"
 
-shibuya_url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+Shibuya&fields=name,formatted_address,photo,rating,opening_hours&key=#{ENV['GOOGLE_MAPS_KEY']}"
-shinjuku_url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+Shinjuku&fields=name,formatted_address,rating,photos,opening_hours&key=#{ENV['GOOGLE_MAPS_KEY']}"
-meguro_url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+Meguro&fields=name,formatted_address,photo,rating,opening_hours&key=#{ENV['GOOGLE_MAPS_KEY']}"
-ginza_url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+Ginza&fields=name,formatted_address,photo,rating,opening_hours&key=#{ENV['GOOGLE_MAPS_KEY']}"
+# shibuya_url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+Shibuya&fields=name,formatted_address,photo,rating,opening_hours&key=#{ENV['GOOGLE_MAPS_KEY']}"
+# shinjuku_url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+Shinjuku&fields=name,formatted_address,rating,photos,opening_hours&key=#{ENV['GOOGLE_MAPS_KEY']}"
+# meguro_url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+Meguro&fields=name,formatted_address,photo,rating,opening_hours&key=#{ENV['GOOGLE_MAPS_KEY']}"
+# ginza_url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+Ginza&fields=name,formatted_address,photo,rating,opening_hours&key=#{ENV['GOOGLE_MAPS_KEY']}"
 
-puts "Creating restaurants in Shibuya"
+puts "Creating restaurants in Tokyo..."
 
 # Restaurant seeds with names, categories, and coordinates (latitude and longitude)
-shibuya_restaurants = [
-  { name: "Barbacoa Grill Shibuya", category: "Brazilian Steakhouse / BBQ", latitude: 35.6594, longitude: 139.7014 },
-  { name: "Gyukatsu Motomura-  Shibuya", category: "Japanese / Beef Restaurant", latitude: 35.6642, longitude: 139.6993 },
-  { name: "BALCONE SHIBUYA", category: "Italian / Mediterranean", latitude: 35.6583, longitude: 139.6982 },
-  { name: "Mo-Mo-Paradise", category: "Japanese / Shabu-shabu / Hot Pot", latitude: 35.6568, longitude: 139.7011 },
-  { name: "We are the farm", category: "Organic / Farm-to-Table", latitude: 35.6612, longitude: 139.7019 },
-  { name: "Maguro-to-Shari Shibuya", category: "Japanese / Sushi", latitude: 35.6569, longitude: 139.7012 },
-  { name: "KINKA Sushi Bar Shibuya", category: "Japanese / Sushi / Izakaya", latitude: 35.6574, longitude: 139.7014 },
-  { name: "Nakayoshi Shibuya Stream", category: "Japanese / Sushi", latitude: 35.6624, longitude: 139.6995 },
-  { name: "Tsukishima Monja Kuuya", category: "Japanese / Monjayaki / Okonomiyaki", latitude: 35.6637, longitude: 139.6979 },
-  { name: "Hikiniku no Toriko", category: "Japanese / Hamburg Steak", latitude: 35.6607, longitude: 139.7004 },
-  { name: "Ichiran Shibuya", category: "Japanese / Ramen", latitude: 35.6582, longitude: 139.7015 },
-  { name: "Gyumon Shibuya", category: "Japanese / Yakiniku / Beef", latitude: 35.6605, longitude: 139.7016 },
-  { name: "Sushi no Midori Shibuya", category: "Japanese / Sushi", latitude: 35.6604, longitude: 139.7017 },
-  { name: "Arossa Shibuya", category: "Italian / Wine Bar", latitude: 35.6619, longitude: 139.6968 },
-  { name: "Tenku no Tsuki", category: "Japanese / Fine Dining / Kaiseki", latitude: 35.6581, longitude: 139.7018 },
-  { name: "Local Shibuya", category: "International / Fusion", latitude: 35.6628, longitude: 139.6998 },
-  { name: "THE LEGIAN TOKYO", category: "International / Fine Dining", latitude: 35.6615, longitude: 139.6989 },
-  { name: "Uobei Goulabe", category: "Japanese / Sushi", latitude: 35.6610, longitude: 139.7000 },
-  { name: "Kinkume", category: "Japanese / Sushi / Izakaya", latitude: 35.6588, longitude: 139.6990 },
-  { name: "Shokudo Ventuno", category: "Italian / Casual Dining", latitude: 35.6611, longitude: 139.6997 }
+restaurants = [
+  {name: "Ninja Akasaka", category: "Themed Restaurant", latitude: 35.6762, longitude: 139.7404},
+  {name: "Kanda Yabu-Soba", category: "Soba Noodles", latitude: 35.6958, longitude: 139.7704},
+  {name: "Sushi Kanesaka", category: "Sushi", latitude: 35.6764, longitude: 139.7632},
+  {name: "Motenashi-Kuroki", category: "Ramen", latitude: 35.7002, longitude: 139.7706},
+  {name: "Nodaiwa", category: "Unagi", latitude: 35.675, longitude: 139.7447},
+  {name: "Osteria da-K-Hattori", category: "Italian", latitude: 35.6931, longitude: 139.7532},
+  {name: "Kanda Matsuya", category: "Soba Noodles", latitude: 35.6945, longitude: 139.7701},
+  {name: "Soranoiro", category: "Ramen", latitude: 35.6784, longitude: 139.7636},
+  {name: "Pizzeria E Trattoria Da Isa", category: "Italian", latitude: 35.6983, longitude: 139.7702},
+  {name: "Kakiden", category: "Kaiseki", latitude: 35.693, longitude: 139.7042},
+  {name: "Sukiyabashi Jiro", category: "Sushi", latitude: 35.6734, longitude: 139.7623},
+  {name: "Ginza Kojyu", category: "Kaiseki", latitude: 35.6719, longitude: 139.7642},
+  {name: "Tempura Kondo", category: "Tempura", latitude: 35.671, longitude: 139.7642},
+  {name: "Sushi Yoshitake2", category: "Sushi", latitude: 35.6718, longitude: 139.764},
+  {name: "Tapas Molecular Bar", category: "Molecular Gastronomy", latitude: 35.687, longitude: 139.7741},
+  {name: "Ginza Ukai-Tei", category: "Teppanyaki", latitude: 35.671, longitude: 139.7642},
+  {name: "Sushi Tokami", category: "Sushi", latitude: 35.6716, longitude: 139.7645},
+  {name: "L'Osier", category: "French", latitude: 35.673, longitude: 139.7621},
+  {name: "Sushi Saito", category: "Sushi", latitude: 35.6655, longitude: 139.7394},
+  {name: "Sazenka", category: "Chinese", latitude: 35.6581, longitude: 139.7394},
+  {name: "Narisawa", category: "French", latitude: 35.6645, longitude: 139.7264},
+  {name: "Sushi Masuda", category: "Sushi", latitude: 35.6653, longitude: 139.7302},
+  {name: "Quintessence", category: "French", latitude: 35.6274, longitude: 139.7385},
+  {name: "L'Effervescence", category: "French", latitude: 35.664, longitude: 139.7294},
+  {name: "Florilège", category: "French", latitude: 35.6648, longitude: 139.7123},
+  {name: "Ishikawa", category: "Kaiseki", latitude: 35.693, longitude: 139.7042},
+  {name: "Kagurazaka Ishikawa", category: "Kaiseki", latitude: 35.7023, longitude: 139.7401},
+  {name: "Sushi Yoshitake", category: "Sushi", latitude: 35.6718, longitude: 139.764},
+  {name: "Narisawa-", category: "French", latitude: 35.6645, longitude: 139.7264},
+  {name: "Sushi-Masuda", category: "Sushi", latitude: 35.6653, longitude: 139.7302},
+  {name: "Sushi-Saito", category: "Sushi", latitude: 35.6655, longitude: 139.7394},
+  {name: "Kagurazaka-Ishikawa", category: "Kaiseki", latitude: 35.7023, longitude: 139.7401},
+  {name: "Sushi-Yoshitake", category: "Sushi", latitude: 35.6718, longitude: 139.764},
+  {name: "Mensho Tokyo", category: "Ramen", latitude: 35.7074, longitude: 139.7606},
+  {name: "Kanda Yabu Soba", category: "Soba Noodles", latitude: 35.6958, longitude: 139.7704},
+  {name: "Sushi-Kanesaka", category: "Sushi", latitude: 35.6764, longitude: 139.7632},
+  {name: "Motenashi Kuroki", category: "Ramen", latitude: 35.7002, longitude: 139.7706},
+  {name: "Osteria da K.Hattori", category: "Italian", latitude: 35.6931, longitude: 139.7532},
+  {name: "Kanda-Matsuya", category: "Soba Noodles", latitude: 35.6945, longitude: 139.7701},
+  {name: "Pizzeria E Trattoria Da-Isa", category: "Italian", latitude: 35.6983, longitude: 139.7702},
+  {name: "Sukiyabashi-Jiro", category: "Sushi", latitude: 35.6734, longitude: 139.7623},
+  {name: "Den", category: "Kaiseki", latitude: 35.6938, longitude: 139.753},
+  {name: "RyuGin", category: "Kaiseki", latitude: 35.6705, longitude: 139.765},
+  {name: "Sazenka4", category: "Chinese", latitude: 35.6581, longitude: 139.7394},
+  {name: "Ginza-Kojyu", category: "Kaiseki", latitude: 35.6719, longitude: 139.7642},
+  {name: "Asakusa Imahan", category: "Sukiyaki", latitude: 35.7113, longitude: 139.7966},
+  {name: "Namiki Yabusoba", category: "Soba Noodles", latitude: 35.7115, longitude: 139.7952},
+  {name: "Sometaro", category: "Okonomiyaki", latitude: 35.7102, longitude: 139.7934},
+  {name: "Daikokuya Tempura", category: "Tempura", latitude: 35.7114, longitude: 139.7955},
+  {name: "Umezono", category: "Japanese Sweets", latitude: 35.7112, longitude: 139.7953},
+  {name: "Kamiya Bar", category: "Western-Japanese Fusion", latitude: 35.7106, longitude: 139.7958},
+  {name: "Iriya Plus Café", category: "Café", latitude: 35.7201, longitude: 139.7902},
+  {name: "Pelican Café", category: "Bakery/Café", latitude: 35.7078, longitude: 139.7923},
+  {name: "Yoroiya Ramen", category: "Ramen", latitude: 35.7113, longitude: 139.7957},
+  {name: "Asakusa Kagetsudo", category: "Melon Pan Bakery", latitude: 35.7116, longitude: 139.795},
+  {name: "Yakiniku Jumbo", category: "Yakiniku", latitude: 35.7081, longitude: 139.8016},
+  {name: "Oshiage Yoshikatsu", category: "Tonkatsu", latitude: 35.7075, longitude: 139.8107},
+  {name: "Tonkatsu Ichikatsu", category: "Tonkatsu", latitude: 35.7072, longitude: 139.8105},
+  {name: "Kushikatsu Tanaka", category: "Kushikatsu", latitude: 35.7079, longitude: 139.8108},
+  {name: "Sushi-Tokami", category: "Sushi", latitude: 35.7076, longitude: 139.8106},
+  {name: "Ramen Keisuke", category: "Ramen", latitude: 35.7073, longitude: 139.8104},
+  {name: "Tempura Hasegawa", category: "Tempura", latitude: 35.707, longitude: 139.8103},
+  {name: "Yakitori Omino", category: "Yakitori", latitude: 35.7067, longitude: 139.8102},
+  {name: "Unagi Komagata Maekawa", category: "Unagi", latitude: 35.7064, longitude: 139.8101},
+  {name: "Monja Kura", category: "Okonomiyaki", latitude: 35.7061, longitude: 139.81},
+  {name: "Fukagawa Tsuribune", category: "Seafood", latitude: 35.6735, longitude: 139.8174},
+  {name: "Monja Fukutake", category: "Okonomiyaki", latitude: 35.6732, longitude: 139.8172},
+  {name: "Kameido Gyoza", category: "Gyoza", latitude: 35.673, longitude: 139.817},
+  {name: "Sushi Dai", category: "Sushi", latitude: 35.6728, longitude: 139.8168},
+  {name: "Tomioka Hachimangu", category: "Japanese", latitude: 35.6726, longitude: 139.8166},
+  {name: "Fukagawa Juku", category: "Japanese", latitude: 35.6724, longitude: 139.8164},
+  {name: "Kiyosumi Shirakawa", category: "Café", latitude: 35.6722, longitude: 139.8162},
+  {name: "Fukagawa Edo Museum Café", category: "Café", latitude: 35.672, longitude: 139.816},
+  {name: "Monja Street", category: "Okonomiyaki", latitude: 35.6718, longitude: 139.8158},
+  {name: "Fukagawa Meshi", category: "Japanese", latitude: 35.6716, longitude: 139.8156},
+  {name: "Tofuya Ukai", category: "Tofu Kaiseki", latitude: 35.6574, longitude: 139.7454},
+  {name: "Ramen Jiro Meguro", category: "Ramen", latitude: 35.6331, longitude: 139.715},
+  {name: "Gotetsu", category: "Okonomiyaki", latitude: 35.6091, longitude: 139.7304},
+  {name: "Shinagawa Okina", category: "Sushi", latitude: 35.6285, longitude: 139.7389},
+  {name: "Tonkatsu Tonki", category: "Tonkatsu", latitude: 35.6312, longitude: 139.716},
+  {name: "Kura Sushi", category: "Sushi", latitude: 35.6095, longitude: 139.7306},
+  {name: "Yakiniku Champion", category: "Yakiniku", latitude: 35.6093, longitude: 139.7302},
+  {name: "Tempura Yamanoue", category: "Tempura", latitude: 35.609, longitude: 139.73},
+  {name: "Sushi Taichi", category: "Sushi", latitude: 35.6087, longitude: 139.7298},
+  {name: "Tonki", category: "Tonkatsu", latitude: 35.6331, longitude: 139.715},
+  {name: "Kura-Sushi", category: "Sushi", latitude: 35.6333, longitude: 139.7152},
+  {name: "Yakiniku-Champion", category: "Yakiniku", latitude: 35.6339, longitude: 139.7158},
+  {name: "Tempura-Yamanoue", category: "Tempura", latitude: 35.6341, longitude: 139.716},
+  {name: "Sushi-Taichi", category: "Sushi", latitude: 35.6343, longitude: 139.7162},
+  {name: "T.Y. Harbor", category: "Brewery/International", latitude: 35.6347, longitude: 139.7166},
+  {name: "Anagoya", category: "Unagi", latitude: 35.5615, longitude: 139.715},
+  {name: "Kamata Horumon", category: "Horumon", latitude: 35.5617, longitude: 139.7152},
+  {name: "Ramen Dai Kamata", category: "Ramen", latitude: 35.5619, longitude: 139.7154},
+  {name: "Tonkatsu Marugo", category: "Tonkatsu", latitude: 35.5621, longitude: 139.7156},
+  {name: "Sushi Zanmai Kamata", category: "Sushi", latitude: 35.5623, longitude: 139.7158},
+  {name: "Yakitori Taisho", category: "Yakitori", latitude: 35.5625, longitude: 139.716},
+  {name: "Seirinkan", category: "Pizza", latitude: 35.6475, longitude: 139.6697},
+  {name: "Yakitori Imai", category: "Yakitori", latitude: 35.6468, longitude: 139.6689},
+  {name: "Shimauma", category: "Japanese Fusion", latitude: 35.648, longitude: 139.67},
+  {name: "Ramen Jiro Sangenjaya", category: "Ramen", latitude: 35.646, longitude: 139.6675},
+  {name: "Pizzeria da Peppe-Napolistaca", category: "Italian", latitude: 35.647, longitude: 139.669},
+  {name: "Tempura Motoyoshi", category: "Tempura", latitude: 35.6485, longitude: 139.6705}
 ]
 
-shibuya_restaurants.each do |restaurant|
+restaurants.each do |restaurant|
   Restaurant.create!(name: restaurant[:name],
     category: restaurant[:category],
     latitude: restaurant[:latitude],
     longitude: restaurant[:longitude],
     user: owner)
 end
-puts "Created #{shibuya_restaurants.count} restaurants in Shibuya"
+puts "Created #{restaurants.count} restaurants in Tokyo"
 
-puts "Creating restaurants in Shinjuku..."
+# Predefined special offers for different categories
+special_offers = {
+  "Sushi" => {
+    category: "Half-Price Sushi Platter Night",
+    description: "Enjoy a deluxe sushi platter with 12 expertly crafted pieces for half the price (¥2,500) every Thursday evening, 5 PM to 9 PM."
+  },
+  "Yakitori" => {
+    category: "¥1,000 Yakitori Lunch Set",
+    description: "Morning set with coffee, bagel, sausage for ¥1,000."
+  },
+  "Café" => {
+    category: "¥1,000 Morning Set",
+    description: "Lunch Set with a bowl of rice, a small cup of chicken broth soup, and a small salad, plus five kinds of yakitori for ¥1,000."
+  },
+  "Yakiniku" => {
+    category: "All-You-Can-Eat Menu from ¥2,980",
+    description: "All-you-can-eat menu including A5 Wagyu beef and Sendai Cow tongue starts from 2,980 yen!"
+  },
+  "Tonkatsu" => {
+    category: "Kurobuta Gozen ¥500 Discount Wednesdays",
+    description: "You will receive a 500 yen discount on your bill when you order a Kurobuta type product set meal."
+  },
+  "Japanese Fusion" => {
+    category: "All-You-Can-Eat Sushi Rolls for ¥2,900",
+    description: "Indulge in unlimited sushi rolls for dinner every Friday night. Reservation required."
+  },
+  "Japanese Sweets" => {
+    category: "Dessert Lovers Matcha Pairing for ¥900",
+    description: "Pair our house-made matcha parfait with traditional Japanese sweets after your dinner entrée for only ¥900."
+  },
+  "Horumon" => {
+    category: "All-You-Can-Eat Dinner from 5pm for ¥2,500",
+    description: "All-you-can-eat plan from Shimachan that offers great value for money and great customer savings!"
+  },
+  "Tempura" => {
+    category: "Tempura Set Meal for ¥1,800",
+    description: "Dive into a crispy tempura set meal featuring prawns, seasonal vegetables, and dipping sauces. Includes tea. Available daily for lunch."
+  },
+  "Kaiseki" => {
+    category: "Weekend Kaiseki Lunch Special at ¥3,000",
+    description: "Experience an seasonal delicacies in Japanese traditional kaiseki meal, exclusively on Saturdays and Sundays from 12 PM to 2 PM."
+  },
+  "Ramen" => {
+    category: "Ramen Bowl + Gyoza Combo at ¥1,200",
+    description: "Slurp up a hearty ramen bowl with a side of crispy gyoza. Available Monday to Friday from 6 PM until close."
+  },
+  "Italian" => {
+    category: "Tuesday Pasta & Dessert for ¥1,800",
+    description: "Choose any pasta entrée and a decadent dessert, plus a free glass of house wine, for only ¥1,800."
+  },
+  "Pizza" => {
+    category: "2-for-1 Pizza Night on Wednesdays",
+    description: "Order any large pizza and get a second one free every Wednesday evening."
+  },
+  "Teppanyaki" => {
+    category: "Steak Dinner for Two with Wine for ¥5,800",
+    description: "Treat yourself and a loved one to two sirloin steak meals, accompanied by a bottle of house wine, every Friday."
+  },
+  "Tofu Kaiseki" => {
+    category: "Dinner Set Special at ¥2,000",
+    description: "Authentic Japanese multi-course kaiseki lunch showcasing seasonal delicacies."
+  },
+  "Soba Noodles" => {
+    category: "Soba & Sake Set for ¥1,200",
+    description: "Get a bowl of soba noodles (hot or cold) and a glass of premium sake for ¥1,200. Offer valid on Thursdays only."
+  },
+  "Unagi" => {
+    category: "Grilled Eel Bowl for ¥1,500",
+    description: "Savor our signature unagi bowl with rice, pickles, and miso soup, discounted during weekday lunch hours."
+  },
+  "Okonomiyaki" => {
+    category: "DIY Okonomiyaki Night for ¥900",
+    description: "Build your perfect savory pancake and enjoy a complimentary dessert. Available Sundays from 5 PM to 9 PM."
+  },
+  "Chinese" => {
+    category: "All-You-Can-Taste Dim Sum",
+    description: "Plus a welcome drink (Weekdays Only) - Value of JPY 7,700 → JPY 7,040 (8% off)"
+  },
+  "Themed Restaurant" => {
+    category: "2-for-1 Appetizer Tuesdays",
+    description: "Buy one appetizer and get a second one free. Available every Tuesday for lunch and dinner."
+  },
+  "Brewery/International" => {
+    category: "All-American Brunch for ¥1,200",
+    description: "Indulge in a brunch platter with pancakes, scrambled eggs, crispy bacon, and coffee. Available Saturday mornings."
+  },
+  "Kushikatsu" => {
+    category: "16th Anniversary All Menu Discount!",
+    description: "33 types of Kushi Katsu, normally priced between 130 to 260 yen, for just 110 yen!"
+  },
+  "French" => {
+    category: "Wine & Cheese Pairing for Two at ¥2,800",
+    description: "Savor a curated selection of cheeses paired with two glasses of house wine. Perfect for wine lovers."
+  }
+}
 
-# Restaurant seeds with names, categories, and coordinates (latitude and longitude)
-shinjuku_restaurants = [
-  { name: "Tempura Tsunahachi", category: "Japanese / Tempura", latitude: 35.6903, longitude: 139.7017 },
-  { name: "Shinjuku Kappo NAKAJIMA", category: "Japanese / Kappo (Traditional)", latitude: 35.6909, longitude: 139.7026 },
-  { name: "Nabezo Shinjuku", category: "Japanese / Shabu-shabu / Hot Pot", latitude: 35.6901, longitude: 139.7014 },
-  { name: "Ichiran Ramen", category: "Japanese / Ramen", latitude: 35.6910, longitude: 139.7011 },
-  { name: "Kakekomi Gyoza", category: "Japanese / Gyoza", latitude: 35.6905, longitude: 139.7015 },
-  { name: "Barbacoa Shinjuku", category: "Brazilian Steakhouse / BBQ", latitude: 35.6915, longitude: 139.7043 },
-  { name: "Momo Paradise Higashi-guchi", category: "Japanese / Shabu-shabu / Hot Pot", latitude: 35.6889, longitude: 139.7024 },
-  { name: "Ramen Nagi - Shinjuku", category: "Japanese / Ramen", latitude: 35.6947, longitude: 139.7029 },
-  { name: "Katsukura Shinjuku", category: "Japanese / Tonkatsu", latitude: 35.6900, longitude: 139.7020 },
-  { name: "Mo-Mo-Paradise Meiji Dori", category: "Japanese / Shabu-shabu / Hot Pot", latitude: 35.6887, longitude: 139.7012 },
-  { name: "Ichiran Shinjuku Kabuki-cho", category: "Japanese / Ramen", latitude: 35.6933, longitude: 139.7017 },
-  { name: "Sarabeth's LUMINE 2", category: "International / American Brunch", latitude: 35.6904, longitude: 139.7002 },
-  { name: "Gyukatsu Motomura - Shinjuku", category: "Japanese / Beef Restaurant", latitude: 35.6908, longitude: 139.6986 },
-  { name: "Sanagi Shinjuku", category: "Japanese / Yakiniku", latitude: 35.6936, longitude: 139.7021 },
-  { name: "Tsurutontan Shinjuku", category: "Japanese / Udon", latitude: 35.6914, longitude: 139.7019 },
-  { name: "Beef Kitchen Stand", category: "Japanese / Beef / Steak", latitude: 35.6950, longitude: 139.7024 },
-  { name: "Sushizanmai", category: "Japanese / Sushi", latitude: 35.6913, longitude: 139.7010 },
-  { name: "FISH Shinjuku Store", category: "Seafood / Sushi", latitude: 35.6902, longitude: 139.7014 },
-  { name: "Shogun Burger Shinjuku", category: "American / Burgers", latitude: 35.6901, longitude: 139.7030 },
-  { name: "Nakau - Shinjuku", category: "Japanese / Fast Food (Udon, Donburi)", latitude: 35.6922, longitude: 139.7021 }
-]
+# Iterate through all restaurants and assign matching special offers
+restaurants = Restaurant.all
+start_date = Date.today
+end_date = start_date + 30.days
 
-shinjuku_restaurants.each do |restaurant|
-  Restaurant.create!(name: restaurant[:name],
-    category: restaurant[:category],
-    latitude: restaurant[:latitude],
-    longitude: restaurant[:longitude],
-    user: owner)
-end
-puts "Created #{shinjuku_restaurants.count} restaurants in Shinjuku"
+restaurants.each do |restaurant|
+  offer = special_offers[restaurant.category]
 
-puts "Creating restaurants in Meguro..."
-
-# Restaurant seeds with names, categories, and coordinates (latitude and longitude)
-meguro_restaurants = [
-  { name: "Mokuren Korean", category: "Korean", latitude: 35.6423, longitude: 139.7010 },
-  { name: "Covo - Meguro", category: "Japanese / Dining", latitude: 35.6395, longitude: 139.6998 },
-  { name: "Bistro Egalite | French restaurant, Meguro", category: "French", latitude: 35.6442, longitude: 139.6963 },
-  { name: "Kabi", category: "Japanese / Modern", latitude: 35.6401, longitude: 139.7041 },
-  { name: "Kitchen Punch", category: "American / Casual", latitude: 35.6399, longitude: 139.7015 },
-  { name: "Meguro Kitchen", category: "International / Fusion", latitude: 35.6417, longitude: 139.7043 },
-  { name: "Mark's Tokyo", category: "American / Casual Dining", latitude: 35.6404, longitude: 139.6984 },
-  { name: "Trattoria Ciaoro", category: "Italian", latitude: 35.6413, longitude: 139.6989 },
-  { name: "Meguro-Nagamoto", category: "Japanese / Traditional", latitude: 35.6443, longitude: 139.6991 },
-  { name: "Rigoletto Short Hills", category: "Italian", latitude: 35.6416, longitude: 139.7027 },
-  { name: "Hungry Heaven", category: "American / Comfort Food", latitude: 35.6406, longitude: 139.6988 },
-  { name: "Restaurant Re:", category: "French / Japanese Fusion", latitude: 35.6410, longitude: 139.7004 },
-  { name: "FUKUNOHANA Meguro", category: "Japanese / Kaiseki", latitude: 35.6407, longitude: 139.7031 },
-  { name: "WE ARE THE FARM", category: "Organic / Farm-to-Table", latitude: 35.6425, longitude: 139.6994 },
-  { name: "Locale", category: "International / Fusion", latitude: 35.6403, longitude: 139.7012 },
-  { name: "Tonki", category: "Japanese / Tonkatsu", latitude: 35.6421, longitude: 139.7013 },
-  { name: "DOKO DOKO", category: "Japanese / Okinawan", latitude: 35.6392, longitude: 139.6982 },
-  { name: "I-rottah", category: "Japanese / Izakaya", latitude: 35.6409, longitude: 139.7018 },
-  { name: "New American Grill", category: "American / Grill", latitude: 35.6418, longitude: 139.6985 },
-  { name: "Cabe", category: "International / Casual Dining", latitude: 35.6414, longitude: 139.7003 }
-]
-
-meguro_restaurants.each do |restaurant|
-  Restaurant.create!(name: restaurant[:name],
-    category: restaurant[:category],
-    latitude: restaurant[:latitude],
-    longitude: restaurant[:longitude],
-    user: owner)
-end
-puts "Created #{meguro_restaurants.count} restaurants in Meguro"
-
-puts "Creating restaurants in Ginza..."
-
-# Restaurant seeds with names, categories, and coordinates (latitude and longitude)
-ginza_restaurants = [
-  { name: "Ginhachidon Ginza", category: "Japanese / Donburi", latitude: 35.6714, longitude: 139.7649 },
-  { name: "Ginza Shabugen", category: "Japanese / Shabu-shabu", latitude: 35.6731, longitude: 139.7612 },
-  { name: "Ginza Ukai-Tei", category: "Japanese / Teppanyaki", latitude: 35.6710, longitude: 139.7642 },
-  { name: "Gyūan Ginza", category: "Japanese / Yakiniku (Beef)", latitude: 35.6735, longitude: 139.7627 },
-  { name: "Ginza Kyūbey Honten", category: "Japanese / Sushi", latitude: 35.6733, longitude: 139.7617 },
-  { name: "Makiyaki Ginza Onodera", category: "Japanese / BBQ", latitude: 35.6728, longitude: 139.7615 },
-  { name: "Tsuru TonTan UDON NOODLE", category: "Japanese / Udon", latitude: 35.6712, longitude: 139.7645 },
-  { name: "Ichi-nii-san", category: "Japanese / Sushi", latitude: 35.6721, longitude: 139.7630 },
-  { name: "Ginza Kousui", category: "Japanese / Kaiseki", latitude: 35.6717, longitude: 139.7641 },
-  { name: "Fujimaru - Ginza", category: "French / Teppanyaki", latitude: 35.6734, longitude: 139.7619 },
-  { name: "L'Osier", category: "French / Fine Dining", latitude: 35.6730, longitude: 139.7621 },
-  { name: "Shabusen - Ginza", category: "Japanese / Shabu-shabu", latitude: 35.6741, longitude: 139.7610 },
-  { name: "bills Ginza", category: "International / Australian Brunch", latitude: 35.6719, longitude: 139.7635 },
-  { name: "Ippudo - Ginza", category: "Japanese / Ramen", latitude: 35.6738, longitude: 139.7624 },
-  { name: "Ginza Maru", category: "Japanese / Sushi", latitude: 35.6725, longitude: 139.7620 },
-  { name: "Dazzle", category: "International / Fusion", latitude: 35.6737, longitude: 139.7615 },
-  { name: "Air", category: "International / Fine Dining", latitude: 35.6713, longitude: 139.7639 },
-  { name: "Seryna", category: "Japanese / Yakiniku", latitude: 35.6732, longitude: 139.7633 },
-  { name: "Nichigekka Ginza", category: "Japanese / Kaiseki", latitude: 35.6729, longitude: 139.7629 },
-  { name: "Andhra Dining GINZA", category: "Indian / Andhra Cuisine", latitude: 35.6740, longitude: 139.7613 }
-]
-
-ginza_restaurants.each do |restaurant|
-  Restaurant.create!(name: restaurant[:name],
-    category: restaurant[:category],
-    latitude: restaurant[:latitude],
-    longitude: restaurant[:longitude],
-    user: owner)
-end
-puts "Created #{ginza_restaurants.count} restaurants in Ginza"
-
-puts "....created #{Restaurant.count} restaurants!"
-
-deals = ["¥550 Ramen (Reg. ¥980)", "Morning set ¥500 (reg.¥800)", "2 for 1 Tacos @ lunch", "20% off any purchase over ¥1000", "¥200 off ¥1000 or more", "BOGO sandwiches @ dinner", "50% off any purchase over ¥3000", "¥100 off ¥2000 or more"]
-
-puts "Creating 5 Special Offers"
-description = [
-  "Get our signature dish, chips, and a drink for just ¥1,399, available from 11 AM to 2 PM!",
-  "Family meal deal: Feed four for just ¥4,200—includes two pizzas, salad, and drinks.",
-  "Satisfy your sweet tooth with a free dessert when you order an entrée worth ¥2,100 or more!",
-  "Family meal deal: Feed four for just ¥4,200—includes two pizzas, salad, and drinks.",
-  "Celebrate the weekend early: Take ¥700 off any purchase over ¥3,500 every Friday",
-
-]
-
-def random_date(start_date, end_date)
-  rand(start_date..end_date)
-end
-
-puts 'Creating offers'
-
-  start_date = random_date(Date.new(2024, 12, 1), Date.new(2024, 12, 31))
-  end_date = start_date + rand(1..10).days
-
-  restaurants = Restaurant.all
-  restaurants.each do |restaurant|
-    deal = Random.rand(0..4)
+  if offer
     SpecialOffer.create!(
-      category: deals[deal],
-      description: description[deal],
+      category: offer[:category],
+      description: offer[:description],
       start_date: start_date,
       end_date: end_date,
       restaurant: restaurant,
       user: owner,
       confirmation_count: 0
     )
-
+  else
+    puts "No special offer found for category: #{restaurant.category}"
   end
+end
+
 
 puts "...created #{SpecialOffer.count} offers"
 
