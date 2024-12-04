@@ -14,10 +14,12 @@ class VotingSession < ApplicationRecord
   
   private
   def broadcast_voting_session
-    broadcast_replace_to "votingsession_#{id}_messages",
-                        partial: "shared/iconnav",
-                        target: "iconnav",
-                        locals: { color: "blue"}
+    self.voters.each do |voter| 
+      broadcast_replace_to "votingsession_#{voter.user.id}_messages",
+                          partial: "shared/iconnav",
+                          target: "iconnav",
+                          locals: { voting_session: self }
+      end
   end
 end
 
