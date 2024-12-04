@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :voting_sessions, only: [:show, :create, :update] do
     resources :votes, only: [:update,:create]
   end
+  resources :votes, only: [:destroy]
   post "/createsessioninbackground/:special_offer_id", to: "voting_sessions#csib", as: "csib"
   resources :voters, only: [:destroy]
   # Steve's add
