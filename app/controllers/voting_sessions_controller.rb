@@ -1,6 +1,5 @@
 class VotingSessionsController < ApplicationController
   def csib
-
       @voting_session = VotingSession.new
       @voting_session.user = current_user
       collection = Collection.new
@@ -10,7 +9,7 @@ class VotingSessionsController < ApplicationController
       voter = Voter.new
       voter.user = current_user
       voter.voting_session = @voting_session
-      voter.save!    
+      voter.save!
       @voting_session.save!
 
       redirect_to voting_session_path(@voting_session)
