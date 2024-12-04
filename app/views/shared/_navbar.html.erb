@@ -16,27 +16,8 @@
       <% if user_signed_in? %>
         <!-- the first voter of a voting session is the "organizer",
         for the organizer the voting session the link/icon displays -->
-        <% if current_user_voting_session_as_master %>
-          <div>
-            <%= link_to voting_session_path(current_user.voters[0].voting_session), class: "btn" do %>
-              <i class="fa-solid fa-users fs-1"></i>
-            <% end %>
-          </div>
-        <%elsif current_user_voting_session %>
-          <%if current_user_voting_session.status == 1%>
-            <div>
-              <%= link_to voting_session_path(current_user_voting_session), class: "btn" do %>
-                <i class="fa-solid fa-users fs-1" style="color:green"></i>
-              <% end %>
-            </div>
-          <%elsif current_user_voting_session.status == 2%>
-            <div>
-              <%= link_to "https://www.google.fr/maps/dir/?api=1&destination=#{current_user_voted_location.latitude},#{current_user_voted_location.longitude}", class: "btn" do %>
-                <i class="fa-regular fa-compass fs-1" style="color:red"></i>
-              <% end %>
-            </div>
-          <% end %>
-        <% end %>
+        <%= turbo_stream_from "votingsession_#{current_user_voting_session&.id}_messages" %>
+        <%=render 'shared/iconnav', color: current_user_voting_session.nil? ? "gray" : "blue"%>
       <% end %>
       <div>
         <% if user_signed_in?%>

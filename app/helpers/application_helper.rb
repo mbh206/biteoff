@@ -13,6 +13,7 @@ module ApplicationHelper
     vote = Vote.where(voting_session_id: session).group(:special_offer_id).order('COUNT(special_offer_id) DESC').limit(1).count
     sp_offer = SpecialOffer.find(vote.keys.first)
     @current_user_voted_location = sp_offer.restaurant
+    
   end
 
 end
