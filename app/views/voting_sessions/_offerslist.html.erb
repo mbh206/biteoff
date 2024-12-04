@@ -15,16 +15,17 @@
             </div>
           </div>
           <div class="d-flex voting-btns">
-            <%= form_for [@voting_session, @vote] do |f| %>
-              <%= f.hidden_field :special_offer_id, value: special_offer.id %>
-              <%= f.button '', {class: 'btn'} do %>
-                <i class="fa-regular fa-square-check for-icon "></i>
-              <% end %>
-            <% end %>
             <% vote = Vote.find_by(user: current_user, special_offer: special_offer, voting_session: @voting_session) %>
             <% if vote %>
               <%= link_to vote_path(vote), class: "mt-2", data: {turbo_method: :delete} do %>
                 <i class="fa-regular fa-rectangle-xmark against-icon unselected"></i>
+              <% end %>
+            <% else %>
+              <%= form_for [@voting_session, @vote] do |f| %>
+                <%= f.hidden_field :special_offer_id, value: special_offer.id %>
+                <%= f.button '', {class: 'btn'} do %>
+                  <i class="fa-regular fa-square-check for-icon "></i>
+                <% end %>
               <% end %>
             <% end %>
           </div>
