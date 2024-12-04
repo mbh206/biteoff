@@ -1,8 +1,8 @@
 class VotesController < ApplicationController
 
   def create
- 
-    if !Vote.find_by(user_id: current_user.id, 
+
+    if !Vote.find_by(user_id: current_user.id,
       voting_session_id: params[:voting_session_id],
       special_offer_id: params[:vote][:special_offer_id])
       @vote = Vote.new(voter_params)
@@ -15,6 +15,13 @@ class VotesController < ApplicationController
         render 'new', status: :unprocessable_entity
       end
     end
+  end
+
+  def destroy
+    @vote = Vote.find(params[:id])
+    @voting_session = @vote.voting_session
+    @vote.delete
+    redirect_to voting_session_path(@voting_session)
   end
 
   private
