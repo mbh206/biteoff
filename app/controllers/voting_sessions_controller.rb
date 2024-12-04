@@ -26,16 +26,16 @@ class VotingSessionsController < ApplicationController
   def update
     @voting_session = VotingSession.find(params[:id])
     if @voting_session.update(voting_session_params)
-      redirect_to voting_session_path(params[:id]) 
+      redirect_to voting_session_path(params[:id])
     else
       render 'show', status: :unprocessable_entity
     end
   end
 
   private
-  
+
   def voting_session_params
     params.require(:voting_session).permit(:status)
   end
-  
+
 end

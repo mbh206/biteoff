@@ -31,6 +31,7 @@ class SpecialOffersController < ApplicationController
   end
 
   def show
+    @voting_session = VotingSession.new
     @sp_offer = SpecialOffer.find(params[:id])
     @markers = {
         lat: @sp_offer.restaurant.latitude,
