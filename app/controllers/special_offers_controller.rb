@@ -20,6 +20,7 @@ class SpecialOffersController < ApplicationController
       {
         lat: specialoffer.restaurant.latitude,
         lng: specialoffer.restaurant.longitude,
+        category: specialoffer.restaurant.category,
         name: specialoffer.restaurant.name,
         offer: specialoffer.category,
         id: specialoffer.id,
