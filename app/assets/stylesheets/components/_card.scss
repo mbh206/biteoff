@@ -2,10 +2,10 @@
   scroll-behavior: smooth;
   height: 40vh;
   overflow: scroll;
-  border-top: 2px solid #00000050;
-  box-shadow: 0 0 10px #00000050;
+  border-top: 1px solid #7f7f7f;
+  box-shadow: 1px 1px 5px #313131;
   padding:0 5px;
-  background-color: #edecec;
+  background-color: #ffffff;
 }
 
 .map-container {
@@ -21,7 +21,7 @@
 
 .default_offer-card-wrapper {
   max-width: 100px;
-  max-height: 140px;
+  max-height: 180px;
   margin-right: 10px;
 }
 
@@ -31,10 +31,11 @@
 }
 
 .offerdetails-label {
-  font-size: .8rem;
+  font-size: .5rem;
 }
 
 .offer-title {
+  font-size: .9rem;
   text-transform: uppercase;
   font-weight: 600;
   text-align: center;
@@ -47,17 +48,14 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 5px;
-  box-shadow: 1px 1px 1px #00000080;
   border: none;
 }
 
 .offer-card-container {
   background-color: white;
-  margin: 15px 10px;
-  padding: 5px;
-  border-radius: 10px;
-  box-shadow: 1px 1px 5px #00000080;
+  margin: 15px 5px;
+  padding: 15px 0px 25px 0;
+  border-bottom: 1px solid #d9d9d981;
 }
 
 .offer-card-rest {

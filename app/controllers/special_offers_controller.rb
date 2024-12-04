@@ -32,10 +32,12 @@ class SpecialOffersController < ApplicationController
   end
 
   def show
-    if current_user.voting_sessions[0]
-      @voting_session = current_user.voting_sessions[0]
-    else
-      @voting_session = VotingSession.new
+    if user_signed_in?
+      if current_user.voting_sessions[0]
+        @voting_session = current_user.voting_sessions[0]
+      else
+        @voting_session = VotingSession.new
+      end
     end
     @sp_offer = SpecialOffer.find(params[:id])
     @markers = {

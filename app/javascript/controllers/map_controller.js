@@ -53,8 +53,9 @@ export default class extends Controller {
       const categoryPinStyles = {
         "Themed Restaurant": '<i class="fa-solid fa-masks-theater"></i>',
         "Soba Noodles": '<i class="fa-solid fa-bowl-rice"></i>',
+        "Ramen": '<i class="fa-solid fa-bowl-rice"></i>',
         "Sushi": '<i class="fa-solid fa-fish"></i>',
-        "Ramen": '<i class="fa-solid fa-bowl-hot"></i>',
+        "Ramen": '<i class="fa-solid fa-hotpot"></i>',
         "Unagi": '<i class="fa-solid fa-fish"></i>',
         "Italian": '<i class="fa-solid fa-pizza-slice"></i>',
         "Kaiseki": '<i class="fa-solid fa-leaf"></i>',
@@ -96,7 +97,7 @@ export default class extends Controller {
 
       // Create a custom marker element
       const customMarker = document.createElement("div");
-      customMarker.className = "pins badge text-primary";
+      customMarker.className = "pins badge";
       customMarker.innerHTML = pinStyle;
       customMarker.onclick = function() { document.getElementById(marker.id).scrollIntoView() }
 
