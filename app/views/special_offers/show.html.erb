@@ -1,7 +1,4 @@
 <div class="pb-5">
-  <div class="bg-white d-flex justify-content-between p-1">
-    <h3 class="fw-bold"><%= @sp_offer.category %></h3>
-  </div>
   <div class="offer-img-container">
     <% if @sp_offer.photos.any?%>
       <div id="carouselPhoto" class="carousel slide" data-bs-ride="carousel">
@@ -30,24 +27,10 @@
       </div>
     </div>
   <%end%>
+  <div class="bg-white d-flex justify-content-between p-1">
+    <h3 class="fw-bold"><%= @sp_offer.category %></h3>
+  </div>
   <div class="container">
-    <% if user_signed_in? %>
-      <%= form_for @voting_session, url: csib_path(@sp_offer), html: {
-      data: {
-        controller: "sweetalert",
-        sweetalert_icon_value: "success",
-        sweetalert_title_value: "Pick Your Favorite Restaurant Deals and Vote with Friends!",
-        sweetalert_html_value: "Ready to start a session?",
-        sweetalert_confirm_button_text_value: "Yes, Let’s Go!",
-        sweetalert_show_cancel_button_value: true,
-        sweetalert_cancel_button_text_value: "Not Right Now",
-        action: "submit->sweetalert#initSweetalert",
-        turbo: false
-      } } do |f| %>
-        <%# <%=f.submit "Go To-Gather", csib_path(@sp_offer), class: "justify-content-end m-auto btn btn-info rounded-5 w-100 px-3 my-2" %>
-        <%= f.submit "Go To-Gather", class: "justify-content-end m-auto btn btn-info rounded-5 w-100 px-3 my-2"  %>
-      <% end %>
-    <%end%>
     <div class="my-2">
       <i class="offerdetails fa-solid fa-utensils"></i>
       <span class="text-dark"><%=@sp_offer.restaurant.name%></span>
@@ -69,6 +52,43 @@
     <div class = "d-flex justify-content-between">
       <!-- https://www.google.com/maps/search/?api=1&query=47.5951518%2C-122.3316393&query_place_id=ChIJKxjxuaNqkFQR3CK6O1HNNqY&hl=fr -->
       <%= link_to "NAVIGATE", "https://www.google.fr/maps/dir/?api=1&destination=#{@sp_offer.restaurant.latitude},#{@sp_offer.restaurant.longitude}", method: :get, class: "btn btn-primary rounded-pill my-2" %>
+      <% if user_signed_in? %>
+        <% if current_user.voting_sessions[0]%>
+          <%= form_for Collection.new, html: {
+      data: {
+        controller: "sweetalert",
+        sweetalert_icon_value: "info",
+        sweetalert_title_value: "Add a bunch of deals and vote on it with friends.",
+        sweetalert_html_value: "Want to add this deal?",
+        sweetalert_confirm_button_text_value: "Yes, add it!",
+        sweetalert_show_cancel_button_value: true,
+        sweetalert_cancel_button_text_value: "Nevermind",
+        action: "submit->sweetalert#initSweetalert",
+        turbo: false
+      } } do |f| %>
+            <%# <%=f.submit "Go To-Gather", csib_path(@sp_offer), class: "justify-content-end m-auto btn btn-info rounded-5 w-100 px-3 my-2" %>
+            <%= f.hidden_field :voting_session_id, value: @voting_session.id, class: 'form-control' %>
+            <%= f.hidden_field :special_offer_id, value: @sp_offer.id, class: 'form-control' %>
+            <%= f.submit "Add To-Gather",  class: "btn btn-success rounded-pill my-2"  %>
+          <% end %>
+        <% else %>
+          <%= form_for @voting_session, url: csib_path(@sp_offer), html: {
+      data: {
+        controller: "sweetalert",
+        sweetalert_icon_value: "success",
+        sweetalert_title_value: "Pick Your Favorite Restaurant Deals and Vote with Friends!",
+        sweetalert_html_value: "Ready to start a session?",
+        sweetalert_confirm_button_text_value: "Yes, Let’s Go!",
+        sweetalert_show_cancel_button_value: true,
+        sweetalert_cancel_button_text_value: "Not Right Now",
+        action: "submit->sweetalert#initSweetalert",
+        turbo: false
+      } } do |f| %>
+            <%# <%=f.submit "Go To-Gather", csib_path(@sp_offer), class: "justify-content-end m-auto btn btn-info rounded-5 w-100 px-3 my-2" %>
+            <%= f.submit "Go To-Gather", class: "btn btn-primary rounded-pill my-2"  %>
+          <% end %>
+        <% end %>
+      <%end%>
       <%= form_for @sp_offer, html: {
       data: {
         controller: "sweetalert",

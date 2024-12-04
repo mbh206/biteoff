@@ -31,7 +31,11 @@ class SpecialOffersController < ApplicationController
   end
 
   def show
-    @voting_session = VotingSession.new
+    if current_user.voting_sessions[0]
+      @voting_session = current_user.voting_sessions[0]
+    else
+      @voting_session = VotingSession.new
+    end
     @sp_offer = SpecialOffer.find(params[:id])
     @markers = {
         lat: @sp_offer.restaurant.latitude,

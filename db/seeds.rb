@@ -372,9 +372,10 @@ restaurants = Restaurant.all
 start_date = Date.today
 end_date = start_date + 30.days
 
+
 restaurants.each do |restaurant|
   offer = special_offers[restaurant.category]
-
+  random = Random.new.rand(5..30)
   if offer
     SpecialOffer.create!(
       category: offer[:category],
@@ -383,7 +384,7 @@ restaurants.each do |restaurant|
       end_date: end_date,
       restaurant: restaurant,
       user: owner,
-      confirmation_count: 0
+      confirmation_count: random
     )
   else
     puts "No special offer found for category: #{restaurant.category}"
@@ -419,10 +420,10 @@ special_offers.each do |offer|
   review.save
 
   review = Review.new(
-  {
-      description: "The offer wasn't available when I visited.",
-      rating: 2
-  }
+   {
+     description: "The food was fantastic and paired with such a nice deal!",
+     rating: 5
+   }
   )
   review.user = User.all.sample
   review.special_offer = offer
