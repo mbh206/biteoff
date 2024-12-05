@@ -1,9 +1,11 @@
 <%if current_voting_session(current_user).status==2%>
   <%= render "winner" %>
-  <%= simple_form_for @voting_session, url: voting_session_path(@voting_session), method: :delete, html: { class: 'd-inline m-0 p-0' } do |f| %>
-    <%= f.button :submit, 'CLOSE?', class: 'btn btn-success rounded-3 shadow-sm text-white rounded-pill', wrapper: false,
+  <div class="m-auto">
+    <%= simple_form_for @voting_session, url: voting_session_path(@voting_session), method: :delete, html: { class: 'd-inline m-0 p-0' } do |f| %>
+      <%= f.button :submit, 'CLOSE GATHERING?', class: 'btn btn-success rounded-3 shadow-sm text-white rounded-pill', wrapper: false,
         data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to permanently close this voting session?" } %>
-  <% end %>
+    <% end %>
+  </div>
   <!-- Google Maps Button -->
 <%else%>
   <div>
