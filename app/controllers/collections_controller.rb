@@ -9,9 +9,9 @@ class CollectionsController < ApplicationController
     def create
       @collection = Collection.new(collection_params)
       if @collection.save!
-        redirect_to voting_session_path(VotingSession.find_by(user: current_user))
+        redirect_to voting_session_path(@collection.voting_session)
       else
-        redirect_to voting_session_path(VotingSession.find_by(user: current_user)), status: :unprocessable_entity
+        redirect_to voting_session_path(@collection.voting_session), status: :unprocessable_entity
       end
     end
 

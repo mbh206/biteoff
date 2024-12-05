@@ -20,6 +20,9 @@ class VotingSessionsController < ApplicationController
     @voter = Voter.new
     @collection = Collection.new
     @vote = Vote.new
+    @available_friends = current_user.friends.select do |friend|
+      friend.voting_sessions.empty? || friend.voting_sessions.all? { |session| session.status == 2 }
+    end
   end
 
   def update
