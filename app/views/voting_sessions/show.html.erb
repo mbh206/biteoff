@@ -1,4 +1,24 @@
 <div class="voting-container">
   <%= render "offerslist" %>
-  <%= render "friendslist" %>
+  <%if current_voting_session(current_user).status==2%>
+    <div class="d-flex flex-column align-items-center justify-content-center my-5 text-center">
+      <div class="my-3">
+        <p><%= "#{current_user_voted_location[1].name} IS THE WINNER" %></p>
+        <%= link_to "GO NOW",
+              "https://www.google.fr/maps/dir/?api=1&destination=#{current_user_voted_location[1].latitude},#{current_user_voted_location[1].longitude}",
+              target: "_blank",
+              class: "btn btn-primary btn-lg rounded-pill px-4" %>
+      </div>
+      <!-- Winner Title -->
+      <!-- Winner Image -->
+      <div class="mb-4">
+        <%= image_tag current_user_voted_location[0].restaurant.url, 
+                  class: "img-fluid rounded shadow default_offer-card", 
+                  alt: "#{current_user_voted_location[1].name}" %>
+      </div>
+      <!-- Google Maps Button -->
+    </div>
+  <%else%>
+    <%= render "friendslist" %>
+  <%end%>
 </div>

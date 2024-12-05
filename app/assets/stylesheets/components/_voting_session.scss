@@ -41,3 +41,19 @@
 .unselected {
   background-color: darkgray;
 }
+
+.winning-btn-wrapper{
+  position: relative;
+  background-color: #d9d9d9;
+  border-radius: 5px;
+  z-index: 900;
+}
+
+.winning-btn{
+  position: absolute;
+  width: 80vh;
+  height: 50vh;
+  top: 100px;
+  left: 0;
+  margin: auto;
+}
