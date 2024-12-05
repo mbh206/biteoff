@@ -1,11 +1,11 @@
 <div class="d-flex flex-column align-items-center justify-content-center text-center m-0 p-0">
-  <div class=" h-50 w-100">
+  <div class="winning-offer">
     <%= image_tag current_user_voted_location[0].restaurant.url,
-                  class: "img-fluid rounded shadow default_offer-card",
+                  class: "img-fluid rounded default_offer-card mb-3",
                   alt: "#{current_user_voted_location[1].name}" %>
   </div>
-  <div>
-    <p><%= "#{current_user_voted_location[1].name} IS THE WINNER" %></p>
+  <div class="my-3">
+    <h3><%= "#{current_user_voted_location[1].name}" %><span class="opacity-50"> IS THE WINNER</span></h3>
   </div>
   <%= link_to "GO NOW",
               "https://www.google.fr/maps/dir/?api=1&destination=#{current_user_voted_location[1].latitude},#{current_user_voted_location[1].longitude}",
