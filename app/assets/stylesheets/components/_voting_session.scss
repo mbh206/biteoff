@@ -1,14 +1,20 @@
 .voting-container {
-  height: calc(100vh - 150px);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  height:100%;
+  margin-bottom: 120px;
+}
+
+#votingspecialoffer {
+  padding: 0;
+  list-style-type: none;
+  margin:0;
+}
+
+.offerslist {
 }
 
 .friendslist {
-  box-shadow: 0 0 5px #00000050;
-  padding:0 20px;
-  margin-bottom: 75px;
 }
 
 .friendslist-user {
@@ -39,7 +45,21 @@
   color: white;
   background-color: $success;
   font-size: 2rem;
-  margin-right: 1rem;
+}
+
+form.d-inline {
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove margins from form groups */
+form.d-inline .form-group {
+  margin: 0;
+}
+
+/* Ensure hidden inputs don't affect layout */
+form.d-inline [type="hidden"] {
+  display: none;
 }
 
 .against-icon {
