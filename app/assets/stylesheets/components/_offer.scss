@@ -1,8 +1,30 @@
 .offer-img-container {
     position:relative;
 }
+
+.offer-img {
+  height: 300px;
+}
+
+button {
+  border: none;
+  background-color: white;
+}
+
+.gather-btn {
+  background-color: #9e5d7d !important;
+}
+
+.nav-btn {
+  background-color: $blue !important;
+}
+
+.there-btn {
+  background-color: #FF8502 !important;
+}
+
 .restaurantbox {
-    background-color: #FF8502;
+  background-color: #FF8502;
     position:absolute;
     bottom:0;
     left:0;
@@ -17,9 +39,17 @@
   color: #222222;
 }
 
+
+
 .show-btn {
+  background-color: #FF8502;
   font-size: .8rem !important;
+  border-radius: 50px;
   color: white !important;
-  padding: 25px 10px !important;
-  margin: 10px 0 !important;
+  padding: 15px 10px !important;
+  margin: 5px 0 !important;
+}
+
+.show-btn:hover {
+  background-color: #f6b066;
 }

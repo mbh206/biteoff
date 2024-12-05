@@ -5,7 +5,7 @@
         <div class="carousel-inner">
           <%# @sp_offer.photos.each_with_index do |photo, index|%>
             <div class="carousel-item active">
-              <%= image_tag @sp_offer.restaurant.url, class: "w-100 h-100", style: "object-fit: cover;" %>
+              <%= image_tag @sp_offer.restaurant.url, class: "offer-img w-100", style: "object-fit: cover;" %>
             </div>
             <%# end %>
           </div>
@@ -19,7 +19,7 @@
         </div>
       </div>
     <%end%>
-    <div class="bg-white d-flex justify-content-between p-1">
+    <div class="bg-white d-flex justify-content-center p-1">
       <h3 class="fw-bold"><%= @sp_offer.category %></h3>
     </div>
     <div class="container">
@@ -34,7 +34,7 @@
       <div class="d-flex justify-content-between">
         <div class="my-2">
           <i class="offerdetails fa-solid fa-clock"></i>
-          <span class="text-dark"><%=@sp_offer.start_date.strftime('%b %d, %Y') %> - <%=@sp_offer.end_date.strftime('%b %d, %Y') %></span>
+          <span class="text-dark">Ends: <%=@sp_offer.end_date.strftime('%b %d, %Y') %></span>
         </div>
         <div class="my-2">
           <i class="offerdetails fa-solid fa-check"></i>
@@ -44,7 +44,7 @@
       <div class = "d-flex justify-content-between">
         <!-- https://www.google.com/maps/search/?api=1&query=47.5951518%2C-122.3316393&query_place_id=ChIJKxjxuaNqkFQR3CK6O1HNNqY&hl=fr -->
         <%= link_to "https://www.google.fr/maps/dir/?api=1&destination=#{@sp_offer.restaurant.latitude},#{@sp_offer.restaurant.longitude}", method: :get do %>
-          <p class="show-btn btn btn-info rounded-pill"><i class="fa-solid fa-compass"></i> NAVIGATE</p>
+          <p class="show-btn nav-btn"><i class="fa-solid fa-compass"></i> NAVIGATE</p>
         <% end %>
         <% if user_signed_in? %>
           <% if current_user.voting_sessions[0]%>
@@ -63,8 +63,8 @@
               <%# <%=f.submit "Go To-Gather", csib_path(@sp_offer), class: "justify-content-end m-auto btn btn-info rounded-5 w-100 px-3 my-2" %>
               <%= f.hidden_field :voting_session_id, value: @voting_session.id, class: 'form-control' %>
               <%= f.hidden_field :special_offer_id, value: @sp_offer.id, class: 'form-control' %>
-              <%= button_tag(type: 'submit',  class: "btn btn-info rounded-pill") do %>
-                <p class="show-btn"><i class="fa-solid fa-users"></i> Add To-Gather</p>
+              <%= button_tag(type: 'submit') do %>
+                <p class="show-btn gather-btn"><i class="fa-solid fa-users"></i> Add To-Gather</p>
               <% end %>
             <% end %>
           <% else %>
@@ -81,8 +81,8 @@
         turbo: false
       } } do |f| %>
               <%# <%=f.submit "Go To-Gather", csib_path(@sp_offer), class: "justify-content-end m-auto btn btn-info rounded-5 w-100 px-3 my-2" %>
-              <%= button_tag(type: 'submit', class: "btn btn-info rounded-pill" ) do %>
-                <p class="show-btn"><i class="fa-solid fa-users"></i> Go To-Gather</p>
+              <%= button_tag(type: 'submit' ) do %>
+                <p class="show-btn gather-btn"><i class="fa-solid fa-users"></i> Go To-Gather</p>
               <% end %>
             <% end %>
           <% end %>
@@ -99,7 +99,7 @@
         action: "submit->sweetalert#initSweetalert",
         turbo: false
       } } do |f| %>
-          <%= button_tag(type: 'submit', class: 'show-btn btn btn-primary rounded-pill') do %>
+          <%= button_tag(type: 'submit', class: 'show-btn') do %>
             <i class="fa-solid fa-map-pin"></i> I'M THERE
           <% end %>
         <% end %>
