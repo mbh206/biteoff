@@ -22,6 +22,17 @@
 
 .voting-btns {
   width: 100px;
+  position:relative;
+}
+
+.voting-btn-position{
+  position:relative;
+}
+
+.check-position {
+  position: absolute;
+  right: 5rem;
+  top: 2rem;
 }
 
 .for-icon {
@@ -40,4 +51,9 @@
 
 .unselected {
   background-color: darkgray;
+  padding: 0;
+}
+
+.unselected-vote-btn{
+  padding: 0;
 }

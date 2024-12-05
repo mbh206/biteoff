@@ -2,7 +2,7 @@
   <h1 class="shadow p-3 rounded text-center"> WHERE TO GATHER? </h1>
   <ul class="list-group">
     <%@voting_session.special_offers.each do |special_offer|%>
-      <li class="list-group-item">
+      <li class="list-group-item ">
         <div class="d-flex justify-content-between align-items-center">
           <div class="d-flex flex-column">
             <div>
@@ -17,16 +17,20 @@
           <div class="d-flex voting-btns">
             <% vote = Vote.find_by(user: current_user, special_offer: special_offer, voting_session: @voting_session) %>
             <% if vote %>
-              <%= link_to vote_path(vote), class: "mt-2", data: {turbo_method: :delete} do %>
-                <i class="fa-regular fa-rectangle-xmark against-icon unselected"></i>
-              <% end %>
-            <% else %>
-              <%= form_for [@voting_session, @vote] do |f| %>
-                <%= f.hidden_field :special_offer_id, value: special_offer.id %>
-                <%= f.button '', {class: 'btn'} do %>
-                  <i class="fa-regular fa-square-check for-icon "></i>
+              <div>
+                <%= link_to vote_path(vote), data: {turbo_method: :delete} do %>
+                  <i class="fa-regular fa-square-check for-icon ml-3"></i>
                 <% end %>
-              <% end %>
+              </div>
+            <% else %>
+              <div class="">
+                <%= form_for [@voting_session, @vote] do |f| %>
+                  <%= f.hidden_field :special_offer_id, value: special_offer.id %>
+                  <%= f.button '', {class: 'btn unselected-vote-btn'} do %>
+                    <i class="fa-regular fa-square-check for-icon unselected"></i>
+                  <% end %>
+                <% end %>
+              </div>
             <% end %>
           </div>
         </div>
