@@ -10,13 +10,14 @@ class VotingSessionsController < ApplicationController
       voter.user = current_user
       voter.voting_session = @voting_session
       voter.save!
+      @votes = current_user.votes
       @voting_session.save!
 
       redirect_to voting_session_path(@voting_session)
   end
   def show
     @voting_session = VotingSession.find(params[:id])
-
+    @votes = current_user.votes
     @voter = Voter.new
     @collection = Collection.new
     @vote = Vote.new

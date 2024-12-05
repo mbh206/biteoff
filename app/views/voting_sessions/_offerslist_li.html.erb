@@ -1,0 +1,33 @@
+<li class="list-group-item ">
+  <div class="d-flex justify-content-between align-items-center">
+    <div class="d-flex flex-column">
+      <div>
+        <i class="offerdetails fa-solid fa-utensils"></i>
+        <span class="text-dark"><%=special_offer.restaurant.name%></span>
+      </div>
+      <div>
+        <i class="offerdetails fa-solid fa-circle-info"></i>
+        <span class="text-dark"><%=special_offer.category%></span>
+      </div>
+    </div>
+    <div class="d-flex voting-btns">
+      <% vote = @votes.find_by(special_offer: special_offer, voting_session: voting_session) if @votes %>
+      <% if vote %>
+        <div>
+          <%= link_to vote_path(vote), data: {turbo_method: :delete} do %>
+            <i class="fa-regular fa-square-check for-icon ml-3"></i>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="">
+          <%= form_for [voting_session, Vote.new] do |f| %>
+            <%= f.hidden_field :special_offer_id, value: special_offer.id %>
+            <%= f.button '', {class: 'btn unselected-vote-btn'} do %>
+              <i class="fa-regular fa-square-check for-icon unselected"></i>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</li>
