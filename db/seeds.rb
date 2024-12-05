@@ -297,7 +297,7 @@ special_offers = {
     description: "All-you-can-eat menu including A5 Wagyu beef and Sendai Cow tongue starts from 2,980 yen!"
   },
   "Tonkatsu" => {
-    category: "Kurobuta Gozen ¥500 Discount Wednesdays",
+    category: "Kurobuta Gozen ¥500 Discount Friday",
     description: "You will receive a 500 yen discount on your bill when you order a Kurobuta type product set meal."
   },
   "Japanese Fusion" => {
@@ -329,7 +329,7 @@ special_offers = {
     description: "Choose any pasta entrée and a decadent dessert, plus a free glass of house wine, for only ¥1,800."
   },
   "Pizza" => {
-    category: "2-for-1 Pizza Night on Wednesdays",
+    category: "2-for-1 Pizza Night on Saturday",
     description: "Order any large pizza and get a second one free every Wednesday evening."
   },
   "Teppanyaki" => {
