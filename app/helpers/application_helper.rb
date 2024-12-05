@@ -12,9 +12,10 @@ module ApplicationHelper
     session = current_voting_session(current_user)
     vote = Vote.where(voting_session_id: session).group(:special_offer_id).order('COUNT(special_offer_id) DESC').limit(1).count
     @sp_offer = SpecialOffer.find(vote.keys.first)
+    @special_offers = session.special_offers.count
     @index = session.special_offers.find_index(@sp_offer)
     @current_user_voted_location = @sp_offer.restaurant
-    return [@sp_offer, @current_user_voted_location, @index]
+    return [@sp_offer, @current_user_voted_location, @index, @special_offers]
   end
 
 end
