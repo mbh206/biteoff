@@ -1,0 +1,13 @@
+<div data-controller="spinner" data-spinner-winner= <%="#{current_user_voted_location[2]}"%> data-spinner-length=<%="#{current_user_voted_location[3]} "%>>
+  <div class="spinner-container" >
+    <ul class="spinner" data-spinner-target="list">
+      <% 3.times do  %>
+        <% @voting_session.restaurants.each do |restaurant| %>
+          <li><%=  restaurant.name %></li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+</div>
+<!-- Button to trigger the spinner -->
+<button data-action="click->spinner#startSpin">Start Spinner</button>

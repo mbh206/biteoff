@@ -1,4 +1,5 @@
 <div class="container friendslist">
+
   <div class="friendslist-user">
     <%#= cl_image_tag current_user.photo.key, class: "img-thumbnail rounded-circle", width: "75px", alt: "#{current_user.username}" %>
     <h3><%= current_user.username %>  |  Your Friends Groups</h3>
@@ -18,13 +19,12 @@
   <div>
     <%= simple_form_for @voter, html: { class: "d-flex search-form align-items-center m-auto gap-2" } do |f| %>
       <%= f.input :user_id,
+
     collection: @available_friends.pluck(:username, :id),
     input_html: { class: "form-control rounded-pill flex-grow-1 mt-1" },
     wrapper_html: { class: "mb-0 flex-grow-1" }, # Ensure no margin-bottom
     label: false %>
-      <%= f.input :voting_session_id, as: :hidden, input_html: { value: @voting_session.id } %>
-      <%= f.submit '+ friend', class: "btn btn-primary rounded-pill mb-2" %>
-    <% end %>
-  </div>
+    <%= f.input :voting_session_id, as: :hidden, input_html: { value: @voting_session.id } %>
+    <%= f.submit '+ friend', class: "btn btn-primary rounded-pill mb-2" %>
+  <% end %>
 </div>
-<hr class="mb-2">

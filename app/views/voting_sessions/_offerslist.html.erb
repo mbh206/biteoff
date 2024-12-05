@@ -1,64 +1,86 @@
-<div class="offerslist">
-  <h1 class="shadow p-3 rounded text-center"> WHERE TO GATHER? </h1>
-  <%= turbo_stream_from "collection_#{@voting_session.id}_new_special" %>
-  <ul class="list-group" id="votingspecialoffer">
-    <%@voting_session.special_offers.each do |special_offer|%>
-      <!-- collection_#{voting_session.id}_new_special -->
-      <%=render "offerslist_li", special_offer: special_offer, voting_session: @voting_session%>
-    <%end%>
-  </ul>
-  <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="myModalLabel">Submit Form</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <%=simple_form_for @collection do |f|%>
-            <%= f.input_field :special_offer_id, collection: SpecialOffer.all.pluck(:category, :id), prompt: "Select a special offer", class: "form-control me-2 rounded-pill", input_html: { style: "width: auto; flex: 1;" } %>
-            <%= f.input :voting_session_id, as: :hidden,  class: "form-control", input_html: { value: @voting_session.id} %>
-            <%= f.submit "Add Special Offer", class: "btn btn-primary" %>
-            <%= link_to "Cancel", :back, class: "btn btn-light" %>
-          <% end %>
+<%if current_voting_session(current_user).status==2%>
+  <%= render "winner" %>
+  <%= simple_form_for @voting_session, url: voting_session_path(@voting_session), method: :delete, html: { class: 'd-inline m-0 p-0' } do |f| %>
+    <%= f.button :submit, 'CLOSE?', class: 'btn btn-success rounded-3 shadow-sm text-white rounded-pill', wrapper: false,
+        data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to permanently close this voting session?" } %>
+  <% end %>
+  <!-- Google Maps Button -->
+<%else%>
+  <div>
+    <h1 class="text-center border-bottom"> WHERE TO-GATHER? </h1>
+    <%= turbo_stream_from "collection_#{@voting_session.id}_new_special" %>
+    <ul id="votingspecialoffer">
+      <%@voting_session.special_offers.each do |special_offer|%>
+        <li class="text-decoration-none d-flex justify-content-between mx-3 p-2 border-bottom">
+          <div>
+            <div class="d-flex">
+              <i class="offerdetails fa-solid fa-circle-info mx-2"></i>
+              <h6 class="text-dark"><%=special_offer.category%></h6>
+            </div>
+            <div>
+              <i class="offerdetails fa-solid fa-utensils mx-2"></i>
+              <span class="text-dark  opacity-50"><%=special_offer.restaurant.name%></span>
+            </div>
+          </div>
+          <div class="d-flex justifty-content-between mt-2">
+            <% vote = Vote.find_by(user: current_user, special_offer: special_offer, voting_session: @voting_session) %>
+            <% if vote %>
+              <%= link_to vote_path(vote), data: {turbo_method: :delete} do %>
+                <i class="fa-regular fa-square-check for-icon ml-3"></i>
+              <% end %>
+            <% else %>
+              <%= form_for [@voting_session, @vote] do |f| %>
+                <%= f.hidden_field :special_offer_id, value: special_offer.id %>
+                <%= f.button '', {class: 'btn unselected-vote-btn'} do %>
+                  <i class="fa-regular fa-square-check for-icon unselected"></i>
+                <% end %>
+              <% end %>
+            <% end %>
+          </div>
+        </li>
+      <%end%>
+    </ul>
+    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="myModalLabel">Submit Form</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <%=simple_form_for @collection do |f|%>
+              <%= f.input_field :special_offer_id, collection: SpecialOffer.all.pluck(:category, :id), prompt: "Select a special offer", class: "form-control rounded-pill", input_html: { style: "width: auto; flex: 1;" } %>
+              <%= f.input :voting_session_id, as: :hidden,  class: "form-control", input_html: { value: @voting_session.id} %>
+              <%= f.submit "Add Special Offer", class: "btn btn-primary" %>
+              <%= link_to "Cancel", :back, class: "btn btn-light" %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <!-- Trigger Button -->
-  <div class="row justify-content-between align-items-center my-2">
-    <div class="col text-center">
-      <button type="button" class="btn btn-warning rounded-3 shadow-sm text-white">
-        RESET
-      </button>
-    </div>
-    <div class="col text-center">
-      <button type="button" class="btn btn-primary rounded-3 shadow-sm " data-bs-toggle="modal" data-bs-target="#myModal">
+    <!-- Trigger Button -->
+    <div class="d-flex justify-content-evenly m-3 border-bottom py-3">
+      <!-- First Button -->
+      <button type="button" class="btn btn-primary btn-lg rounded-3 shadow-sm rounded-pill" data-bs-toggle="modal" data-bs-target="#myModal">
         + OFFER
       </button>
-    </div>
-    <div class="col text-center">
-      <%if @voting_session.status == 0 %>
-        <%= simple_form_for @voting_session do |f| %>
-          <%= f.input :status, as: :hidden, input_html: { value: 1} %>
-          <%= f.submit 'OPEN?', class: 'btn btn-success rounded-3 shadow-sm text-white' %>
+      <!-- Conditional Buttons -->
+      <% if @voting_session.status == 0 %>
+        <%= simple_form_for @voting_session, html: { class: 'd-inline m-0 p-0' } do |f| %>
+          <%= f.input :status, as: :hidden, input_html: { value: 1 }, wrapper: false, label: false %>
+          <%= f.button :submit, 'OPEN?', class: 'btn btn-success btn-lg rounded-3 shadow-sm text-white rounded-pill', wrapper: false %>
         <% end %>
       <% elsif @voting_session.status == 1 && @voting_session.user == current_user %>
-        <!-- if the voting session has  "opened" (status=1) by organizer then
-        the guest/friend won't see the button but the organizer will see it as a close vote button -->
-        <%= simple_form_for @voting_session do |f| %>
-          <%= f.input :status, as: :hidden, input_html: { value: 2} %>
-          <%= f.submit 'END?', class: 'btn btn-success rounded-3 shadow-sm text-white' %>
+        <%= simple_form_for @voting_session, html: { class: 'd-inline m-0 p-0' } do |f| %>
+          <%= f.input :status, as: :hidden, input_html: { value: 2 }, wrapper: false, label: false %>
+          <%= f.button :submit, 'TALLY', class: 'btn btn-success btn-lg rounded-3 shadow-sm text-white rounded-pill', wrapper: false %>
         <% end %>
       <% elsif @voting_session.status == 2 && @voting_session.user == current_user %>
-        <!-- if the voting session has ended (status=2) then organizer can end the vote
-        the guest/friend won't see the button but the organizer will see it as a close vote button -->
-        <%= simple_form_for @voting_session, url: voting_session_path(@voting_session), method: :delete do |f| %>
-          <%= f.submit 'CLOSE?', 
-          data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to permanently close this voting session?"}, 
-          class: 'btn btn-success rounded-3 shadow-sm text-white' %>
+        <%= simple_form_for @voting_session, url: voting_session_path(@voting_session), method: :delete, html: { class: 'd-inline m-0 p-0' } do |f| %>
+          <%= f.button :submit, 'CLOSE?', class: 'btn btn-success btn-lg rounded-3 shadow-sm text-white rounded-pill', wrapper: false,
+        data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to permanently close this voting session?" } %>
         <% end %>
       <% end %>
     </div>
   </div>
-</div>
+<%end%>
