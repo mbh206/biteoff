@@ -10,5 +10,16 @@ class VotingSession < ApplicationRecord
   # scope :open, -> { where status: 1}
   # scope :end, -> { where status: 2}
 
+  after_update_commit :broadcast_voting_session
+  
+  private
+  def broadcast_voting_session
+    self.voters.each do |voter| 
+      broadcast_replace_to "votingsession_#{voter.user.id}_messages",
+                          partial: "shared/iconnav",
+                          target: "iconnav",
+                          locals: { voting_session: self }
+      end
+  end
 end
 
