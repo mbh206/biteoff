@@ -10,40 +10,39 @@
     <% end %>
   </div>
 </div>
-
 <br>
-<h3><%=@user.username%>'s friends</h3>
-<ul>
+<div class="text-center">
+  <h3><%=@user.username%>'s friends</h3>
   <% @user.friends.each do |friend|%>
-    <li><%=friend.username%></li>
+    <%= cl_image_tag friend.photo.key, class: "avatar-small rounded-circle border border-primary shadow-sm m-2" %>
+    <h5><%=friend.username%></h5>
   <%end%>
-</ul>
-<h3>Sent invitations:</h3>
-<ul>
+  <hr>
+  <h3>Sent invitations:</h3>
   <% @user.invitations_sent.pending.each do |invitation|%>
     <%# <%=User.find(invitation.friend_id).username%>
     <%= cl_image_tag User.find(invitation.friend_id).photo.key,
     alt: "avatar image",
-    class: "avatar-small rounded-circle border border-primary shadow-sm",
+    class: "avatar-small rounded-circle border border-primary shadow-sm m-2",
     title: User.find(invitation.friend_id).username %>
   <% end %>
-
-</ul>
-<h3>Received invitations:</h3>
-<ul>
-  <% @user.invitations_received.pending.each do |invitation|%>
-    <li>
-      <%=User.find(invitation.user_id).username%>
-      <div class="d-flex align-items-center">
-        <%= simple_form_for invitation do |f| %>
-          <%= f.input :confirmed, as: :hidden, input_html: { value: true} %>
-          <%= f.submit 'Accept' %>
-        <% end %>
-        <%= simple_form_for invitation do |f| %>
-          <%= f.input :confirmed, as: :hidden, input_html: { value: false} %>
-          <%= f.submit 'Reject' %>
-        <% end %>
-      </div>
-    </li>
-  <% end %>
-</ul>
+  <hr>
+  <h3>Received invitations:</h3>
+  <ul>
+    <% @user.invitations_received.pending.each do |invitation|%>
+      <li>
+        <%=User.find(invitation.user_id).username%>
+        <div class="d-flex align-items-center">
+          <%= simple_form_for invitation do |f| %>
+            <%= f.input :confirmed, as: :hidden, input_html: { value: true} %>
+            <%= f.submit 'Accept' %>
+          <% end %>
+          <%= simple_form_for invitation do |f| %>
+            <%= f.input :confirmed, as: :hidden, input_html: { value: false} %>
+            <%= f.submit 'Reject' %>
+          <% end %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>

@@ -6,17 +6,15 @@
         <%= cl_image_tag current_user.photo.key, alt: "avatar image", class: "avatar-large rounded-circle border border-primary shadow-sm" %>
       </div>
       <!-- Greeting -->
-      <div class="text-center flex-grow-1">
-        <h4 class="text-primary fw-bold mb-0 dbpage">Hello, <%= @user.username %>!</h4>
-
+      <div class="">
+        <h4 class="text-muted fw-bold mx-2 dbpage">Hello, <%= @user.username %>!</h4>
       </div>
       <!-- Logout Button -->
       <% if user_signed_in? %>
         <div>
           <%= link_to destroy_user_session_path, data: { turbo_method: :delete }, class: "btn btn-danger d-flex align-items-center px-4 py-2" do %>
-           <i class="fa-solid fa-door-open me-2"></i> Logout
+            <i class="fa-solid fa-door-open me-2"></i> Logout
           <% end %>
-
         </div>
       <% end %>
     </div>
