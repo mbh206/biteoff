@@ -7,6 +7,7 @@ class CollectionsController < ApplicationController
     end
 
     def create
+      @votes = current_user.votes
       @collection = Collection.new(collection_params)
       if @collection.save!
         redirect_to voting_session_path(@collection.voting_session)
