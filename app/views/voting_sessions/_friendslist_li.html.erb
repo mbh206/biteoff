@@ -1,4 +1,4 @@
-<li class="d-flex align-items-center">
+<li class="d-flex align-items-center" id="voting<%=voter.id%>">
   <%if Vote.where(user: voter.user).count > 0 %>
     <%= cl_image_tag voter.user.photo.key, alt: "#{voter.user.username}", class: "img-thumbnail rounded-circle border border-success border-3", width: "50px", height: "50px" %>
   <%else%>
@@ -7,6 +7,8 @@
   <h4 class="flex-grow-1 m-auto"><%= voter.user.username %></h4>
   <%= simple_form_for voter, url: voter_path(voter), method: :delete do |f| %>
     <%= f.input :voting_session_id, as: :hidden, input_html: { value: voting_session.id } %>
-    <%= f.submit '—', class: "btn btn-primary rounded-pill mb-3" %>
+    <%= f.submit '—', 
+               class: "btn btn-primary rounded-pill mb-3", 
+               data: { confirm: "Are you sure you want to remove this voter?" } %>
   <% end %>
 </li>
