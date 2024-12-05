@@ -22,7 +22,7 @@
 .default_offer-card-wrapper {
   max-width: 100px;
   max-height: 180px;
-  margin-right: 10px;
+  // margin-right: 10px;
 }
 
 .offerdetails{
@@ -34,12 +34,19 @@
   font-size: .5rem;
 }
 
+.offerdetailstitle {
+  padding: 5px 15px 0 15px;
+}
+
+.blue-text {
+  color: $blue !important;
+}
+
 .offer-title {
   font-size: .9rem;
   text-transform: uppercase;
   font-weight: 600;
   text-align: center;
-  background-color: #1F8BE920;
   color: #000000;
   padding-top: 3px;
 }

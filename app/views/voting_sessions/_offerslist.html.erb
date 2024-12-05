@@ -1,6 +1,7 @@
 <div class="offerslist">
   <h1 class="shadow p-3 rounded text-center"> WHERE TO GATHER? </h1>
-  <ul class="list-group">
+  <%= turbo_stream_from "collection_#{@voting_session.id}_new_special" %>
+  <ul class="list-group" id="votingspecialoffer">
     <%@voting_session.special_offers.each do |special_offer|%>
       <li class="list-group-item ">
         <div class="d-flex justify-content-between align-items-center">

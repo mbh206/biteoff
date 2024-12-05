@@ -158,10 +158,10 @@ puts "Creating restaurants in Tokyo..."
 
 # Restaurant seeds with names, categories, and coordinates (latitude and longitude)
 restaurants = [
-  {name: "Ninja Akasaka", category: "Themed Restaurant", latitude: 35.6762, longitude: 139.7404, url: "https://lh3.googleusercontent.com/p/AF1QipNeX5kva2-Roq0h9fwk4KTlep2rnM8xbVB9Fm3e=s1360-w1360-h1020"},
-  {name: "Kanda Yabu-Soba", category: "Soba Noodles", latitude: 35.6958, longitude: 139.7704, url: "https://lh3.googleusercontent.com/p/AF1QipPrFiXjM_2VDvA1KTeUlaZENTF-NPKxjgKPZx6r=s1360-w1360-h1020"},
+  {name: "Ninja Akasaka", category: "Themed Restaurant", latitude: 35.6762, longitude: 139.7404, url: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2c/d3/28/0d/caption.jpg"},
+  {name: "Kanda Yabu-Soba", category: "Soba Noodles", latitude: 35.6958, longitude: 139.7704, url: "https://zendine.co/_next/image/?url=https%3A%2F%2Fd3nrav7vo3lya8.cloudfront.net%2Fprofile_photos%2Fsoba%2F140p.webp&w=640&q=75"},
   {name: "Sushi Kanesaka", category: "Sushi", latitude: 35.6764, longitude: 139.7632, url: "https://d2dzi65yjecjnt.cloudfront.net/1339874-1.jpg"},
-  {name: "Motenashi-Kuroki", category: "Ramen", latitude: 35.7002, longitude: 139.7706, url: "https://static.wixstatic.com/media/1815be_db9b733a3ab84c868f91340033e88237~mv2.jpg/v1/fill/w_2500,h_1666,al_c/1815be_db9b733a3ab84c868f91340033e88237~mv2.jpg"},
+  {name: "Motenashi-Kuroki", category: "Ramen", latitude: 35.7002, longitude: 139.7706, url: "https://lh3.googleusercontent.com/p/AF1QipPigC5p0YNgzzLxXtJHOIu9a_RURWqwgcAdklLZ=s680-w680-h510"},
   {name: "Nodaiwa", category: "Unagi", latitude: 35.675, longitude: 139.7447, url: "https://old-tokyo.info/wp-content/uploads/2018/07/2018-06-06-19.05.08-1200x771.jpg"},
   {name: "Osteria da-K-Hattori", category: "Italian", latitude: 35.6931, longitude: 139.7532, url: "https://savorjapan.com/gg/image/0006072344/0006072344F20_en_387x290d80.jpg"},
   {name: "Kanda Matsuya", category: "Soba Noodles", latitude: 35.6945, longitude: 139.7701, url: "https://cdn.tasteatlas.com/images/dishrestaurants/3b6f44bc717942fdadeca57ca81040a1.jpg?w=600"},
@@ -234,11 +234,11 @@ restaurants = [
   {name: "Monja Street", category: "Okonomiyaki", latitude: 35.6718, longitude: 139.8158, url: "https://jw-webmagazine.com/wp-content/uploads/2019/06/jw-5d149cf4c54948.59619839.jpeg"},
   {name: "Fukagawa Meshi", category: "Japanese", latitude: 35.6716, longitude: 139.8156, url: "https://kotomise.jp/wp/wp-content/uploads/2021/03/76dcc6065bc1207429ce34bd3828375d.jpg"},
   {name: "Tofuya Ukai", category: "Tofu Kaiseki", latitude: 35.6574, longitude: 139.7454, url: "https://tblg.k-img.com/restaurant/images/Rvw/189365/077e727fb6324c75f3895cc46191fa6b.jpg"},
-  {name: "Ramen Jiro Meguro", category: "Ramen", latitude: 35.6331, longitude: 139.715, url: "https://hayato240.com/wp-content/uploads/2021/05/IMG_5183.jpeg"},
+  {name: "Ramen Jiro Meguro", category: "Ramen", latitude: 35.6342, longitude: 139.7072, url: "https://hayato240.com/wp-content/uploads/2021/05/IMG_5183.jpeg"},
   {name: "Gotetsu", category: "Okonomiyaki", latitude: 35.6091, longitude: 139.7304, url: "https://tblg.k-img.com/resize/640x360c/restaurant/images/Rvw/213847/b1ddb52a38e461bab3d91ea0f4dfbf23.jpg?token=006055c&api=v2"},
   {name: "Shinagawa Okina", category: "Sushi", latitude: 35.6285, longitude: 139.7389, url: "https://tblg.k-img.com/restaurant/images/Rvw/264525/640x640_rect_16006fc57ebc1a8753ebad7bdd85c1fb.jpg"},
   {name: "Tonkatsu Tonki", category: "Tonkatsu", latitude: 35.6312, longitude: 139.716, url: "https://japangourmetpass.s3.us-east-2.amazonaws.com/images-restaurants/March2020/tonkatsu-tonki-restaurant-in-meguro-tonkatsu-pork-culet-soft.jpg"},
-  {name: "Kura Sushi", category: "Sushi", latitude: 35.6095, longitude: 139.7306, url: "https://www.planmyjapan.com/wp-content/uploads/2023/08/kura-3-2.jpg"},
+  {name: "Kura Sushi", category: "Sushi", latitude: 35.6339, longitude: 139.7151, url: "https://www.planmyjapan.com/wp-content/uploads/2023/08/kura-3-2.jpg"},
   {name: "Yakiniku Champion", category: "Yakiniku", latitude: 35.6093, longitude: 139.7302, url: "https://tb-static.uber.com/prod/image-proc/processed_images/4cd628e1684868ec70ab48eed52aee88/fb86662148be855d931b37d6c1e5fcbe.jpeg"},
   {name: "Tempura Yamanoue", category: "Tempura", latitude: 35.609, longitude: 139.73, url: "https://rimage.hitosara.com/gg/image/0006133725/0006133725J1.jpg"},
   {name: "Sushi Taichi", category: "Sushi", latitude: 35.6087, longitude: 139.7298, url: "https://tblg.k-img.com/restaurant/images/Rvw/212117/640x640_rect_bfd5c243922747d6108c35bb322a30c3.jpg"},
@@ -247,7 +247,7 @@ restaurants = [
   {name: "Yakiniku-Champion", category: "Yakiniku", latitude: 35.6339, longitude: 139.7158, url: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/db/b7/a4/caption.jpg?w=1200&h=-1&s=1"},
   {name: "Tempura-Yamanoue", category: "Tempura", latitude: 35.6341, longitude: 139.716, url: "https://www.peninsula.com/-/media/images/tokyo/new/our-city/concierge-recommendation/tempura-1074-x-604pix.png?mw=987&hash=20444F20866899DEC1914184B2415526"},
   {name: "Sushi-Taichi", category: "Sushi", latitude: 35.6343, longitude: 139.7162, url: "https://restaurant.img-ikyu.com/rsDatas/rsData125000/r124968/orig/124968ga10000006.jpg?auto=compress%2Cformat&lossless=0&fit=crop&w=1400&h=700"},
-  {name: "T.Y. Harbor", category: "Brewery/International", latitude: 35.6347, longitude: 139.7166, url: "https://tblg.k-img.com/resize/640x360c/restaurant/images/Rvw/127599/127599028.jpg?token=5b8eac3&api=v2"},
+  {name: "T.Y. Harbor", category: "Brewery/International", latitude: 35.6228, longitude: 139.7461, url: "https://tblg.k-img.com/resize/640x360c/restaurant/images/Rvw/127599/127599028.jpg?token=5b8eac3&api=v2"},
   {name: "Anagoya", category: "Unagi", latitude: 35.5615, longitude: 139.715, url: "https://www.pelago.com/img/products/JP-Japan/japan-osaka-eel-dish-kitahama-anagoya-michelin-recommended/2518ddf9-883d-4eb2-bd60-bfec0677d372_japan-osaka-eel-dish-kitahama-anagoya-michelin-recommended.jpg"},
   {name: "Kamata Horumon", category: "Horumon", latitude: 35.5617, longitude: 139.7152, url: "https://tblg.k-img.com/resize/640x360c/restaurant/images/Rvw/231388/cbf0e697227a15debb60d843e9e755d3.jpg?token=e3fe686&api=v2"},
   {name: "Ramen Dai Kamata", category: "Ramen", latitude: 35.5619, longitude: 139.7154, url: "https://tblg.k-img.com/restaurant/images/Rvw/129013/320x320_square_129013804.jpg"},
@@ -255,6 +255,8 @@ restaurants = [
   {name: "Sushi Zanmai Kamata", category: "Sushi", latitude: 35.5623, longitude: 139.7158, url: "https://tblg.k-img.com/resize/640x360c/restaurant/images/Rvw/235089/05d688c421055257800b0de3eb0fd26c.jpg?token=ffb3eb7&api=v2"},
   {name: "Yakitori Taisho", category: "Yakitori", latitude: 35.5625, longitude: 139.716, url: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/04/7c/77/30/yakitori-taisho.jpg?w=900&h=500&s=1"},
   {name: "Seirinkan", category: "Pizza", latitude: 35.6475, longitude: 139.6697, url: "https://thecitylane.com/wp-content/uploads/2018/12/DSCF0607.jpg"},
+  {name: "Pizza Giardino Savoy", category: "Pizza", latitude: 35.6320, longitude: 139.7109, url: "https://lh3.googleusercontent.com/p/AF1QipMq_m1iBJtFRbrykmh1BGuyAb9uzhMULMxY3ATt=s1360-w1360-h1020"},
+  {name: "Il Lupone", category: "Pizza", latitude: 35.6410, longitude: 139.7026, url: "https://lh3.googleusercontent.com/p/AF1QipOArejPTV_39WZDSc6tGQHHWf7Tzp17wXtSP86V=s1360-w1360-h1020"},
   {name: "Yakitori Imai", category: "Yakitori", latitude: 35.6468, longitude: 139.6689, url: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/91/69/9e/caption.jpg?w=900&h=500&s=1"},
   {name: "Shimauma", category: "Japanese Fusion", latitude: 35.648, longitude: 139.67, url: "https://tblg.k-img.com/resize/640x360c/restaurant/images/Rvw/234061/c3232dc87b42661d31893b18f0000712.jpg?token=82a2695&api=v2"},
   {name: "Ramen Jiro Sangenjaya", category: "Ramen", latitude: 35.646, longitude: 139.6675, url: "https://tblg.k-img.com/restaurant/images/Rvw/267443/640x640_rect_a0135b18c31ad6ce1428c0f8c2b88d0a.jpg"},
@@ -279,7 +281,7 @@ special_offers = {
     description: "Enjoy a deluxe sushi platter with 12 expertly crafted pieces for half the price (¥2,500) every Thursday evening, 5 PM to 9 PM."
   },
   "Japanese" => {
-    category: "Sushi Set with Sea Urchin, Salmon Roe & Champagne %20off",
+    category: "%20off Sushi Set with Sea Urchin, Salmon Roe & Champagne",
     description: "The ultimate luxury dining experience that you can only enjoy here in Ginza, all at 20% off - regularly price ¥14,000"
   },
   "Yakitori" => {
@@ -299,7 +301,7 @@ special_offers = {
     description: "You will receive a 500 yen discount on your bill when you order a Kurobuta type product set meal."
   },
   "Japanese Fusion" => {
-    category: "All-You-Can-Eat Sushi Rolls for ¥2,900",
+    category: "¥2,900 All-You-Can-Eat Sushi Rolls",
     description: "Indulge in unlimited sushi rolls for dinner every Friday night. Reservation required."
   },
   "Japanese Sweets" => {
@@ -307,23 +309,23 @@ special_offers = {
     description: "Pair our house-made matcha parfait with traditional Japanese sweets after your dinner entrée for only ¥900."
   },
   "Horumon" => {
-    category: "All-You-Can-Eat Dinner from 5pm for ¥2,500",
+    category: "¥2,500 All-You-Can-Eat Dinner from 5pm",
     description: "All-you-can-eat plan from Shimachan that offers great value for money and great customer savings!"
   },
   "Tempura" => {
-    category: "Tempura Set Meal for ¥1,800",
+    category: "¥1,800 Tempura Set Meal",
     description: "Dive into a crispy tempura set meal featuring prawns, seasonal vegetables, and dipping sauces. Includes tea. Available daily for lunch."
   },
   "Kaiseki" => {
-    category: "Weekend Kaiseki Lunch Special at ¥3,000",
+    category: "¥3,000Weekend Kaiseki Lunch Special",
     description: "Experience an seasonal delicacies in Japanese traditional kaiseki meal, exclusively on Saturdays and Sundays from 12 PM to 2 PM."
   },
   "Ramen" => {
-    category: "Ramen Bowl + Gyoza Combo at ¥1,200",
+    category: "¥1,200 Ramen Bowl + Gyoza Combo",
     description: "Slurp up a hearty ramen bowl with a side of crispy gyoza. Available Monday to Friday from 6 PM until close."
   },
   "Italian" => {
-    category: "Tuesday Pasta & Dessert for ¥1,800",
+    category: "¥1,800 Tuesday Pasta & Dessert",
     description: "Choose any pasta entrée and a decadent dessert, plus a free glass of house wine, for only ¥1,800."
   },
   "Pizza" => {
@@ -331,35 +333,35 @@ special_offers = {
     description: "Order any large pizza and get a second one free every Wednesday evening."
   },
   "Teppanyaki" => {
-    category: "Steak Dinner for Two with Wine for ¥5,800",
+    category: "¥5,800 Steak Dinner for Two with Wine",
     description: "Treat yourself and a loved one to two sirloin steak meals, accompanied by a bottle of house wine, every Friday."
   },
   "Tofu Kaiseki" => {
-    category: "Dinner Set Special at ¥2,000",
+    category: "¥2,000 Dinner Set Special",
     description: "Authentic Japanese multi-course kaiseki lunch showcasing seasonal delicacies."
   },
   "Soba Noodles" => {
-    category: "Soba & Sake Set for ¥1,200",
+    category: "¥1,200 Soba & Sake Set",
     description: "Get a bowl of soba noodles (hot or cold) and a glass of premium sake for ¥1,200. Offer valid on Thursdays only."
   },
   "Unagi" => {
-    category: "Grilled Eel Bowl for ¥1,500",
+    category: "¥1,500 Grilled Eel Bowl",
     description: "Savor our signature unagi bowl with rice, pickles, and miso soup, discounted during weekday lunch hours."
   },
   "Okonomiyaki" => {
-    category: "DIY Okonomiyaki Night for ¥900",
+    category: "¥900 DIY Okonomiyaki Night",
     description: "Build your perfect savory pancake and enjoy a complimentary dessert. Available Sundays from 5 PM to 9 PM."
   },
   "Chinese" => {
-    category: "All-You-Can-Taste Dim Sum",
-    description: "Plus a welcome drink (Weekdays Only) - Value of JPY 7,700 → JPY 7,040 (8% off)"
+    category: "8% Off All-You-Can-Eat Dim Sum",
+    description: "Plus a welcome drink (Weekdays Only) - Value of ¥7,700 → ¥7,040 (8% off)"
   },
   "Themed Restaurant" => {
     category: "2-for-1 Appetizer Tuesdays",
     description: "Buy one appetizer and get a second one free. Available every Tuesday for lunch and dinner."
   },
   "Brewery/International" => {
-    category: "All-American Brunch for ¥1,200",
+    category: "¥1,200 All-American Brunch",
     description: "Indulge in a brunch platter with pancakes, scrambled eggs, crispy bacon, and coffee. Available Saturday mornings."
   },
   "Kushikatsu" => {
@@ -367,7 +369,7 @@ special_offers = {
     description: "33 types of Kushi Katsu, normally priced between 130 to 260 yen, for just 110 yen!"
   },
   "French" => {
-    category: "Wine & Cheese Pairing for Two at ¥2,800",
+    category: "¥2,800 Wine & Cheese Pairing for Two",
     description: "Savor a curated selection of cheeses paired with two glasses of house wine. Perfect for wine lovers."
   }
 }
