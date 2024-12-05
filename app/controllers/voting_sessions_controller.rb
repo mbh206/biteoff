@@ -31,6 +31,12 @@ class VotingSessionsController < ApplicationController
     end
   end
 
+  def destroy
+    @voting_session = VotingSession.find(params[:id])
+    @voting_session.destroy    
+    redirect_to special_offers_path    
+  end
+
   private
 
   def voting_session_params
