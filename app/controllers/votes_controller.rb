@@ -20,7 +20,8 @@ class VotesController < ApplicationController
   def destroy
     @vote = Vote.find(params[:id])
     @voting_session = @vote.voting_session
-    @vote.delete
+    @vote.destroy
+    @vote.broadcast_newvotes
     redirect_to voting_session_path(@voting_session)
   end
 

@@ -1,0 +1,12 @@
+<li class="d-flex align-items-center">
+  <%if Vote.where(user: voter.user).count > 0 %>
+    <%= cl_image_tag voter.user.photo.key, alt: "#{voter.user.username}", class: "img-thumbnail rounded-circle border border-success border-3", width: "50px", height: "50px" %>
+  <%else%>
+    <%= cl_image_tag voter.user.photo.key, alt: "#{voter.user.username}", class: "img-thumbnail rounded-circle ", width: "50px", height: "50px" %>
+  <% end %>
+  <h4 class="flex-grow-1 m-auto"><%= voter.user.username %></h4>
+  <%= simple_form_for voter, url: voter_path(voter), method: :delete do |f| %>
+    <%= f.input :voting_session_id, as: :hidden, input_html: { value: voting_session.id } %>
+    <%= f.submit '—', class: "btn btn-primary rounded-pill mb-3" %>
+  <% end %>
+</li>

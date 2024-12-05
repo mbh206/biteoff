@@ -6,10 +6,10 @@ class VotersController < ApplicationController
       )
       @voter = Voter.new(voter_params)
       if @voter.save!
-        redirect_to voting_session_path(VotingSession.where(id_users: current_user))
+        redirect_to voting_session_path(@voter.voting_session)
       else
         #chaf: not sure about that way of retrieving the VotingSession
-        redirect_to voting_session_path(VotingSession.where(id_users: current_user)), status: :unprocessable_entity
+        redirect_to voting_session_path(@voter.voting_session), status: :unprocessable_entity
       end
     end
   end
