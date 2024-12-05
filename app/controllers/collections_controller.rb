@@ -7,12 +7,20 @@ class CollectionsController < ApplicationController
     end
 
     def create
-      @collection = Collection.new(collection_params)
-      if @collection.save!
-        redirect_to voting_session_path(@collection.voting_session)
+      @voting_session = VotingSession.find(params[:collection][:voting_session_id])
+      @special_offer = SpecialOffer.find(params[:collection][:special_offer_id])
+      @collection = @voting_session.collections.find_by(special_offer_id: params[:collection][:special_offer_id])
+      if @collection.nil?
+        @collection = Collection.new(collection_params)
+        if @collection.save!
+          redirect_to voting_session_path(@collection.voting_session)
+        else
+          redirect_to voting_session_path(@collection.voting_session), status: :unprocessable_entity
+        end
       else
-        redirect_to voting_session_path(@collection.voting_session), status: :unprocessable_entity
+        redirect_to voting_session_path(@voting_session)
       end
+
     end
 
     private
