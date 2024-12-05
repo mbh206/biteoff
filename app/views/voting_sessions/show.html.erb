@@ -1,6 +1,6 @@
 <div class="voting-container">
   <%= render "offerslist" %>
-  <%if current_voting_session(current_user).status==2%>
+  <%if current_voting_session(current_user).status==2 && current_voting_session(current_user).votes.count > 0 %>
     <div class="d-flex flex-column align-items-center justify-content-center my-5 text-center">
       <div class="my-3">
         <p><%= "#{current_user_voted_location[1].name} IS THE WINNER" %></p>
