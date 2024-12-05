@@ -6,12 +6,18 @@ export default class extends Controller {
 
 
   startSpin() {
-    console.log(this.data.get("winner"));
 
 
+
+    const length = this.data.get("length");
     const winnerIndex = this.data.get("winner");
     const itemHeight = 50;
-    const spinDistance = (-(winnerIndex * itemHeight));
+    const initialSpinDistance = (itemHeight * length) * 2;
+    const spinDistance = -initialSpinDistance - (winnerIndex * itemHeight);
+
+
+    // const addedSpinDistance = spinDistance - (winnerIndex * itemHeight) - 50
+
 
 
     this.listTarget.style.transition = "transform 3s ease-out";
