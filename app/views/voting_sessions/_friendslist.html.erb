@@ -24,7 +24,7 @@
   <div>
     <%= simple_form_for @voter, html: { class: "d-flex search-form align-items-center m-auto gap-2" } do |f| %>
       <%= f.input :user_id,
-    collection: current_user.friends.pluck(:username, :id),
+    collection: @available_friends.pluck(:username, :id),
     input_html: { class: "form-control rounded-pill flex-grow-1 mt-1" },
     wrapper_html: { class: "mb-0 flex-grow-1" }, # Ensure no margin-bottom
     label: false %>
