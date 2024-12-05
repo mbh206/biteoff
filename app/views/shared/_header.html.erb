@@ -1,5 +1,7 @@
 <div class="container header-container">
   <div>
-    <%= image_tag "biteofflogo-sq.png", alt: "BiteOff Deals App", class: "header-logo  bg-white" %>
+    <%= link_to special_offers_path do %>
+      <%= image_tag "biteofflogo-sq.png", alt: "BiteOff Deals App", class: "header-logo  bg-white" %>
+    <% end %>
   </div>
 </div>
