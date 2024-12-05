@@ -73,7 +73,11 @@
       <% elsif @voting_session.status == 1 && @voting_session.user == current_user %>
         <%= simple_form_for @voting_session, html: { class: 'd-inline m-0 p-0' } do |f| %>
           <%= f.input :status, as: :hidden, input_html: { value: 2 }, wrapper: false, label: false %>
-          <%= f.button :submit, 'TALLY', class: 'btn btn-success btn-lg rounded-3 shadow-sm text-white rounded-pill', wrapper: false %>
+          <%= f.button :submit, 'TALLY', 
+               class: 'btn btn-success btn-lg rounded-3 shadow-sm text-white rounded-pill', 
+               wrapper: false, 
+               disabled: @voting_session.votes.count == 0, 
+               title: (@voting_session.votes.count == 0 ? 'No votes to tally' : '') %>
         <% end %>
       <% elsif @voting_session.status == 2 && @voting_session.user == current_user %>
         <%= simple_form_for @voting_session, url: voting_session_path(@voting_session), method: :delete, html: { class: 'd-inline m-0 p-0' } do |f| %>
