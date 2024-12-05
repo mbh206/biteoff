@@ -1,7 +1,7 @@
 <% if voting_session %>
   <% if voting_session.status == 1 %>
     <%=link_to voting_session_path(voting_session), class: "btn" do %>
-      <i id="iconnav" class="fa-solid fa-users fs-1 fa-bounce"></i>
+      <i id="iconnav" class="fa-solid fa-users fs-1 fa-bounce" style="--fa-animation-iteration-count: 3;"></i>
     <%end%>
   <%elsif voting_session.status == 2 %>
     <%=link_to voting_session_path(voting_session), class: "btn" do %>
