@@ -48,103 +48,103 @@ User.create!(
   username: "TrisBeep",
   email: "tristan@biteoff.com",
   password: "123123"
-).photo.attach(io: File.open("app/assets/images/profilepic/Default_pfp.jpg"), filename: "default.jpg", content_type: "image/jpg")
+).photo.attach(io: URI.open("https://avatars.githubusercontent.com/u/130889219?v=4"), filename: "default.jpg", content_type: "image/jpg")
 
 User.create!(
   username: "AdBrunz",
   email: "adam@biteoff.com",
   password: "123123"
-).photo.attach(io: File.open("app/assets/images/profilepic/Default_pfp.jpg"), filename: "default.jpg", content_type: "image/jpg")
+).photo.attach(io: URI.open("https://avatars.githubusercontent.com/u/184023000?v=4"), filename: "default.jpg", content_type: "image/jpg")
 
 User.create!(
   username: "RoHadoo",
   email: "roman@biteoff.com",
   password: "123123"
-).photo.attach(io: File.open("app/assets/images/profilepic/Default_pfp.jpg"), filename: "default.jpg", content_type: "image/jpg")
+).photo.attach(io: URI.open("https://avatars.githubusercontent.com/u/136100872?v=4"), filename: "default.jpg", content_type: "image/jpg")
 
 User.create!(
   username: "Phlanic",
   email: "phyu@biteoff.com",
   password: "123123"
-).photo.attach(io: File.open("app/assets/images/profilepic/Default_pfp.jpg"), filename: "default.jpg", content_type: "image/jpg")
+).photo.attach(io: URI.open("https://avatars.githubusercontent.com/u/173035068?v=4"), filename: "default.jpg", content_type: "image/jpg")
 
 User.create!(
   username: "KamolMasher",
   email: "mason@biteoff.com",
   password: "123123"
-).photo.attach(io: File.open("app/assets/images/profilepic/Default_pfp.jpg"), filename: "default.jpg", content_type: "image/jpg")
+).photo.attach(io: URI.open("https://avatars.githubusercontent.com/u/24495286?v=4"), filename: "default.jpg", content_type: "image/jpg")
 
 User.create!(
   username: "WCLiao",
   email: "wei-cheng@biteoff.com",
   password: "123123"
-).photo.attach(io: File.open("app/assets/images/profilepic/Default_pfp.jpg"), filename: "default.jpg", content_type: "image/jpg")
+).photo.attach(io: URI.open("https://d26jy9fbi4q9wx.cloudfront.net/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBeEpzQXc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--ed6c24b749b6bcb4c97a202fbd4f446b44b0fa8f/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJU2xCSEJqb0dSVlE2RTNKbGMybDZaVjkwYjE5bWFXeHNXd2hwQWNocEFjaDdCam9KWTNKdmNEb09ZWFIwWlc1MGFXOXUiLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--35a77baed05205a7e10c3ee76e90ab712819a68d/IMG_6659%20copy.JPG"), filename: "default.jpg", content_type: "image/jpg")
 
 User.create!(
   username: "DyMayo",
   email: "dylan@biteoff.com",
   password: "123123"
-).photo.attach(io: File.open("app/assets/images/profilepic/Default_pfp.jpg"), filename: "default.jpg", content_type: "image/jpg")
+).photo.attach(io: URI.open("https://d26jy9fbi4q9wx.cloudfront.net/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBMnVVQXc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--a068e80eade9adb7fbb2dc7d94cb41ba158cae9b/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lKYW5CbFp3WTZCa1ZVT2hOeVpYTnBlbVZmZEc5ZlptbHNiRnNJYVFISWFRSElld1k2Q1dOeWIzQTZEbUYwZEdWdWRHbHZiZz09IiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--23cdbdf9871e44adeb4d843a03b0793a5f08394b/image00020.jpeg"), filename: "default.jpg", content_type: "image/jpg")
 
 User.create!(
   username: "BartiMiko",
   email: "bartlomiej@biteoff.com",
   password: "123123"
-).photo.attach(io: File.open("app/assets/images/profilepic/Default_pfp.jpg"), filename: "default.jpg", content_type: "image/jpg")
+).photo.attach(io: URI.open("https://d26jy9fbi4q9wx.cloudfront.net/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBMnh2QXc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--b7712879057fd01ec0ef07b85086bf93883ec1b7/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lKYW5CbFp3WTZCa1ZVT2hOeVpYTnBlbVZmZEc5ZlptbHNiRnNJYVFISWFRSElld1k2Q1dOeWIzQTZEbUYwZEdWdWRHbHZiZz09IiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--23cdbdf9871e44adeb4d843a03b0793a5f08394b/profilowe.jpeg"), filename: "default.jpg", content_type: "image/jpg")
 
 User.create!(
   username: "JarMizzy",
   email: "jarod@biteoff.com",
   password: "123123"
-).photo.attach(io: File.open("app/assets/images/profilepic/Default_pfp.jpg"), filename: "default.jpg", content_type: "image/jpg")
+).photo.attach(io: URI.open("https://avatars.githubusercontent.com/u/174467341?v=4"), filename: "default.jpg", content_type: "image/jpg")
 
 User.create!(
   username: "LoriMo",
   email: "loris@biteoff.com",
   password: "123123"
-).photo.attach(io: File.open("app/assets/images/profilepic/Default_pfp.jpg"), filename: "default.jpg", content_type: "image/jpg")
+).photo.attach(io: URI.open("https://avatars.githubusercontent.com/u/170473957?v=4"), filename: "default.jpg", content_type: "image/jpg")
 
 User.create!(
   username: "ClauOrdz",
   email: "claudia@biteoff.com",
   password: "123123"
-).photo.attach(io: File.open("app/assets/images/profilepic/Default_pfp.jpg"), filename: "default.jpg", content_type: "image/jpg")
+).photo.attach(io: URI.open("https://d26jy9fbi4q9wx.cloudfront.net/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBeHBzQXc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--dbfde3a54ef5bb4b57ad71978bf28591fbd92590/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lKYW5CbFp3WTZCa1ZVT2hOeVpYTnBlbVZmZEc5ZlptbHNiRnNJYVFISWFRSElld1k2Q1dOeWIzQTZEbUYwZEdWdWRHbHZiZz09IiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--23cdbdf9871e44adeb4d843a03b0793a5f08394b/IMG_6693.jpeg"), filename: "default.jpg", content_type: "image/jpg")
 
 User.create!(
   username: "PalToby",
   email: "toby@biteoff.com",
   password: "123123"
-).photo.attach(io: File.open("app/assets/images/profilepic/Default_pfp.jpg"), filename: "default.jpg", content_type: "image/jpg")
+).photo.attach(io: URI.open("https://avatars.githubusercontent.com/u/96312680?v=4"), filename: "default.jpg", content_type: "image/jpg")
 
 User.create!(
   username: "HenSan",
   email: "henry@biteoff.com",
   password: "123123"
-).photo.attach(io: File.open("app/assets/images/profilepic/Default_pfp.jpg"), filename: "default.jpg", content_type: "image/jpg")
+).photo.attach(io: URI.open("https://avatars.githubusercontent.com/u/171663782?v=4"), filename: "default.jpg", content_type: "image/jpg")
 
 User.create!(
   username: "SegArisa",
   email: "arisa@biteoff.com",
   password: "123123"
-).photo.attach(io: File.open("app/assets/images/profilepic/Default_pfp.jpg"), filename: "default.jpg", content_type: "image/jpg")
+).photo.attach(io: URI.open("https://avatars.githubusercontent.com/u/183166066?v=4"), filename: "default.jpg", content_type: "image/jpg")
 
 User.create!(
   username: "Denigal",
   email: "denis@biteoff.com",
   password: "123123"
-).photo.attach(io: File.open("app/assets/images/profilepic/Default_pfp.jpg"), filename: "default.jpg", content_type: "image/jpg")
+).photo.attach(io: URI.open("https://avatars.githubusercontent.com/u/182473309?v=4"), filename: "default.jpg", content_type: "image/jpg")
 
 User.create!(
   username: "VanWillow",
   email: "will@biteoff.com",
   password: "123123"
-).photo.attach(io: File.open("app/assets/images/profilepic/Default_pfp.jpg"), filename: "default.jpg", content_type: "image/jpg")
+).photo.attach(io: URI.open("https://d26jy9fbi4q9wx.cloudfront.net/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBNUNNQXc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--b1853a1231b8914d08d5cffc2d87feab281d69d3/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RTNKbGMybDZaVjkwYjE5bWFXeHNXd2hwQWNocEFjaDdCam9KWTNKdmNEb09ZWFIwWlc1MGFXOXUiLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--b67d9ded4d28d0969fbb98b4c21b79257705a99a/great%20me.jpg"), filename: "default.jpg", content_type: "image/jpg")
 
 User.create!(
   username: "Stuaga",
   email: "stuart@biteoff.com",
   password: "123123"
-).photo.attach(io: File.open("app/assets/images/profilepic/Default_pfp.jpg"), filename: "default.jpg", content_type: "image/jpg")
+).photo.attach(io: URI.open("https://avatars.githubusercontent.com/u/175701806?v=4"), filename: "default.jpg", content_type: "image/jpg")
 
 
 puts "Seeded #{User.all.count} users!"
@@ -171,7 +171,7 @@ restaurants = [
   {name: "Sukiyabashi Jiro", category: "Sushi", latitude: 35.6734, longitude: 139.7623, url: "https://travel.rakuten.com/contents/sites/contents/files/styles/max_1300x1300/public/2023-11/everything-about-sukiyabashi-jiro-tokyo_1.jpg?itok=EVnGzmD7"},
   {name: "Ginza Kojyu", category: "Kaiseki", latitude: 35.6719, longitude: 139.7642, url: "https://images.squarespace-cdn.com/content/v1/5c311ba2697a98937f5a1a98/1554778944947-JAIA64APYBO9OT07JNF1/IMG_7739.JPG"},
   {name: "Tempura Kondo", category: "Tempura", latitude: 35.671, longitude: 139.7642, url: "https://myconciergejapan.com/wp-content/uploads/2018/11/tk3.jpg"},
-  {name: "Sushi Yoshitake2", category: "Sushi", latitude: 35.6718, longitude: 139.764, url: "https://tinyurbankitchen.com/wp-content/uploads/2016/11/Sushi-Yoshitake-Collage-3.jpg"},
+  {name: "Sushi Yoshitake2", category: "Sushi/kaiseki", latitude: 35.6718, longitude: 139.764, url: "https://tinyurbankitchen.com/wp-content/uploads/2016/11/Sushi-Yoshitake-Collage-3.jpg"},
   {name: "Tapas Molecular Bar", category: "Themed Restaurant", latitude: 35.687, longitude: 139.7741, url: "https://d3ulc7s3nchmqx.cloudfront.net/GIlv9x9j5-j7f3Tgw639AR4oS9gNn7lnUNzGJ1_M1_A_720.jpg"},
   {name: "Ginza Ukai-Tei", category: "Teppanyaki", latitude: 35.671, longitude: 139.7642, url: "https://media-cdn.tripadvisor.com/media/photo-s/0e/b2/1c/34/photo1jpg.jpg"},
   {name: "Sushi Tokami", category: "Sushi", latitude: 35.6716, longitude: 139.7645, url: "https://www.goodiesfirst.com/wp-content/uploads/2017/01/tokami-grid.jpg"},
@@ -179,18 +179,18 @@ restaurants = [
   {name: "Sushi Saito", category: "Sushi", latitude: 35.6655, longitude: 139.7394, url: "https://dishes-japan.com/wp-content/uploads/2021/06/saito1.png"},
   {name: "Sazenka", category: "Chinese", latitude: 35.6581, longitude: 139.7394, url: "https://www.theworlds50best.com/discovery/filestore/jpg/Sazenka-Tokyo-Japan-01.jpg"},
   {name: "Narisawa", category: "French", latitude: 35.6645, longitude: 139.7264, url: "https://www.japantimes.co.jp/uploads/imported_images/uploads/2019/03/p14-swinnerton-narisawa15-c-20190317.jpg"},
-  {name: "Sushi Masuda", category: "Sushi", latitude: 35.6653, longitude: 139.7302, url: "https://tblg.k-img.com/resize/640x360c/restaurant/images/Rvw/223431/6cf07488af294791ff48b8e06945f1dc.jpg?token=837eda9&api=v2"},
+  {name: "Sushi Masuda", category: "Sushi/kaiseki", latitude: 35.6653, longitude: 139.7302, url: "https://tblg.k-img.com/resize/640x360c/restaurant/images/Rvw/223431/6cf07488af294791ff48b8e06945f1dc.jpg?token=837eda9&api=v2"},
   {name: "Quintessence", category: "French", latitude: 35.6274, longitude: 139.7385, url: "https://savorjapan.com/special/en/life-in-the-kitchen/img/09/06.jpg"},
   {name: "L'Effervescence", category: "French", latitude: 35.664, longitude: 139.7294, url: "https://myconciergejapan.com/wp-content/uploads/2020/07/Photo-%E9%B3%A9.jpeg"},
   {name: "Florilège", category: "French", latitude: 35.6648, longitude: 139.7123, url: "https://media.cntraveler.com/photos/5a930fce20dfb6552425e8c0/16:9/w_2560%2Cc_limit/Florilege_2018_IMG_002.jpg"},
   {name: "Ishikawa", category: "Kaiseki", latitude: 35.693, longitude: 139.7042, url: "https://media.cntraveler.com/photos/58cae39ebe100863fba30248/16:9/w_2560,c_limit/Food4-Ishikawa-Tokyo-CRRestaurant.jpg"},
   {name: "Kagurazaka Ishikawa", category: "Kaiseki", latitude: 35.7023, longitude: 139.7401, url: "https://i0.wp.com/imstillhungry.net/wp-content/uploads/2017/12/Kagurazaka-Ishikawa-Tokyo-16.jpg?resize=1140%2C863&ssl=1"},
-  {name: "Sushi Yoshitake", category: "Sushi", latitude: 35.6718, longitude: 139.764, url: "https://drtxflcglp5oe.cloudfront.net/rails/active_storage/blobs/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBaE1GIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--f9a4e6f79dd3c1200fe9c1353f537b99311da146/yoshitake_1.jpg"},
+  {name: "Sushi Yoshitake", category: "Sushi/kaiseki", latitude: 35.6718, longitude: 139.764, url: "https://drtxflcglp5oe.cloudfront.net/rails/active_storage/blobs/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBaE1GIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--f9a4e6f79dd3c1200fe9c1353f537b99311da146/yoshitake_1.jpg"},
   {name: "Narisawa-", category: "French", latitude: 35.6645, longitude: 139.7264, url: "https://drtxflcglp5oe.cloudfront.net/rails/active_storage/blobs/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBajhNIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--ae69da9119f56c6385f43afdbc5c90c407c0efd7/%E7%B9%9D%E8%BC%94%EF%BD%9A%E7%B9%9D%EF%BD%AC%E7%B9%9D%E6%BA%98%E3%81%84%E7%B9%9D%EF%A3%B0%E7%B9%9D%E5%B8%99%EF%BD%99%E7%B9%9D%E3%83%BB%E3%81%91%E7%B9%A7%EF%BD%B9%E3%83%BB%E3%83%BBjpg"},
   {name: "Sushi-Masuda", category: "Sushi", latitude: 35.6653, longitude: 139.7302, url: "https://s3-media0.fl.yelpcdn.com/bphoto/t1O5nVZApm-1N06ztgd3UQ/l.jpg"},
   {name: "Sushi-Saito", category: "Sushi", latitude: 35.6655, longitude: 139.7394, url: "https://nisekotourism.com/wp-content/uploads/sushisaito01.jpg"},
   {name: "Kagurazaka-Ishikawa", category: "Kaiseki", latitude: 35.7023, longitude: 139.7401, url: "https://production-data.worldofmouth.app/images/aaddc68f-cecc-46c9-a499-892e8fa365c2"},
-  {name: "Sushi-Yoshitake", category: "Sushi", latitude: 35.6718, longitude: 139.764, url: "https://media-cdn.tripadvisor.com/media/photo-s/0d/b6/8f/35/photo9jpg.jpg"},
+  {name: "Sushi-Yoshitake", category: "Sushi/kaiseki", latitude: 35.6718, longitude: 139.764, url: "https://media-cdn.tripadvisor.com/media/photo-s/0d/b6/8f/35/photo9jpg.jpg"},
   {name: "Mensho Tokyo", category: "Ramen", latitude: 35.7074, longitude: 139.7606, url: "https://tblg.k-img.com/resize/640x360c/restaurant/images/Rvw/32888/32888839.jpg?token=038c4f3&api=v2"},
   {name: "Kanda Yabu Soba", category: "Soba Noodles", latitude: 35.6958, longitude: 139.7704, url: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/03/7d/4a/b4/kanda-yabu-soba.jpg?w=900&h=500&s=1"},
   {name: "Sushi-Kanesaka", category: "Sushi", latitude: 35.6764, longitude: 139.7632, url: "https://en.palacehoteltokyo.com/wp-content/uploads/Palace-Hotel-Tokyo-Sushi-Kanesaka-H2-640x470.jpg"},
@@ -198,9 +198,9 @@ restaurants = [
   {name: "Osteria da K.Hattori", category: "Italian", latitude: 35.6931, longitude: 139.7532, url: "https://tblg.k-img.com/resize/640x360c/restaurant/images/Rvw/58973/58973573.jpg?token=b818b91&api=v2"},
   {name: "Kanda-Matsuya", category: "Soba Noodles", latitude: 35.6945, longitude: 139.7701, url: "https://foodsaketokyo.com/wp-content/uploads/2010/08/matsuya-tempura-soba.jpg"},
   {name: "Pizzeria E Trattoria Da-Isa", category: "Italian", latitude: 35.6983, longitude: 139.7702, url: "https://tb-static.uber.com/prod/image-proc/processed_images/db7978f7df22f6dada5b72592b7b2fbb/fb86662148be855d931b37d6c1e5fcbe.jpeg"},
-  {name: "Sukiyabashi-Jiro", category: "Sushi", latitude: 35.6734, longitude: 139.7623, url: "https://akm-img-a-in.tosshub.com/businesstoday/images/story/202312/146-147-1-1-sixteen_nine.jpg?size=1000:563"},
+  {name: "Sukiyabashi-Jiro", category: "Sushi/kaiseki", latitude: 35.6734, longitude: 139.7623, url: "https://akm-img-a-in.tosshub.com/businesstoday/images/story/202312/146-147-1-1-sixteen_nine.jpg?size=1000:563"},
   {name: "Den", category: "Kaiseki", latitude: 35.6938, longitude: 139.753, url: "https://i0.wp.com/imstillhungry.net/wp-content/uploads/2018/05/Den-Tokyo-e1527153708780.jpg?fit=864%2C1080&ssl=1"},
-  {name: "RyuGin", category: "Kaiseki", latitude: 35.6705, longitude: 139.765, url: "https://myconciergejapan.com/wp-content/uploads/2019/07/ryugin_slider_3.jpg"},
+  {name: "RyuGin", category: "Sushi/kaiseki", latitude: 35.6705, longitude: 139.765, url: "https://myconciergejapan.com/wp-content/uploads/2019/07/ryugin_slider_3.jpg"},
   {name: "Sazenka4", category: "Chinese", latitude: 35.6581, longitude: 139.7394, url: "https://takefumihamada.com/wp-content/uploads/2020/09/99118570_10102810253870514_1851501633268088832_n.jpg"},
   {name: "Ginza-Kojyu", category: "Kaiseki", latitude: 35.6719, longitude: 139.7642, url: "https://drtxflcglp5oe.cloudfront.net/rails/active_storage/blobs/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBc3NUIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--49a147443b94d9cf69c036ae696f0c25e61f71f5/koju10,20-7824.jpg"},
   {name: "Asakusa Imahan", category: "Japanese", latitude: 35.7113, longitude: 139.7966, url: "https://e-asakusa.jp/wp-en/wp-content/uploads/9fff04eb477ba92936d4949e50befb21.jpg"},
@@ -226,7 +226,7 @@ restaurants = [
   {name: "Fukagawa Tsuribune", category: "Japanese", latitude: 35.6735, longitude: 139.8174, url: "https://tblg.k-img.com/restaurant/images/Rvw/262916/640x640_rect_dd285c4288bc396ca3a00473c22713cd.jpg"},
   {name: "Monja Fukutake", category: "Okonomiyaki", latitude: 35.6732, longitude: 139.8172, url: "https://cdn.cheapoguides.com/wp-content/uploads/sites/2/2017/02/Cooking-1024x600.jpg"},
   {name: "Kameido Gyoza", category: "Japanese", latitude: 35.673, longitude: 139.817, url: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/99/3a/7e/gyoza.jpg?w=1200&h=-1&s=1"},
-  {name: "Sushi Dai", category: "Sushi", latitude: 35.6728, longitude: 139.8168, url: "https://byjinalee.com/wp-content/uploads/2023/10/Omakase-at-Sushi-Dai_byjinalee-1024x768.jpg"},
+  {name: "Sushi Dai", category: "Sushi/kaiseki", latitude: 35.6728, longitude: 139.8168, url: "https://byjinalee.com/wp-content/uploads/2023/10/Omakase-at-Sushi-Dai_byjinalee-1024x768.jpg"},
   {name: "Tomioka Hachimangu", category: "Japanese", latitude: 35.6726, longitude: 139.8166, url: "https://prd-static.gltjp.com/glt/data/directory/12000/11519/20210310_204111_2bc0b03c_w1920.webp"},
   {name: "Fukagawa Juku", category: "Japanese", latitude: 35.6724, longitude: 139.8164, url: "https://smartcdn.gprod.postmedia.digital/vancouversun/wp-content/uploads/2024/10/a-fukagawa-meshi-lunch-at-fukugawajuku-restaurant.jpg"},
   {name: "Kiyosumi Shirakawa", category: "Café", latitude: 35.6722, longitude: 139.8162, url: "https://resources.matcha-jp.com/resize/720x2000/2021/08/18-115992.webp"},
@@ -241,7 +241,7 @@ restaurants = [
   {name: "Kura Sushi", category: "Sushi", latitude: 35.6339, longitude: 139.7151, url: "https://www.planmyjapan.com/wp-content/uploads/2023/08/kura-3-2.jpg"},
   {name: "Yakiniku Champion", category: "Yakiniku", latitude: 35.6093, longitude: 139.7302, url: "https://tb-static.uber.com/prod/image-proc/processed_images/4cd628e1684868ec70ab48eed52aee88/fb86662148be855d931b37d6c1e5fcbe.jpeg"},
   {name: "Tempura Yamanoue", category: "Tempura", latitude: 35.609, longitude: 139.73, url: "https://rimage.hitosara.com/gg/image/0006133725/0006133725J1.jpg"},
-  {name: "Sushi Taichi", category: "Sushi", latitude: 35.6087, longitude: 139.7298, url: "https://tblg.k-img.com/restaurant/images/Rvw/212117/640x640_rect_bfd5c243922747d6108c35bb322a30c3.jpg"},
+  {name: "Sushi Taichi", category: "Sushi/kaiseki", latitude: 35.6087, longitude: 139.7298, url: "https://tblg.k-img.com/restaurant/images/Rvw/212117/640x640_rect_bfd5c243922747d6108c35bb322a30c3.jpg"},
   {name: "Tonki", category: "Tonkatsu", latitude: 35.6331, longitude: 139.715, url: "https://cdn.prod.website-files.com/668dca37083eedddc794a525/66d4e1dfeee23a4d08e9415a_la-belle-tonki-hero-img.jpg"},
   {name: "Kura-Sushi", category: "Sushi", latitude: 35.6333, longitude: 139.7152, url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMGRKAduZ4Rlnq_pLmsD_LWa_pOJRyBcJNbQ&s"},
   {name: "Yakiniku-Champion", category: "Yakiniku", latitude: 35.6339, longitude: 139.7158, url: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/db/b7/a4/caption.jpg?w=1200&h=-1&s=1"},
@@ -252,11 +252,11 @@ restaurants = [
   {name: "Kamata Horumon", category: "Horumon", latitude: 35.5617, longitude: 139.7152, url: "https://tblg.k-img.com/resize/640x360c/restaurant/images/Rvw/231388/cbf0e697227a15debb60d843e9e755d3.jpg?token=e3fe686&api=v2"},
   {name: "Ramen Dai Kamata", category: "Ramen", latitude: 35.5619, longitude: 139.7154, url: "https://tblg.k-img.com/restaurant/images/Rvw/129013/320x320_square_129013804.jpg"},
   {name: "Tonkatsu Marugo", category: "Tonkatsu", latitude: 35.5621, longitude: 139.7156, url: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/24/c6/37/absolutely-delicious.jpg?w=900&h=500&s=1"},
-  {name: "Sushi Zanmai Kamata", category: "Sushi", latitude: 35.5623, longitude: 139.7158, url: "https://tblg.k-img.com/resize/640x360c/restaurant/images/Rvw/235089/05d688c421055257800b0de3eb0fd26c.jpg?token=ffb3eb7&api=v2"},
+  {name: "Sushi Zanmai Kamata", category: "Sushi/kaiseki", latitude: 35.5623, longitude: 139.7158, url: "https://tblg.k-img.com/resize/640x360c/restaurant/images/Rvw/235089/05d688c421055257800b0de3eb0fd26c.jpg?token=ffb3eb7&api=v2"},
   {name: "Yakitori Taisho", category: "Yakitori", latitude: 35.5625, longitude: 139.716, url: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/04/7c/77/30/yakitori-taisho.jpg?w=900&h=500&s=1"},
   {name: "Seirinkan", category: "Pizza", latitude: 35.6475, longitude: 139.6697, url: "https://thecitylane.com/wp-content/uploads/2018/12/DSCF0607.jpg"},
   {name: "Pizza Giardino Savoy", category: "Pizza", latitude: 35.6320, longitude: 139.7109, url: "https://lh3.googleusercontent.com/p/AF1QipMq_m1iBJtFRbrykmh1BGuyAb9uzhMULMxY3ATt=s1360-w1360-h1020"},
-  {name: "Il Lupone", category: "Pizza", latitude: 35.6410, longitude: 139.7026, url: "https://lh3.googleusercontent.com/p/AF1QipOArejPTV_39WZDSc6tGQHHWf7Tzp17wXtSP86V=s1360-w1360-h1020"},
+  {name: "Il Lupone", category: "Pizza/Pasta", latitude: 35.6410, longitude: 139.7026, url: "https://lh3.googleusercontent.com/p/AF1QipOArejPTV_39WZDSc6tGQHHWf7Tzp17wXtSP86V=s1360-w1360-h1020"},
   {name: "Yakitori Imai", category: "Yakitori", latitude: 35.6468, longitude: 139.6689, url: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/91/69/9e/caption.jpg?w=900&h=500&s=1"},
   {name: "Shimauma", category: "Japanese Fusion", latitude: 35.648, longitude: 139.67, url: "https://tblg.k-img.com/resize/640x360c/restaurant/images/Rvw/234061/c3232dc87b42661d31893b18f0000712.jpg?token=82a2695&api=v2"},
   {name: "Ramen Jiro Sangenjaya", category: "Ramen", latitude: 35.646, longitude: 139.6675, url: "https://tblg.k-img.com/restaurant/images/Rvw/267443/640x640_rect_a0135b18c31ad6ce1428c0f8c2b88d0a.jpg"},
@@ -279,6 +279,10 @@ special_offers = {
   "Sushi" => {
     category: "Half-Price Sushi Platter Night",
     description: "Enjoy a deluxe sushi platter with 12 expertly crafted pieces for half the price (¥2,500) every Thursday evening, 5 PM to 9 PM."
+  },
+  "Sushi/kaiseki" => {
+    category: "$2,000 Off Dinner Set",
+    description: "Full course discounted ¥2,000 when ordering 2 or more - Tuesday to Thursday from 5PM."
   },
   "Japanese" => {
     category: "%20off Sushi Set with Sea Urchin, Salmon Roe & Champagne",
@@ -330,7 +334,11 @@ special_offers = {
   },
   "Pizza" => {
     category: "2-for-1 Pizza Night on Saturday",
-    description: "Order any large pizza and get a second one free every Wednesday evening."
+    description: "Order any large pizza and get a second one free every Saturday evening."
+  },
+  "Pizza/Pasta" => {
+    category: "¥1,000 Off Saturdays",
+    description: "All orders over ¥2,000 are discounted ¥1,000."
   },
   "Teppanyaki" => {
     category: "¥5,800 Steak Dinner for Two with Wine",
