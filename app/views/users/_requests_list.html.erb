@@ -21,10 +21,14 @@
   <h3>Sent invitations:</h3>
   <% @user.invitations_sent.pending.each do |invitation|%>
     <%# <%=User.find(invitation.friend_id).username%>
-    <%= cl_image_tag User.find(invitation.friend_id).photo.key,
+    <% if User.find(invitation.friend_id).photo.key?%>
+      <%= cl_image_tag User.find(invitation.friend_id).photo.key,
     alt: "avatar image",
-    class: "avatar-small rounded-circle border border-primary shadow-sm m-2",
+    class: "avatar-small rounded-circle border border-primary shadow-sm m-2 mb-4",
     title: User.find(invitation.friend_id).username %>
+    <% else %>
+      <i class="fa-solid fa-circle-user fs-1 mt-3 mb-0"></i>
+    <% end %>
   <% end %>
   <hr>
   <h3>Received invitations:</h3>

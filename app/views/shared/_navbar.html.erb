@@ -24,7 +24,11 @@
       <div>
         <% if user_signed_in?%>
           <%= link_to user_path(current_user), class: "btn" do %>
-            <%= cl_image_tag current_user.photo.key, class: "img-thumbnail rounded-circle", width: "50px" %>
+            <% if current_user.photo.key?%>
+              <%= cl_image_tag current_user.photo.key, class: "img-thumbnail rounded-circle", width: "50px" %>
+            <% else %>
+              <i class="fa-solid fa-circle-user fs-1"></i>
+            <% end %>
           <%end%>
         <%else%>
           <%= link_to new_user_session_path, class: "btn" do %>
